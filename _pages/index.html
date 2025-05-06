@@ -1,97 +1,177 @@
 ---
 title: "Welcome to Hetri Inc."
-
 layout: page
-
 permalink: /
 
 header:
-    overlay_image: /assets/images/header.webp
-    overlay_filter: rgba(0, 0, 0, 0.6)
+  overlay_image: /assets/images/header.webp
+  overlay_filter: rgba(0, 0, 0, 0.6)
 
 excerpt: "**Intelligent embedded systems for a smarter, more connected world.**"
 
 image-text-row:
-    - header: "Image-Text-Row"
-      excerpt: "This is an image-text-row"
-      image-url: "/assets/images/header.webp"
-      alt-text: "Alternative text for the image"
-      image-width: "400px"
-      image-right: false
+  - header: "Smart Collar Monitoring"
+    excerpt: "Our flagship product enables real-time video access to pets in daycare, bringing peace of mind to pet owners."
+    image-url: "/assets/images/header.webp"
+    alt-text: "Smart Collar Demo"
+    image-width: "400px"
+    image-right: false
 
 image-text-row-two:
-    - header: "Image-Text-Row"
-      excerpt: "This is an image-text-row with the image on the right (on large enough screens) and a little bit longer text plus a button"
-      btn-url: "#"
-      btn-class: "info"
-      btn-label: "A button"
-      blank: false
-      image-url: "/assets/images/sydney-2.webp"
-      alt-text: "Alternative text for the image"
-      image-width: "400px"
-      image-right: true
+  - header: "Seamless Integration"
+    excerpt: "Our technology integrates into daily life with precision, simplicity, and purpose."
+    btn-url: "/about/"
+    btn-class: "info"
+    btn-label: "Learn More"
+    blank: false
+    image-url: "/assets/images/sydney-2.webp"
+    alt-text: "Integration Concept"
+    image-width: "400px"
+    image-right: true
 ---
 
-<section class="site-section alternative-color first-section" id="section-1">
+<section class="site-section alternative-color first-section fade-in" id="section-1">
+  <div class="container">
+    <h1>Welcome to Hetri Inc.</h1>
+    <p class="lead">At Hetri, we develop intelligent embedded systems that enhance everyday experiences — starting with pet care and extending into smarter living.</p>
 
-    <h1>Practical Embedded Systems</h1>
-    ---
-    <p>At Hetri Inc., we build intelligent embedded systems that improve everyday life. Our current focus is on real-time pet monitoring through a smart collar that offers peace of mind and transparency for pet owners and daycare operators alike.</p>
+    <div class="box box--info slide-up">
+      <h3>Our Mission</h3>
+      <p>Design technology that feels invisible — always working, always intuitive.</p>
+    </div>
 
-    <h1>User-Centric Innovation</h2>
+    <div class="box box--success slide-up delay">
+      <h3>Current Focus</h3>
+      <p>Smart collars that let pet owners stream live video from daycare, creating a trusted link between pets and their humans.</p>
+    </div>
 
-    Hetri Inc. focuses on delivering solutions grounded in real user needs. Every product is designed with practical use, intuitive interaction, and intelligent feedback in mind.
+    <div class="notice--info zoom-in">
+      <strong>Interested in collaborating?</strong><br>
+      <a href="/contact/" class="btn btn--primary pulse-icon">
+        <i class="fa-solid fa-comments"></i> Reach Out
+      </a>
+    </div>
+  </div>
+</section>
 
-    <h1>Visual Components</h1>
+<hr class="section-sep">
 
+<section class="site-section fade-in" id="section-2">
+  <div class="container">
+    <h2>Why It Matters</h2>
+    <p>Technology today should empower users without being overwhelming. We prioritize real-world solutions over hype — building tech that works for people, not the other way around.</p>
+  </div>
+</section>
 
-    <h3> Image-Text-Rows</h3>
+<hr class="section-sep">
+
+<section class="site-section alternative-color fade-in" id="section-3">
+  <div class="container">
+    <h2>Our Vision</h2>
+    <p>We're setting the standard for embedded intelligence: from pet wellness to future-ready automation, Hetri brings calm to complexity.</p>
 
     {% include image-text-row %}
-
     <hr>
-
     {% include image-text-row id="image-text-row-two" %}
+  </div>
+</section>
 
-    <h2> Responsive Video Embed</h2>
+<hr class="section-sep">
+
+<section class="site-section fade-in" id="section-4">
+  <div class="container">
+    <h2>In Action</h2>
+    <p>See how our system works and what makes it stand out in the market.</p>
 
     {% include video id="xTo8Q9asVfc" provider="youtube" %}
-
+  </div>
 </section>
 
-<hr class="section-sep">
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
 
-<!-- Remaining content unchanged, still useful for demo purposes -->
+    document.querySelectorAll(".fade-in, .slide-up, .zoom-in").forEach(el => observer.observe(el));
 
-<section class="site-section" id="section-2">
+    const headers = document.querySelectorAll(".box h3");
+    headers.forEach(header => {
+      header.style.cursor = "pointer";
+      header.addEventListener("click", () => {
+        const next = header.nextElementSibling;
+        if (next && next.style) {
+          next.style.display = next.style.display === "none" ? "block" : "none";
+        }
+      });
+    });
+  });
+</script>
 
-    <h1>Hetri Inc. — Section 2, in normal color</h1>
+<style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
 
-    <h2>Utilities</h2>
-
-    <!-- Notices and other UI elements remain as-is -->
-    ...
-
-</section>
-
-<hr class="section-sep">
-
-<section class="site-section alternative-color" id="section-3">
-
-    <h1>Customization with Hetri Inc.</h1>
-
-    <!-- Content preserved, company name updated -->
-    ...
-
-</section>
-
-<hr class="section-sep">
-
-<section class="site-section" id="section-4">
-
-    <h1>Developer Features</h1>
-
-    <!-- Technical details and editables section kept intact -->
-    ...
-
-</section>
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .lead {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .box {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+  .notice--info {
+    background: #eef7ff;
+    border-left: 5px solid #007acc;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  .fade-in, .slide-up, .zoom-in {
+    opacity: 0;
+    transition: all 0.8s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .slide-up {
+    transform: translateY(40px);
+  }
+  .slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .zoom-in {
+    transform: scale(0.95);
+  }
+  .zoom-in.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .delay {
+    transition-delay: 0.3s;
+  }
+  .btn.pulse-icon i {
+    margin-right: 8px;
+    animation: pulse 2s infinite;
+    transform-origin: center;
+  }
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+</style>
