@@ -5,18 +5,18 @@ main:
     blank: false
     description: "Homepage"
 
-  - title: "PAW"
-    url: /_pages/aboutus
+  - title: "PAW - ERP"
+    url: /PAW/
     blank: false
     description: "Petcare Solutions ERP"
 
   - title: "Hetri Collar"
-    url: /_pages/blog
+    url: /hetri-collar/
     blank: false
     description: "Real-time pet monitoring system."
 
   - title: "Contact Us"
-    url: /contact/
+    url: /contactus/
     blank: false
     description: "Reach out to Hetri Inc."
 
