@@ -30,22 +30,22 @@ image-text-row-two:
     image-right: true
 ---
 
-<section class="site-section alternative-color first-section fade-in" id="section-1">
+<section class="site-section alternative-color first-section" id="section-1">
   <div class="container">
     <h1>Welcome to Hetri Inc.</h1>
     <p class="lead">At Hetri, we develop intelligent embedded systems that enhance everyday experiences — starting with pet care and extending into smarter living.</p>
 
-    <div class="box box--info slide-up">
+    <div class="box box--info">
       <h3>Our Mission</h3>
       <p>Design technology that feels invisible — always working, always intuitive.</p>
     </div>
 
-    <div class="box box--success slide-up delay">
+    <div class="box box--success">
       <h3>Current Focus</h3>
       <p>Smart collars that let pet owners stream live video from daycare, creating a trusted link between pets and their humans.</p>
     </div>
 
-    <div class="notice--info zoom-in">
+    <div class="notice--info">
       <strong>Interested in collaborating?</strong><br>
       <a href="/contact/" class="btn btn--primary pulse-icon">
         <i class="fa-solid fa-comments"></i> Reach Out
@@ -56,7 +56,7 @@ image-text-row-two:
 
 <hr class="section-sep">
 
-<section class="site-section fade-in" id="section-2">
+<section class="site-section" id="section-2">
   <div class="container">
     <h2>Why It Matters</h2>
     <p>Technology today should empower users without being overwhelming. We prioritize real-world solutions over hype — building tech that works for people, not the other way around.</p>
@@ -65,7 +65,7 @@ image-text-row-two:
 
 <hr class="section-sep">
 
-<section class="site-section alternative-color fade-in" id="section-3">
+<section class="site-section alternative-color" id="section-3">
   <div class="container">
     <h2>Our Vision</h2>
     <p>We're setting the standard for embedded intelligence: from pet wellness to future-ready automation, Hetri brings calm to complexity.</p>
@@ -78,7 +78,7 @@ image-text-row-two:
 
 <hr class="section-sep">
 
-<section class="site-section fade-in" id="section-4">
+<section class="site-section" id="section-4">
   <div class="container">
     <h2>In Action</h2>
     <p>See how our system works and what makes it stand out in the market.</p>
@@ -87,40 +87,20 @@ image-text-row-two:
   </div>
 </section>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    document.querySelectorAll(".fade-in, .slide-up, .zoom-in").forEach(el => observer.observe(el));
-
-    const headers = document.querySelectorAll(".box h3");
-    headers.forEach(header => {
-      header.style.cursor = "pointer";
-      header.addEventListener("click", () => {
-        const next = header.nextElementSibling;
-        if (next && next.style) {
-          next.style.display = next.style.display === "none" ? "block" : "none";
-        }
-      });
-    });
-  });
-</script>
-
 <style>
   @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
 
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
   .container {
     max-width: 960px;
     margin: 0 auto;
     padding: 2rem;
+    box-sizing: border-box;
   }
   .lead {
     font-size: 1.25rem;
@@ -135,31 +115,6 @@ image-text-row-two:
     border-left: 5px solid #007acc;
     padding: 1rem;
     margin-top: 2rem;
-  }
-  .fade-in, .slide-up, .zoom-in {
-    opacity: 0;
-    transition: all 0.8s ease-out;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: none;
-  }
-  .slide-up {
-    transform: translateY(40px);
-  }
-  .slide-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .zoom-in {
-    transform: scale(0.95);
-  }
-  .zoom-in.visible {
-    opacity: 1;
-    transform: scale(1);
-  }
-  .delay {
-    transition-delay: 0.3s;
   }
   .btn.pulse-icon i {
     margin-right: 8px;
