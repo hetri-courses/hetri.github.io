@@ -10,11 +10,7 @@ oneflow-skin    : "aqua" # "default", "air", "aqua", "contrast", "dark", "dirt",
 
 # Site Settings
 locale                   : "en-US"
-<<<<<<< HEAD
 title                    : "Hetri"
-=======
-title                    : "Hetri Inc."
->>>>>>> 55933b3bbfff97911a45c072636814a815238866
 title_separator          : " "
 subtitle                 : " " # Displayed in the masthead below the title, use " " for no subtitle
 url                      : "hetri.org" # the base hostname & protocol for your site
