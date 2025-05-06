@@ -19,9 +19,9 @@ permalink: /imprint
 
     <h3>Information Collected</h3>
     <ul>
-      <li>IP address and browser details</li>
-      <li>Non-personally identifiable usage statistics</li>
-      <li>Contact information if submitted by the user</li>
+      <p>IP address and browser details</p>
+      <p>Non-personally identifiable usage statistics</p>
+      <p>Contact information if submitted by the user</p>
     </ul>
 
     <h3>How We Use Information</h3>
@@ -30,8 +30,8 @@ permalink: /imprint
     <h3>Cookies</h3>
     <ul>
     <p>Our website sets minimal cookies:</p>
-      <li>Consent banner acknowledgment</li>
-      <li>Session settings (temporary)</li>
+      <p>Consent banner acknowledgment</p>
+      <p>Session settings (temporary)</p>
     </ul>
 
     <h3>Hosting and CDN</h3>
