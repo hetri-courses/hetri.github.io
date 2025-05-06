@@ -7,12 +7,9 @@ permalink: /imprint
 <section class="site-section" id="legal">
   <div class="container">
     <h1>Legal Notice (Imprint)</h1>
-    <p><strong>Hetri Inc.</strong><br>
-    123 Innovation Lane<br>
-    Austin, TX 73301<br>
-    United States</p>
+    <p><strong>Hetri Inc.</strong><br></p>
 
-    <p>Email: <a href="mailto:info@hetri.org">info@hetri.org</a></p>
+    <p>Email: <a href="mailto:owner@hetri.org">owner@hetri.org</a></p>
 
     <hr>
 
@@ -31,8 +28,8 @@ permalink: /imprint
     <p>We use this information solely to improve our website and services. No information is sold or used for marketing purposes.</p>
 
     <h3>Cookies</h3>
-    <p>Our website sets minimal cookies:</p>
     <ul>
+    <p>Our website sets minimal cookies:</p>
       <li>Consent banner acknowledgment</li>
       <li>Session settings (temporary)</li>
     </ul>
