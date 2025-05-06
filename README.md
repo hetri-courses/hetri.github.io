@@ -28,7 +28,7 @@ This solution serves as a foundation for future tools that enrich life and provi
 
 ## Our Vision
 
-We are committed to scalable innovation that makes life easier, richer, and more connected. We envision a world where smart systems enhance everyday life without friction, where users remain in control, informed, and connected.
+We are committed to scalable innovation that makes life easier, richer, and more connected. We envision a world where smart systems enhance everyday life without friction. Where users remain in control, informed, and connected.
 
 ---
 
