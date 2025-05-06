@@ -3,24 +3,24 @@ main:
   - title: "Home"
     url: /
     blank: false
-    description: "Homepage overview of Hetri Inc."
+    description: "Homepage"
 
-  - title: "About"
+  - title: "PAW"
     url: /_pages/aboutus
     blank: false
-    description: "Learn more about our mission and team."
+    description: "Petcare Solutions ERP"
 
-  - title: "Blog"
+  - title: "Hetri Collar"
     url: /_pages/blog
     blank: false
-    description: "Insights, news, and updates from Hetri."
+    description: "Real-time pet monitoring system."
 
-  - title: "Contact"
-    url: /_pages/contact
+  - title: "Contact Us"
+    url: /contact/
     blank: false
     description: "Reach out to Hetri Inc."
 
-  - title: "Smart Collar"
-    url: /#section-1
+  - title: "About Us"
+    url: /aboutus/
     blank: false
-    description: "Learn about our real-time pet monitoring system."
+    description: "Learn more about our mission and team."
