@@ -33,5 +33,5 @@ We are committed to scalable innovation that makes life easier, richer, and more
 ---
 
 ## Ready to explore more?
-#### [About Us](about.md)
-#### [Read Our Blog](blog.md)
+#### [About Us](aboutus.html)
+#### [Contact Us](contactus.html)
