@@ -17,7 +17,7 @@ url                      : "hetri.org" # the base hostname & protocol for your s
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "Hetri-Courses/hetri.github.io" # GitHub username/repo-name
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/blueico.png" # Site logo displayed in the masthead
+logo                     : "/assets/images/Logo.png" # Site logo displayed in the masthead
 show-popup               : false # set to false if you don't need / want to show a cookie-banner / cdn-usage popup.
                                 # Edit the popup itself in the respective /includes file
 masthead_title           : " "  # Overrides the website title displayed in the masthead, use " " for no title

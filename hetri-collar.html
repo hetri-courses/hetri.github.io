@@ -1,0 +1,87 @@
+---
+layout: page
+title: "Hetri Collar"
+permalink: /hetri-collar/
+---
+
+<style>
+  .collar-hero {
+    margin-top: 125px;
+    text-align: center;
+    padding: 2rem;
+  }
+  .video-preview {
+    max-width: 640px;
+    margin: 1.5rem auto;
+    border: 4px solid #ddd;
+    border-radius: 8px;
+    background: #000;
+    position: relative;
+    padding-top: 56.25%; /* 16:9 aspect */
+    margin-top: -50px;
+  }
+  .video-preview::after {
+    content: "Live Dog’s‑Eye View *COMING SOON*";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.25rem;
+    opacity: 0.75;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+  }
+  .feature-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  .feature-card:hover { transform: translateY(-4px); }
+  .feature-card h3 { margin-top: 0; color: #219ebc; }
+  .feature-card p { color: #555; }
+  .interactive {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 1rem;
+    align-items: center;
+  }
+  .battery-visual { width: 40px; height: 100px; border: 2px solid #333; position: relative; background: #fff; }
+  #battery-level { position: absolute; bottom: 0; width: 100%; background: #8ecae6; }
+</style>
+
+<div class="collar-hero">
+  <h1>Hetri Collar</h1>
+  <p>The rugged, livestream‑equipped smart collar that puts you in your dog’s paws anywhere, anytime.</p>
+</div>
+
+<div class="video-preview"></div>
+
+<div class="features">
+  <div class="feature-card">
+    <h3>Livestream Camera</h3>
+    <p>Full HD, low‑light optimized, weatherproof lens for real‑time POV that never misses a moment.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Treat Dispenser</h3>
+    <p>Remote‑triggered snack release. Give a reward or calm an anxious pup with a tap in your app.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Help Alert</h3>
+    <p>One‑touch “Need Help” signals staff instantly. Some situations need a human touch.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Health &amp; Battery Monitoring</h3>
+    <p>Live telemetry on activity, temperature, and battery level so you never lose sight of safety.</p>
+  </div>
+</div>
+
+

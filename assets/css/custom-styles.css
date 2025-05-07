@@ -1,0 +1,82 @@
+.chapter {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  .stats .stat-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .stat-count {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .chart-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    height: 200px;
+  }
+  
+  .chart-bar {
+    background: var(--primary);
+    width: 30px;
+    height: 0;
+    border-radius: 4px;
+  }
+  /* ——— Treat-Dispense Button ——— */
+#treat-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  .floating-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+  }
+  .floating-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  /* ——— Bone Animation ——— */
+  #treat-anim-container {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    pointer-events: none;
+    overflow: visible;
+  }
+  .treat-bone {
+    position: absolute;
+    font-size: 1.5rem;
+    color: #f5f5f5;
+    animation: bone-fly 0.8s ease-out forwards;
+  }
+  @keyframes bone-fly {
+    0%   { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-200px) scale(1.5); opacity: 0; }
+  }
+  
+  /* ——— Button Shake ——— */
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25%     { transform: translateX(-3px); }
+    50%     { transform: translateX(3px); }
+    75%     { transform: translateX(-3px); }
+  }
+  .shake {
+    animation: shake 0.5s ease-in-out;
+  }
+  
