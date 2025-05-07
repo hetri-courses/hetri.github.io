@@ -33,5 +33,5 @@ We are committed to scalable innovation that makes life easier, richer, and more
 ---
 
 ## Ready to explore more?
-#### [About Us](aboutus.html)
-#### [Contact Us](contactus.html)
+#### [About Us](https://hetri.org/aboutus)
+#### [Contact Us](https://hetri.org/aboutus)
