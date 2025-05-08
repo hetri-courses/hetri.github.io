@@ -6,12 +6,12 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 
-oneflow-skin    : "aqua" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+oneflow-skin    : "hetri" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Hetri"
-title_separator          : " "
+title                    : "Hetri Inc."
+title_separator          : "- "
 subtitle                 : " " # Displayed in the masthead below the title, use " " for no subtitle
 url                      : "hetri.org" # the base hostname & protocol for your site
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -158,4 +158,9 @@ defaults:
       type: "pages"
     values:
       layout: "page"
-
+  - scope:
+      path: " "        # empty = every file in your site
+      type: pages     # apply only to pages (not posts)
+    values:
+      header:
+        overlay_color: "{{ site.background-image-overlay }}"  

@@ -1,0 +1,22 @@
+---
+name: "hetri"
+---
+
+/* base background & text */
+$body-color       : #fff !default;
+$background-color : #f7fff7 !default;   // pale mint, matches your page
+$text-color       : #263238 !default;   // dark slate for readability
+
+/* primary & links */
+$primary-color             : #039be5 !default;   // your bright blue
+$link-color                : #039be5 !default;
+$link-color-hover          : mix(#000, $link-color, 20%) !default;
+$masthead-link-color       : $primary-color !default;
+$masthead-link-color-hover : mix(#000, $primary-color, 25%) !default;
+
+/* panels & borders */
+$border-color : mix(#fff, $primary-color, 90%) !default;  // very light blue border
+$light-gray   : mix(#fff, $primary-color, 50%) !default;
+
+/* keep all other defaults from aqua skin */
+@import "aqua";

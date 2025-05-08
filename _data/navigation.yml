@@ -5,7 +5,7 @@ main:
     blank: false
     description: "Homepage"
 
-  - title: "PAW by Hetri"
+  - title: "Professional Animal Works"
     url: /PAW/
     blank: false
     description: "Petcare Solutions ERP"

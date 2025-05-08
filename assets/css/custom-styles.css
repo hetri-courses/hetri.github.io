@@ -80,8 +80,5 @@
     animation: shake 0.5s ease-in-out;
   }
   /* tighten up homepage section spacing */
-.site-section.alternative-color#paw {
-  margin-top: 5px;
-  padding-top: 30px;
-  margin-bottom: -50px;
-}
+ 
+  
