@@ -1,9 +1,9 @@
 # main links
 main:
-  - title: "Home"
-    url: /
-    blank: false
-    description: "Homepage"
+  # - title: "Home"
+  #   url: /
+  #   blank: false
+  #   description: "Homepage"
 
   - title: "Professional Animal Works"
     url: /PAW/
