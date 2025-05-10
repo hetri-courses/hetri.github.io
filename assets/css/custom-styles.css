@@ -82,6 +82,8 @@
 /* Footer override */
 .page__footer {
   background: #6edb6e;
+  margin-top: 25px !important;
+  
 }
 
 /* Masthead tweaks */
@@ -89,7 +91,7 @@
   margin-left: 48px !important;
 }
 .masthead .site-nav-toggle {
-  margin-top: 24px;
+  margin: -24px;
 }
 
 /* Alternative‑color first section tweak */
