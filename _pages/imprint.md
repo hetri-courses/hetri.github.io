@@ -3,7 +3,7 @@ layout: page
 title: Legal Notice & Privacy Policy
 permalink: /imprint
 ---
-
+<style></style>
 <section class="site-section" id="legal">
   <div class="container">
     <h1>Legal Notice (Imprint)</h1>

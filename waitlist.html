@@ -4,42 +4,57 @@ title: "Join Our Waitlist"
 permalink: /waitlist/
 ---
 
-<section class="site-section page_content" id="waitlist">
-  <div class="wrapper">
+<!-- HERO -->
+<section class="site-hero page-hero first-section" id="waitlist-hero">
+  <div class="wrapper waitlist-hero">
+    <h1>Get on the B2B Waitlist</h1>
+    <p>We’re rolling out Hetri ERP & Collar bundles for pet‑care facilities. Reserve priority access below.</p>
+  </div>
+</section>
 
-    <div class="waitlist-hero">
-      <h1>Get on the B2B Waitlist</h1>
-      <p>We’re rolling out Hetri ERP & Collar bundles for pet‑care facilities. Reserve priority access below.</p>
-    </div>
+<!-- FORM SECTION -->
+<section class="site-section page_content">
+  <div class="wrapper">
 
     <style>
       /* hide/show utility */
       .hidden { display: none !important; }
+
+      /* 2‑column grid, no negative margin */
       .waitlist-form {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* two equal columns */
-        gap: 1rem;                              /* space between items */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
         max-width: 600px;
-        margin: 2rem auto;
-        margin-top: -40px;
+        margin: 2rem auto 0;
+        margin-top: -100px;  
+        z-index: 2;
       }
+
       .waitlist-hero {
-          margin-top: 40px;
-          text-align: center;
-          padding: 2rem;
-          position: relative;
-          z-index: 1;
-        }
+        margin-top: 125px;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+        
+      }
+
       .waitlist-form label { font-weight: bold; margin-bottom: .25rem; }
       .waitlist-form input,
       .waitlist-form select,
       .waitlist-form textarea {
-        padding: .5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;
-        width: 100%; box-sizing: border-box;
+        padding: .5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
       }
+
       .waitlist-form button {
         grid-column: 1 / -1;
-        justify-self: center;  /* center the button in its grid area */
+        justify-self: center;
         padding: .75rem 1.5rem;
         background: #6edb6e;
         color: #fff;
@@ -49,11 +64,23 @@ permalink: /waitlist/
         cursor: pointer;
       }
       .waitlist-form button:hover { opacity: .9; }
-      .success-message { text-align: center; color: #6edb6e; font-weight: bold; margin-top: 1rem; }
+
+      .success-message {
+        text-align: center;
+        color: #6edb6e;
+        font-weight: bold;
+        margin-top: 1rem;
+      }
     </style>
 
+    <!-- Status / Success message -->
+    <div id="success" class="success-message hidden">
+      Thank you! We’ll be in touch with next steps.
+    </div>
+
+    <!-- WAITLIST FORM -->
     <form class="waitlist-form" id="waitlist-form"
-          action="https://formspree.io/f/mdkggqry"
+          action="https://formspree.io/f/mdkggqry"  
           method="POST">
       <div>
         <label for="company">Company Name</label>
@@ -94,34 +121,33 @@ permalink: /waitlist/
       <button type="submit">Join Waitlist</button>
     </form>
 
-    <div id="success" class="success-message hidden">
-      Thank you! We’ll be in touch with next steps.
-    </div>
-
+    <!-- AJAX submission logic -->
     <script>
-    const form = document.getElementById('waitlist-form');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
+      const form = document.getElementById('waitlist-form');
+      const status = document.getElementById('success');
 
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(response => {
-        if (response.ok) {
-          form.classList.add('hidden');
-          document.getElementById('success').classList.remove('hidden');
-        } else {
-          return response.json().then(err => Promise.reject(err));
-        }
-      })
-      .catch(err => {
-        console.error('Form submission error:', err);
-        alert('There was a problem submitting the form.');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+
+        fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            form.classList.add('hidden');
+            status.classList.remove('hidden');
+          } else {
+            return response.json().then(err => Promise.reject(err));
+          }
+        })
+        .catch(err => {
+          console.error('Form submission error:', err);
+          alert('There was a problem submitting the form.');
+        });
       });
-    });
     </script>
 
   </div>
