@@ -4,109 +4,125 @@ title: "Join Our Waitlist"
 permalink: /waitlist/
 ---
 
-<style>
-  .waitlist-hero {
-    margin-top: 125px;
-    text-align: center;
-    padding: 2rem;
-  }
-  .waitlist-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: -40px;
-  }
-  .waitlist-form label {
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-  }
-  .waitlist-form input,
-  .waitlist-form select,
-  .waitlist-form textarea {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .waitlist-form button {
-    align-self: flex-end;
-    padding: 0.75rem 1.5rem;
-    background: #6edb6e;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  .waitlist-form button:hover {
-    background: default;
-  }
-  .success-message {
-    text-align: center;
-    color: default;
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-</style>
+<section class="site-section page_content" id="waitlist">
+  <div class="wrapper">
 
-<div class="waitlist-hero">
-  <h1>Get on the B2B Waitlist</h1>
-  <p>We’re rolling out Hetri ERP & Collar bundles for pet-care facilities. Reserve priority access below.</p>
-</div>
+    <div class="waitlist-hero">
+      <h1>Get on the B2B Waitlist</h1>
+      <p>We’re rolling out Hetri ERP & Collar bundles for pet‑care facilities. Reserve priority access below.</p>
+    </div>
 
-<form class="waitlist-form" action="https://formspree.io/f/mdkggqry" method="POST">
-  <div>
-    <label for="company">Company Name</label>
-    <input type="text" id="company" name="company" required placeholder="Your facility or business name" />
-  </div>
-  <div>
-    <label for="contact">Contact Name</label>
-    <input type="text" id="contact" name="contact" required placeholder="Your full name" />
-  </div>
-  <div>
-    <label for="email">Business Email</label>
-    <input type="email" id="email" name="email" required placeholder="contact@yourcompany.com" />
-  </div>
-  <div>
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone" placeholder="(555) 123‑4567" />
-  </div>
-  <div>
-    <label for="size">Facility Size</label>
-    <select id="size" name="size">
-      <option value="small">Small (1‑20 dogs)</option>
-      <option value="medium">Medium (21‑50 dogs)</option>
-      <option value="large">Large (51+ dogs)</option>
-    </select>
-  </div>
-  <div>
-    <label for="interest">Interested In</label>
-    <select id="interest" name="interest">
-      <option value="erp">Hetri ERP Suite</option>
-      <option value="collar">Hetri Collar Devices</option>
-      <option value="both">ERP & Collar Bundle</option>
-    </select>
-  </div>
-  <div>
-    <label for="notes">Additional Notes</label>
-    <textarea id="notes" name="notes" rows="4" placeholder="Any special requirements or questions"></textarea>
-  </div>
-  <button type="submit">Join Waitlist</button>
-</form>
+    <style>
+      /* hide/show utility */
+      .hidden { display: none !important; }
+      .waitlist-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* two equal columns */
+        gap: 1rem;                              /* space between items */
+        max-width: 600px;
+        margin: 2rem auto;
+        margin-top: -40px;
+      }
+      .waitlist-hero {
+          margin-top: 40px;
+          text-align: center;
+          padding: 2rem;
+          position: relative;
+          z-index: 1;
+        }
+      .waitlist-form label { font-weight: bold; margin-bottom: .25rem; }
+      .waitlist-form input,
+      .waitlist-form select,
+      .waitlist-form textarea {
+        padding: .5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;
+        width: 100%; box-sizing: border-box;
+      }
+      .waitlist-form button {
+        grid-column: 1 / -1;
+        justify-self: center;  /* center the button in its grid area */
+        padding: .75rem 1.5rem;
+        background: #6edb6e;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .waitlist-form button:hover { opacity: .9; }
+      .success-message { text-align: center; color: #6edb6e; font-weight: bold; margin-top: 1rem; }
+    </style>
 
-<div id="success" class="success-message hidden">Thank you! We’ll be in touch with next steps.</div>
+    <form class="waitlist-form" id="waitlist-form"
+          action="https://formspree.io/f/mdkggqry"
+          method="POST">
+      <div>
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" required placeholder="Your facility or business name" />
+      </div>
+      <div>
+        <label for="contact">Contact Name</label>
+        <input type="text" id="contact" name="contact" required placeholder="Your full name" />
+      </div>
+      <div>
+        <label for="email">Business Email</label>
+        <input type="email" id="email" name="_replyto" required placeholder="contact@yourcompany.com" />
+      </div>
+      <div>
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123‑4567" />
+      </div>
+      <div>
+        <label for="size">Facility Size</label>
+        <select id="size" name="size">
+          <option value="small">Small (1‑20 dogs)</option>
+          <option value="medium">Medium (21‑50 dogs)</option>
+          <option value="large">Large (51+ dogs)</option>
+        </select>
+      </div>
+      <div>
+        <label for="interest">Interested In</label>
+        <select id="interest" name="interest">
+          <option value="erp">Hetri PAW</option>
+          <option value="collar">Hetri Collar Devices</option>
+          <option value="both">Hetri PAW & Collar Bundle</option>
+        </select>
+      </div>
+      <div>
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Any special requirements or questions"></textarea>
+      </div>
+      <button type="submit">Join Waitlist</button>
+    </form>
 
-<script>
-  document.querySelector('.waitlist-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    // browser will post to Formspree, but simulate UI
-    setTimeout(() => {
-      this.classList.add('hidden');
-      document.getElementById('success').classList.remove('hidden');
-    }, 500);
-  });
-</script>
+    <div id="success" class="success-message hidden">
+      Thank you! We’ll be in touch with next steps.
+    </div>
+
+    <script>
+    const form = document.getElementById('waitlist-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          form.classList.add('hidden');
+          document.getElementById('success').classList.remove('hidden');
+        } else {
+          return response.json().then(err => Promise.reject(err));
+        }
+      })
+      .catch(err => {
+        console.error('Form submission error:', err);
+        alert('There was a problem submitting the form.');
+      });
+    });
+    </script>
+
+  </div>
+</section>

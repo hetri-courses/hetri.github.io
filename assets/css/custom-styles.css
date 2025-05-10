@@ -118,11 +118,12 @@
   .page__footer {
     background: #6edb6e
   }
-  /* Move the mobile menu icon 20px left when viewport ≤ 768px */
-@media (max-width: 768px) {
-  .site-masthead .site-nav-toggle {
-    right: 20px;    /* adjust this value to suit */
-    /* you can also tweak top: */
-    top: 1rem;      /* e.g. move it down 1rem from the top */
-  }
+/* nudge masthead logo to the right on all screen sizes */
+.masthead .site-logo {
+  margin-left: 48px !important;   /* adjust this value to taste */
+  /* or, if you prefer a pixel‑perfect shift: */
+  /* margin-left: 24px; */
+}
+.masthead .site-nav-toggle {
+  margin-top: 24px;
 }
