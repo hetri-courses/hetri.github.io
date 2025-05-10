@@ -2,7 +2,7 @@
 $body-color       : #fff !default;
 $background-color : #e8f5e9 !default;   // very pale mint-green
 $text-color       : #2e3e2f !default;   // deep charcoal-green for readability
-
+$footer-background-color: #e8f5e9!default;
 /* primary & links */
 $primary-color             : #6edb6e !default;   // warm coral accent
 $link-color                : #6edb6e !default;
@@ -18,7 +18,7 @@ $body-font-family    : "Syne Mono", monospace;
 $header-font-family : "Syne Mono", monospace;
 $caption-font-family : "Syne Mono", monospace;
 $global-font-family : "Syne Mono", monospace;
-$tab-button: "Syne Mono", monospace;
+
 /* use your $primary-color instead of hard‑coded blue */
 .feature-card h3 {
     color: #2e3e2f;
