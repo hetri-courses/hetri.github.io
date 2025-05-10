@@ -1,15 +1,15 @@
 /* base background & text */
 $body-color       : #fff !default;
-$background-color : #e8f5e9 !default;   // very pale mint-green
-$text-color       : #2e3e2f !default;   // deep charcoal-green for readability
+$background-color : #dbe7c7 !default;   // very pale mint-green
+$text-color       : #275249 !default;   // deep charcoal-green for readability
 $footer-background-color: #e8f5e9!default;
 /* primary & links */
-$primary-color             : #6edb6e !default;   // warm coral accent
-$link-color                : #6edb6e !default;
+$primary-color             : #78a18a !default;   // warm coral accent
+$link-color                : #78a18a !default;
 $link-color-hover          : mix(#000, $link-color, 20%) !default;
 $masthead-link-color       : $primary-color !default;
 $masthead-link-color-hover  : mix(#000, $masthead-link-color, 25%) !default;
-$masthead-color: #6edb6e !default;
+$masthead-color: #78a18a !default;
 /* panels & borders */
 $border-color : mix(#fff, $primary-color, 90%) !default;  // very light coral border
 $light-gray   : mix(#fff, $primary-color, 50%) !default;
@@ -20,7 +20,7 @@ $caption-font-family : "Syne Mono", monospace;
 $global-font-family : "Syne Mono", monospace;
 /* use your $primary-color instead of hard‑coded blue */
 .feature-card h3 {
-    color: #2e3e2f;
+    color: #275249;
   }
   .feature-card p {
     color: $text-color, 50%; /* or whatever variable you use for body text */

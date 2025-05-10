@@ -91,7 +91,7 @@
 
 /* Footer override */
 .page__footer {
-  background: #6edb6e;
+  background: #78a18a;
   margin-top: 25px !important;
   
 }
@@ -136,7 +136,7 @@
 }
 
 .chapter.stats .stat-list li {
-  background: linear-gradient(145deg, #d4f7d4, #a8e6a8);
+  background: linear-gradient(145deg, #dbe7c7, #78a18a);
   border-radius: 1rem;
   padding: 1.5rem 2rem;
   box-shadow: 0 8px 16px rgba(0,0,0,0.15), inset 0 2px 4px rgba(255,255,255,0.4);

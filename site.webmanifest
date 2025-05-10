@@ -1,6 +1,6 @@
 {
   "name": "Hetri Inc.",
-  "short_name": "Hetri.org",
+  "short_name": "Hetri",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#e8f5e9",
-  "background_color": "#e8f5e9",
+  "theme_color": "#2e3e2f",
+  "background_color": "#2e3e2f",
   "display": "standalone"
 }
