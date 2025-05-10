@@ -78,6 +78,16 @@
 .feature-card p {
   color: default;
 }
+/* make the .features row scrollable on mobile */
+.features {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth swipe on iOS */
+}
+
+/* ensure each card stays at least 240px wide */
+.features > * {
+  min-width: 240px;
+}
 
 /* Footer override */
 .page__footer {
