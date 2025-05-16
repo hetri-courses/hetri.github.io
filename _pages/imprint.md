@@ -3,10 +3,9 @@ layout: page
 title: Legal Notice & Privacy Policy
 permalink: /imprint
 ---
-<style></style>
 <section class="site-section" id="legal">
   <div class="container">
-    <h1>Legal Notice (Imprint)</h1>
+    <h1>Legal Notice</h1>
     <p><strong>Hetri Inc.</strong><br></p>
 
     <p>Email: <a href="mailto:owner@hetri.org">owner@hetri.org</a></p>
@@ -30,7 +29,6 @@ permalink: /imprint
     <h3>Cookies</h3>
     <ul>
     <p>Our website sets minimal cookies:</p>
-      <p>Consent banner acknowledgment</p>
       <p>Session settings (temporary)</p>
     </ul>
 
@@ -75,9 +73,11 @@ permalink: /imprint
 <style>
   section#legal ul {
     list-style-type: disc;
-    margin-left: 1.5em;
   }
-  section#legal h3:hover {
-    color: #007acc;
+  .container {
+    margin-top: 100px;
+  }
+  .notice--info {
+    color: default;
   }
 </style>
