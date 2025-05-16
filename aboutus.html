@@ -11,7 +11,7 @@ permalink: /aboutus/
     text-align: center;
     padding: 2rem;
     position: relative;
-    z-index: 1;
+    z-index: auto;
     
   }
 
@@ -21,6 +21,8 @@ permalink: /aboutus/
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    padding-left: 0px;
+    
   }
   .tab-button {
     background: #78a18a;
@@ -33,6 +35,7 @@ permalink: /aboutus/
     transition: border-color 0.2s;
     font-family: "Syne Mono", monospace;
     font-style: bold;
+    
   }
   .tab-button:hover {
     color: default;
@@ -52,6 +55,7 @@ permalink: /aboutus/
     line-height: 1.6;
     color: #444;
   }
+
   .tab-content.active {
     display: block;
   }
@@ -62,8 +66,6 @@ permalink: /aboutus/
     100% { opacity: 0; transform: translateY(-20px); }
   }
 </style>
-
-
   
 <div class="hero">
   <h1>About Us</h1>
@@ -78,7 +80,7 @@ permalink: /aboutus/
 </nav>
 
 <div id="special" class="tab-content">
-  <h2>Four things set us apart</h2>
+  <h2>What Makes Us Special</h2>
   <p>Livstream Dog Collar, Treat Tap™ upsells, help alerts that work seamlessly, and a dashboard full of real time insights so you actually know what is happening.</p>
 </div>
 
@@ -109,21 +111,5 @@ permalink: /aboutus/
       document.getElementById(btn.dataset.tab).classList.add('active');
     }));
     tabs[0].click();
-
-    const slider = document.getElementById('battery-slider');
-    const level = document.getElementById('battery-level');
-    const percent = document.getElementById('battery-percentage');
-    slider.addEventListener('input', () => {
-      const v = slider.value;
-      level.style.height = v + '%';
-      percent.textContent = v + '%';
-    });
-
-    const btn = document.getElementById('treat-btn');
-    const anim = document.getElementById('treat-animation');
-    btn.addEventListener('click', () => {
-      anim.classList.remove('hidden');
-      setTimeout(() => anim.classList.add('hidden'), 1000);
-    });
   });
 </script>
