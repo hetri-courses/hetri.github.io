@@ -5,111 +5,178 @@ permalink: /aboutus/
 ---
 
 <style>
-  /* Ensure content sits below fixed nav */
   .hero {
     margin-top: 125px;
     text-align: center;
     padding: 2rem;
     position: relative;
     z-index: auto;
-    
+    background: linear-gradient(to bottom, #f8f9fa, #fff);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   }
 
-  /* Tabbed navigation styles */
-  .tabs {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding-left: 0px;
-    
-  }
-  .tab-button {
-    background: #78a18a;
-    border:1px initial #333;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-size: 1rem;
+  .hero h1 {
     color: #333;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s;
-    font-family: "Syne Mono", monospace;
-    font-style: bold;
-    
-  }
-  .tab-button:hover {
-    color: default;
-  }
-  .tab-button.active {
-    border-style: groove 1px ;
-    border-color: #333;
-    color: default;
-    font-family: "Syne Mono", monospace;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
   }
 
-  /* Tab content container */
-  .tab-content {
-    display: none;
+  .hero p {
     max-width: 800px;
-    margin: 0 auto 2rem auto;
-    line-height: 1.6;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
     color: #444;
   }
 
-  .tab-content.active {
-    display: block;
+  .content-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
   }
- 
-  .hidden { display: none; }
-  @keyframes fade {
-    0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-20px); }
+
+  .content-section h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #78a18a;
+  }
+
+  .content-section p {
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .value-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+
+  .value-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .value-card h3 {
+    color: #78a18a;
+    margin-bottom: 1rem;
+  }
+
+  .value-card p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .team-section {
+    background: #f8f9fa;
+    padding: 3rem 0;
+    margin-top: 3rem;
+  }
+
+  .founder-quote {
+    font-style: italic;
+    color: #666;
+    border-left: 4px solid #78a18a;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .cta-section {
+    text-align: center;
+    margin: 4rem 0;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #78a18a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+  }
+
+  .cta-button:hover {
+    background: #5d8a6d;
   }
 </style>
-  
+
 <div class="hero">
-  <h1>About Us</h1>
-  <p>During my undergrad at Cal Poly Pomona, I was lucky to learn from one of those rare professors who never assigned a textbook. His passion was infectious. I never missed a lecture and always made sure to soak in everything he had to say. One day, he told the class something that always resonated with me. "Be different."</p>
+  <h1>About Hetri</h1>
+  <p>We're revolutionizing pet care through innovative technology that brings peace of mind to pet owners and operational excellence to facilities.</p>
 </div>
 
-<nav class="tabs">
-  <button class="tab-button" data-tab="special">What Makes Us Special</button>
-  <button class="tab-button" data-tab="founder">Founder’s Vision</button>
-  <button class="tab-button" data-tab="mission">Our Mission</button>
-  <button class="tab-button" data-tab="vision">Vision</button>
-</nav>
+<div class="content-section">
+  <h2>Our Story</h2>
+  <p>Hetri was born from a simple observation: while technology has transformed many industries, pet care facilities were still relying on outdated systems and manual processes. Our founder, during their time at Cal Poly Pomona, was inspired by a professor's challenge to "be different". To find innovative solutions to real-world problems.</p>
+  
+  <p>This philosophy led to the creation of the Hetri Collar and PAW management system, combining cutting-edge hardware with intelligent software to create a seamless experience for both pet owners and facility operators.</p>
 
-<div id="special" class="tab-content">
-  <h2>What Makes Us Special</h2>
-  <p>Livstream Dog Collar, Treat Tap™ upsells, help alerts that work seamlessly, and a dashboard full of real time insights so you actually know what is happening.</p>
+  <div class="founder-quote">
+    "We believe in technology that enhances human experience, not complicate it. Our smart collar is a statement about how we approach innovation. User-centric, scalable, and deeply practical."
+  </div>
 </div>
 
-<div id="founder" class="tab-content">
-  <h2>Founder’s Vision</h2>
-  <p>I'm building Hetri so hardware and software stop arguing with each other. Everything talks, nothing breaks, and you focus on pet care, not spreadsheets.</p>
+<div class="content-section">
+  <h2>Our Values</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <h3>Innovation with Purpose</h3>
+      <p>We don't innovate for the sake of innovation. Every feature we develop serves a clear purpose: to make pet care better, more efficient, and more transparent.</p>
+    </div>
+    <div class="value-card">
+      <h3>User-Centric Design</h3>
+      <p>Our technology is designed around the needs of both pet owners and facility operators. We believe in creating solutions that are intuitive and enhance the experience for everyone involved.</p>
+    </div>
+    <div class="value-card">
+      <h3>Reliability First</h3>
+      <p>We understand that pet care facilities can't afford downtime. That's why we prioritize reliability in everything we build, from our hardware to our software systems.</p>
+    </div>
+    <div class="value-card">
+      <h3>Continuous Improvement</h3>
+      <p>We're constantly learning from our users and improving our products. Your feedback drives our development, ensuring we're always delivering the best possible solution.</p>
+    </div>
+  </div>
 </div>
 
-<div id="mission" class="tab-content">
+<div class="content-section">
   <h2>Our Mission</h2>
-  <p>We are here to align our success with yours: Predictable service, reliable hardware, and support that sticks with you. </p>
+  <p>At Hetri, we're committed to transforming the pet care industry through technology that makes a real difference. Our mission is threefold:</p>
+  
+  <ul>
+    <li>To provide pet owners with unprecedented peace of mind through real-time access and transparency</li>
+    <li>To empower pet care facilities with tools that streamline operations and enhance service quality</li>
+    <li>To create a more connected, efficient, and enjoyable experience for everyone involved in pet care</li>
+  </ul>
+
+  <p>We achieve this by combining innovative hardware with intelligent software, creating a seamless ecosystem that benefits both pet owners and facility operators.</p>
 </div>
 
-<div id="vision" class="tab-content">
-  <h2>Vision</h2>
-  <p>Providing reliable and scalable ingenuity to the world. </p>
+<div class="team-section">
+  <div class="content-section">
+    <h2>Our Team</h2>
+    <p>We're a team of passionate engineers, designers, and pet care enthusiasts who believe in the power of technology to make a positive impact. Our diverse backgrounds in embedded systems, software development, and pet care operations allow us to create solutions that truly understand and address the needs of our users.</p>
+    
+    <p>What unites us is our shared commitment to excellence and our belief that technology should enhance, not complicate, the human experience. We're constantly pushing the boundaries of what's possible in pet care technology, always with our users' needs at the forefront.</p>
+  </div>
 </div>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tab-button');
-    const contents = document.querySelectorAll('.tab-content');
-    tabs.forEach(btn => btn.addEventListener('click', () => {
-      tabs.forEach(b => b.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-    }));
-    tabs[0].click();
-  });
-</script>
+<div class="content-section">
+  <div class="cta-section">
+    <h2>Join Us in Revolutionizing Pet Care</h2>
+    <p>Whether you're a pet care facility looking to modernize your operations or a pet owner interested in our technology, we'd love to hear from you.</p>
+    <a href="/waitlist" class="cta-button">Join Our Waitlist</a>
+  </div>
+</div>
