@@ -10,10 +10,15 @@ main:
     blank: false
     description: "Petcare Solutions ERP"
 
-  - title: "Hetri Collar"
-    url: /hetri-collar/
+  - title: "Hetri Camera"
+    url: /hetri-camera/
     blank: false
     description: "Real-time pet monitoring system."
+
+  - title: "FAQ"
+    url: /faq/
+    blank: false
+    description: "Questions and Answers explained."
 
   - title: "About Us"
     url: /aboutus/
