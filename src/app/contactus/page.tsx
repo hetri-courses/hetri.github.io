@@ -139,7 +139,7 @@ export default function ContactUsPage() {
         </div>
       </section>
 
-      {/* Contact Cards Section - No gap */}
+      {/* Contact Cards Section */}
       <section className="bg-white px-4 sm:px-6 lg:px-8 py-16">
         <div className="container-max max-w-5xl">
           <div className="grid md:grid-cols-2 gap-6">
@@ -208,7 +208,7 @@ export default function ContactUsPage() {
         </div>
       </section>
 
-      {/* Direct Contact Section - No gap */}
+      {/* Direct Contact Section */}
       <section className="bg-hetri-primary text-white px-4 sm:px-6 lg:px-8 py-16">
         <div className="container-max text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
