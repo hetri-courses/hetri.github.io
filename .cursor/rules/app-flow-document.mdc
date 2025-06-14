@@ -1,0 +1,138 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# App Flow Document
+
+This document describes the user journeys and app flows for all user types in the Hetri platform. It details step-by-step what happens from the users' perspective for key use cases: onboarding, viewing live video, sending a Treat-Tap request, using admin dashboards, and monitoring collar/device telemetry. Each flow ensures clarity on how users interact with the system and how the system responds at each step.
+
+## PAW Parent (Pet Owner) Flows
+
+### Onboarding as a Pet Owner
+
+1. **Account Creation/Invitation:** The PAW Parent downloads the **Hetri mobile app** (React Native). On first launch, they create an account with their email and a secure password (or use SSO if offered in future). In MVP, accounts may be pre-created by the facility – in that case, the owner will receive an email invite or a temporary password. The owner selects "I'm a Pet Parent" role during sign-up, or the role is automatically assigned based on invite.
+
+2. **Facility & Pet Linking:** After logging in, the owner needs to link to their pet at the correct facility. If the account was created by the facility, this link is already established and they will see their pet's profile upon login. Otherwise, the app might prompt: "Connect to your Dog's Daycare." Possible flows:
+   * **Invite Code/QR:** The facility provides a unique code or QR that encodes the facility ID and pet ID. The owner enters/scans this in the app. The app calls the backend to claim that pet for that user (after validating the code).
+   * **Search & Request Access:** Alternatively, the owner searches for the facility name, selects their pet from a list (perhaps by providing pet's name or a PIN given by staff), and then the facility admin approves the pairing. (For MVP, likely the simpler invite code method is used to reduce friction.)
+
+3. **Profile Setup:** Once linked, the owner sees their pet's profile in the app. They might be able to upload a photo of the pet or confirm details (name, breed) for personalization. The app interface then guides them to the home screen where live streaming (if pet is currently in daycare with a collar) will be available. If the pet is not currently checked in (or after hours), the app should indicate "Bella is offline/not at daycare right now."
+
+4. **Tutorial (optional):** The first time use, the app can show a quick tutorial overlay – e.g., highlight the live video button, the treat button ("Tap here to send a Treat request when Bella is online!"), and explain any indicators. Keep this brief and skippable for tech-savvy users.
+
+### Viewing Live Stream (Owner POV)
+
+1. **Accessing Live Stream:** When the pet is at the facility with the camera collar on (i.e., device is active and assigned), the owner's app will show a **Live Stream Card** or similar on the home screen. This could be an auto-playing thumbnail or a "Go Live" button. The user taps the live video area to expand it to full screen (or a dedicated Live View screen).
+
+2. **Authentication & Stream Start:** Upon requesting the stream, the app contacts the backend to get the streaming URL (likely an HLS playlist URL that is secured). The backend verifies the user is allowed (owner of that pet, session valid) and generates a **secure, time-limited URL** for the HLS stream. The app's video player component then begins fetching the video segments from the CloudFront CDN or streaming server. Within a second or two, the owner sees the live video from their dog's collar.
+
+3. **Live Video UI:** The video player has typical controls – it might show a pause/play (though for live maybe just a stop), a fullscreen toggle, and perhaps overlays like the pet's name or an indicator if the connection is weak. A **"Treat" button** is prominently displayed on this screen (or just below the video). The UI might also show status info like "Live - 5 seconds delay" or connection quality bars.
+
+4. **During Streaming:** Owners can watch their dog playing, resting, etc. The video should continue until the owner leaves the screen or if any issue occurs. If the stream stops (e.g., device disconnects), the app should handle it gracefully: show "Connection lost, retrying…" and attempt to reconnect (refresh the HLS) for a short period. If unavailable, it informs the user appropriately ("Bella's camera is currently offline").
+
+5. **Multiple Pets / Views (if applicable):** If an owner has more than one dog at the facility with separate collars, the app allows switching between streams (maybe swipe between pet profiles or a menu to select the pet). Each pet would have its own Treat button as well. For MVP, we assume one pet per owner for simplicity, but design should consider the possibility.
+
+### Sending a TreatTap Request (Owner POV)
+
+1. **Initiating TreatTap:** The owner, while viewing the live stream (or even from the pet's profile screen), taps the **Treat-Tap** button – often stylized as a treat icon or "Give Treat" CTA. The app might prompt "Send a treat to Bella?" to avoid accidental taps (optional confirmation). When confirmed, it immediately sends a request to backend via an HTTPS API call.
+
+2. **API Call:** The mobile app issues a POST request to something like `/pets/{petId}/treat` or `/treat-request` with the pet/device identifier. This request includes the owner's auth token. The backend (FastAPI service) authenticates the token and verifies this owner indeed is allowed to send a treat for that pet. It also checks any business rules (rate limiting – e.g., if one was sent 5 minutes ago, it might respond with an error or warning). Assuming all clear, the backend enqueues the treat event: it records it in the database (so it's logged) and publishes a message to the MQTT broker instructing that device to expect a treat command.
+
+3. **Immediate Feedback:** The app needs to give the user feedback right away, so the backend returns an HTTP 200 OK with confirmation as soon as it has published the command (even before the treat is actually given). The app then shows something like "Treat requested!" on screen. This could be a temporary pop-up or a status under the video ("Treat on the way!"). This lets the owner know the request went through.
+
+4. **Staff Fulfillment:** (This is described in admin flow below – essentially staff sees the request and gives treat to dog). From the owner's perspective, they might see their dog reacting. If the collar has a small speaker or LED, it might activate to engage the dog when the treat request comes (e.g., a chime that the dog associates with treat time). The owner might actually see the dog perk up in the video feed. Shortly after, the staff gives the treat, and hopefully the dog is visible eating it on camera – a rewarding moment for the owner.
+
+5. **Confirmation to Owner:** Once the treat is delivered, the system can send a confirmation. If implemented, the staff, after giving the treat, taps a "treat delivered" button on their dashboard, which causes the backend to send a push notification or real-time update to the owner's app. For example, the owner might get a notification, "Treat delivered to Bella! 🦴" or the on-screen message can change to "Treat delivered!". In MVP, even if we don't do a push, the owner can infer it from watching the video or seeing the staff on camera. However, including a formal confirmation loop (staff action or device sensor detecting treat dispensed) makes the experience complete. The backend can use a WebSocket or push notification to instantly update the app when the staff acknowledges the request.
+
+6. **Error Handling:** If the treat request fails (e.g., device offline, or no staff online), the backend might return an error. The app should handle this gracefully: show a message "Unable to send treat request at this time." Also, if the owner hits treat multiple times rapidly, the app should prevent spamming (e.g., disable the button after one tap until a cooldown passes or until the first request is completed).
+
+### Viewing Activity & Updates (Owner POV)
+
+Aside from video and treat, the owner app may show some info about the dog's day. For MVP, this could be minimal, but possible elements:
+
+* **Activity Status:** A simple text or icon indicating if the dog is currently active or resting, based on collar sensor (updated periodically). E.g., "Bella is napping" or "Bella has been playing since 2:15pm". This could update every few minutes or when notable changes occur.
+* **Last Treat or Event Feed:** The app could have a feed of events (e.g., "12:30pm – Bella received a treat from you", "11:00am – Bella went on a walk with staff"). MVP can at least log treat events for the owner to review later in the day.
+* **Notifications:** The owner might receive notifications even outside the app – for example, a push notification if a Treat-Tap was delivered, or if there's a significant alert (maybe if their dog had a help alert, though that would likely go to staff first). By default, notifications for treat confirmations can be on.
+
+When the owner is done viewing, they simply close the app or navigate away. The system should not require them to explicitly "disconnect" the stream beyond leaving the video screen – the streaming stops when the app's player is not active (to save data and battery).
+
+## PAW Admin (Facility Staff) Flows
+
+### Admin Login & Facility Dashboard Access
+
+1. **Login:** A PAW Admin (e.g., daycare manager or staff) opens the Hetri app (which can detect their role or have a separate login) or a web dashboard. They log in using their work email/username and password. The system recognizes them as staff of a particular facility (tenant) and grants access to the admin functionality. If using the same mobile app, the UI will switch to show admin views (e.g., a dashboard of dogs, not just a single pet). Alternatively, a separate "PAW Admin" app or web portal might be used. MVP likely uses a unified app with role-based rendering for simplicity: the user's role is in the JWT, so the app loads the appropriate screens.
+
+2. **Dashboard Home:** After login, the PAW Admin sees an overview of the daycare's current status. This typically includes a list of all dogs currently checked in (with possibly their picture or name), and the status of each collar (e.g., a green dot for online streaming, a battery icon, etc.). The dashboard may also show any pending actions (treat requests, alerts) prominently. For example, a section "Treat Requests: 0 pending" or a queue if there are any pending. If the staff is a manager, they might also see some navigation to management sections (like pet profiles, settings). If they are regular staff, maybe a simpler view.
+
+3. **Device Assignment (Dog Check-in):** When a dog arrives, staff needs to put a collar on them and register that it's assigned. The admin uses the app to perform this: they select the arriving pet from a list (or search by name). On the pet's profile or check-in form, there's an option to **assign a device**. The staff chooses an available collar from a dropdown (the collars might be identified by a number or ID physically). Alternatively, the staff can scan the collar's QR code via the app's camera, which will identify the device. The app then sends a request to backend like `POST /devices/{deviceId}/assign` with the pet's ID. The backend links that device to the pet (and to the current session/day). The dashboard now marks that pet as "online". The collar itself, once it's powered on, connects to the system and the backend now knows it corresponds to that pet. (If a device was already paired with the system but idle, assigning it might also trigger the device to wake or start streaming if possible via a command.)
+
+4. **Viewing a Live Stream (Admin):** Staff may not need to watch streams continuously, but they might occasionally want to view a specific dog's camera (for instance, if a pet owner says they can't see the video or if staff wants to see what the dog is seeing). The admin dashboard provides the ability to tap on a dog in the list and open a live video view similar to the owner's, but likely on a different interface (perhaps a web browser or tablet view with multiple feeds). In MVP, we might allow one camera view at a time for staff due to bandwidth. The staff selects the dog, and the app either uses the same HLS stream (authorized for staff) or possibly a direct RTSP if on local network (this could be a future optimization). For now, assume staff also uses HLS via the cloud like owners, just with admin privileges. They click "View Camera" and the system opens a video player for that stream. Staff can use this if, say, an owner claims something is wrong and staff wants to quickly check on the dog without walking over.
+
+5. **Multi-Dog View (Future):** Eventually, an admin may want to monitor many feeds (like a security cam wall). MVP likely won't implement a full multi-cam view due to performance, but it's a consideration. For now, one at a time or a small grid of low-res thumbnails might be possible.
+
+### Handling TreatTap Requests (Admin Flow)
+
+1. **Receiving a Request:** When an owner sends a Treat-Tap, the PAW Admin dashboard is alerted in real-time. If the staff is using the mobile admin app, a push notification or in-app notification appears: "Treat request for Bella from Jane Doe!". If they are on a web dashboard, an alert sound might play and a notification pops up on screen (e.g., the Treat Requests queue entry appears and flashes). This real-time update is achieved via the backend pushing an event to the admin client (possibly over WebSocket or via the MQTT broker if the admin app is subscribed to a topic for treat requests).
+
+2. **Acknowledgment:** A staff member responds to the request. In the dashboard UI, they click on the treat request to acknowledge it. This could mark it as "In Progress" or simply remove it from the pending list. The backend could record which staff acknowledged (useful if multiple staff are logged in, to avoid duplicate fulfillment). Acknowledging might also send a message back to the owner app (like "your request is being handled") – though this might be too fine-grained for MVP.
+
+3. **Fulfilling the Treat:** The staff then physically takes a treat and gives it to the dog (or triggers an on-site treat dispenser if one exists). Typically, staff might approach the dog, possibly call their name or use a treat cue if trained. If the collar played a tone, the dog might already be expecting it. The staff ensures the dog eats the treat safely. This action is outside the app, but it's the core fulfillment step.
+
+4. **Completion & Logging:** After giving the treat, the staff returns to the app (or if they had it with them, immediately after) and marks the request as **completed**. They might hit a "Mark as given" button associated with that treat request entry. The app then sends an update to backend, which updates the request's status in the DB (e.g., sets a timestamp for completed, and who fulfilled it). The backend can then trigger the owner's confirmation notification. In the UI, that request disappears from "pending" list or is shown as done. The system could also display a short message like "Treat for Bella completed by John at 2:45pm" for record-keeping (maybe in a daily log view).
+
+5. **Missed Requests:** If for some reason a treat request cannot be fulfilled (dog was out of area, or staff missed it), staff should have an option to cancel or snooze it. E.g., "Unable to give treat – dog not in playroom." The staff would note it in the app, which informs the owner ("Treat request could not be completed"). This ensures owners aren't left wondering indefinitely. In MVP, we may keep it simple: assume every request is either completed or will be as soon as possible. Staff should strive to fulfill immediately.
+
+6. **Rate Limit Enforcement:** The admin dashboard should automatically respect treat frequency rules. If an owner sends another request too soon, the system might not even show it or will indicate "pending cooling period." The staff might see that a request is locked-out until a timer ends, to prevent giving too many treats. This logic mostly in backend, but the UI can reflect it (like a greyed out treat button per pet if recently done).
+
+Throughout this flow, speed is important: from the moment the owner taps the app to the staff being notified ideally is <1 second. The use of MQTT and push notifications facilitates this immediacy. Staff should therefore keep the dashboard open/active during business hours, or have notifications enabled, so they don't miss requests.
+
+### Device Monitoring and Telemetry (Admin)
+
+1. **Realtime Status:** The admin dashboard continuously (or on refresh) displays the status of each collar device. This includes connectivity (online/offline), battery level, and maybe signal strength if Wi-Fi. The devices publish telemetry periodically (e.g., battery% every few minutes) via MQTT to the backend, which then updates the dashboard view. If a device goes offline (no heartbeat in X minutes), the system flags it (e.g., red status). Staff seeing this might decide to check the collar or replace it.
+
+2. **Activity Feed:** Staff might have access to some activity data from collars. For MVP, this could be basic: perhaps a timestamp of last motion detected ("Bella active 5m ago"). If a dog has been idle for a long time, staff might physically check on them (perhaps they are napping – fine, or maybe collar fell off – needs action). If a collar has an accelerometer alert (like unusual high G-force which could indicate the collar was dropped or a dog collision), the system might produce an alert. These are nice-to-have; MVP might simply show motion events as logs.
+
+3. **Help Alert Handling:** If a **Help Alert** is triggered (either by a staff pressing something or by an automated trigger from collar), the admin interface should flash a big alert indicating which dog (and possibly location) needs help. For example, if collar has a button and a staff pressed it, maybe it includes a short message like "Help requested in Playroom A". All online admins see this alert. The procedure would be an out-of-band action (e.g., other staff rush to assist). The app can provide a way to clear the alert once addressed. This is a critical safety feature – MVP implementation could be as simple as a special MQTT message and a modal dialog in the app.
+
+4. **Device Management:** Admins can navigate to a "Devices" section listing each collar hardware. Here they can see details like device ID, status, firmware version (if tracked), and which pet (if any) it's currently assigned to. They can perform actions like **unassign** a device from a pet (e.g., at the end of the day or if a collar must be removed mid-day). Unassigning might be part of a "pet check-out" flow: when a dog goes home, staff indicate check-out in the app, which frees the device. The collar can then be powered down or charged. If a collar is lost or broken, the admin could mark it inactive. These kinds of inventory controls help keep the system organized.
+
+5. **Facility Settings:** The admin may adjust certain settings in their dashboard. For instance, they might configure treat request hours (maybe disable TreatTap during nap time to not disturb dogs), or limit how many treats per day each owner can send. They might also update their facility info (name, logo for branding the app, etc.). MVP might not implement a lot of this, but at least treat-related settings or basic profile editing could exist.
+
+### Staff Onboarding & Multi-Admin
+
+1. **Adding Staff Users:** A facility admin (owner/manager) can add other staff accounts. In the app's admin section, there might be "Manage Staff" where they can invite employees via email, assigning them a role (admin or caregiver). The new staff gets login credentials. For MVP, this could be as low-tech as the Hetri team pre-creating accounts for each staff, or a simple form where the admin enters name/email and the system sends a password setup link. The main requirement is each staff has their own login (for accountability on treat logs, etc.).
+
+2. **Roles and Permissions:** Within the facility, there could be different permission levels – e.g., "Manager" vs "Staff". A manager might see financial or configuration settings, whereas a regular staff just handles daily operations (treats, live feeds). MVP can treat all facility users as essentially the same role ("PAW Admin") to keep things simple, but with the potential to extend roles.
+
+3. **Using the Mobile App vs Web:** Ideally, staff should have flexibility. Many facilities have a front-desk PC – a web dashboard could be handy there. Also, staff on the play floor might carry a tablet or phone to get treat alerts immediately. Our design should accommodate both. For MVP, we focus on the mobile admin interface (React Native app can be run on a tablet for convenience). We assume at least one device (phone/tablet) is with staff to handle treat requests instantly.
+
+## Hetri Admin (Platform Admin) Flows
+
+### Onboarding a New Facility (Tenant Setup)
+
+1. **New Client Signup:** When a new dog daycare signs up for Hetri, a Hetri Admin will create a new tenant in the system. This may be done through an internal admin portal. They enter the facility's name, address, contact info, and set up the initial admin user (usually the manager's email). The system generates a unique Tenant ID for internal use.
+
+2. **Provisioning Devices:** The Hetri Admin (or support team) will ship a set of collar devices to the facility. Each device is already in the database with a unique `device_id` and `pairing_key`. The Hetri Admin ensures those devices are associated with the newly created tenant (this could mean pre-assigning them, or simply ensuring they exist so the facility can pair them). Possibly, they will print out or provide the QR codes if not already on the device.
+
+3. **Facility Training:** Though not software per se, part of onboarding is training facility staff to use the system. The Hetri Admin might provide documentation or a session explaining how to assign collars, how owners will use it, etc. This ensures the client can effectively use the product.
+
+4. **Licensing & Configuration:** The Hetri Admin may set the appropriate subscription level for the facility (e.g., how many devices they're allowed, any feature toggles). For MVP, this might not be dynamic in software (could be handled manually or via config files). But it's noted in case a facility with a basic plan might only have TreatTap-only (no cameras) – the Hetri Admin would mark that in the system so the UI knows not to show video features for that tenant.
+
+### Ongoing Administration & Support
+
+1. **System Monitoring:** Hetri Admins will have an overview of system status. This could be a "Master Dashboard" where they see all active streams, number of devices online, etc. They check that each broker, server, database is healthy. If an outage occurs, they need to coordinate fixes.
+
+2. **Support Requests:** If a facility admin contacts support (e.g., "Collar #3 isn't connecting"), the Hetri Admin might use their tools to diagnose. This may involve checking logs for that device, possibly attempting a remote restart (if that capability exists in future). Hetri Admin might even temporarily join the facility's tenant as an admin to see what's happening (impersonation). They must maintain professionalism and privacy while debugging (only accessing data as needed).
+
+3. **Firmware Updates:** On occasion, the Hetri team will release new firmware for the collars (e.g., improving battery usage or fixing a bug). The Hetri Admin coordinates pushing this update. Possibly the devices check for updates via the MQTT or when they connect. MVP may not include full OTA (over-the-air) update infrastructure, but if it does, the Hetri Admin initiates update cycles during off-hours. They then monitor which devices updated successfully.
+
+4. **Scaling Infrastructure:** As more facilities come on board, Hetri Admin ensures the backend infrastructure scales. This might mean adding more server capacity for video processing or spinning up additional MQTT brokers or database replicas. While automated cloud scaling is ideal, initially the admin might manually provision resources.
+
+5. **Multi-Tenant Data Management:** Hetri Admin might occasionally need to extract or manage data across tenants – e.g., aggregating usage statistics (how many treat requests per day across all clients). They might run reports from the database. If owners request their data (like a copy of treat logs or video), the Hetri Admin would facilitate that since they have the broad access needed.
+
+### Internal Rules & Security (Hetri Admin)
+
+Hetri Admins have superuser privileges, so their actions should be carefully controlled. They likely have a separate, highly secure login. Actions like deleting a tenant or accessing a live stream of a pet should prompt confirmation or logging for audit. For example, if a Hetri Admin views a camera feed for support, it should be logged "Admin X accessed Bella's stream for support purposes at 3:00pm" to maintain trust. MVP should lay groundwork for such auditing even if not fully implemented immediately.
+
+

@@ -1,11 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import FloatingCTA from '../components/FloatingCTA'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Hetri - Professional Animal Works & TreatTap',
@@ -28,20 +24,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#78a18a" />
+        <meta name="msapplication-TileColor" content="#78a18a" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Syne+Mono:wght@400;700&display=swap" rel="stylesheet" />
       </head>
-      <body className={inter.className}>
+      <body className="font-mono">
         <Header />
         <main className="min-h-screen">
           {children}
         </main>
         <Footer />
-        <FloatingCTA />
       </body>
     </html>
   )

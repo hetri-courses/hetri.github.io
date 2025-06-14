@@ -1,6 +1,9 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import Link from 'next/link'
-import { ArrowRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon, CheckCircleIcon, RocketLaunchIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import WaitlistForm from '../../components/WaitlistForm'
 
 const benefits = [
   'Early access to PAW beta features',
@@ -12,8 +15,33 @@ const benefits = [
 ]
 
 export default function WaitlistPage() {
+  const [showForm, setShowForm] = useState(false)
+
+  const handleShowForm = () => {
+    setShowForm(true)
+  }
+
+  const handleCloseForm = () => {
+    setShowForm(false)
+  }
+
   return (
     <div className="pt-20">
+      {/* Show Form Modal */}
+      {showForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="relative max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <button
+              onClick={handleCloseForm}
+              className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
+            >
+              <XMarkIcon className="h-5 w-5 text-gray-600" />
+            </button>
+            <WaitlistForm onClose={handleCloseForm} />
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-hetri-primary to-hetri-secondary text-white">
         <div className="container-max text-center">
@@ -24,7 +52,10 @@ export default function WaitlistPage() {
             Be among the first to transform your pet care facility with PAW and TreatTap technology.
           </p>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 inline-block">
-            <span className="text-hetri-light text-sm">🚀 Early Access Program</span>
+            <div className="flex items-center justify-center">
+              <RocketLaunchIcon className="h-5 w-5 text-white mr-2" />
+              <span className="text-hetri-light text-sm">Early Access Program</span>
+            </div>
           </div>
         </div>
       </section>
@@ -32,46 +63,54 @@ export default function WaitlistPage() {
       {/* Benefits Section */}
       <section className="section-padding bg-white">
         <div className="container-max">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Join Our Waitlist?
-              </h2>
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
-                    <span className="text-lg text-gray-600">{benefit}</span>
-                  </div>
-                ))}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why Join the Waitlist?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Early access means priority support, exclusive features, and special pricing for our founding partners.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="flex items-start space-x-3">
+                <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
+                <span className="text-gray-700">{benefit}</span>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Waitlist Form Section */}
+      <section className="section-padding bg-hetri-light">
+        <div className="container-max max-w-2xl">
+          <div className="card p-8 text-center">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Reserve Your Spot Today
+            </h3>
             
-            <div className="card p-8 bg-hetri-light">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                Get Priority Access
-              </h3>
-              <div className="space-y-4">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-hetri-primary mb-2">
-                    #1,247
-                  </div>
-                  <div className="text-gray-600">Current waitlist position</div>
+            <div className="space-y-4">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-hetri-primary mb-2">
+                  #4
                 </div>
-                
-                <div className="text-center py-4">
-                  <a
-                    href="mailto:waitlist@hetri.org?subject=Waitlist Registration&body=Please add me to the Hetri waitlist. I'm interested in:%0A%0AFacility Name:%0AContact Person:%0APhone:%0AEmail:%0A%0ASpecific interests (PAW, TreatTap, both):%0A%0AExpected implementation timeline:"
-                    className="btn-primary inline-flex items-center"
-                  >
-                    Join Waitlist
-                    <ArrowRightIcon className="ml-2 h-5 w-5" />
-                  </a>
-                </div>
-                
-                <div className="text-center text-sm text-gray-600">
-                  Average response time: 24 hours
-                </div>
+                <div className="text-gray-600">Current waitlist position</div>
+              </div>
+              
+              <div className="text-center py-4">
+                <button
+                  onClick={handleShowForm}
+                  className="btn-primary inline-flex items-center"
+                >
+                  Join Waitlist
+                  <ArrowRightIcon className="ml-2 h-5 w-5" />
+                </button>
+              </div>
+              
+              <div className="text-center text-sm text-gray-600">
+                Average response time: 24 hours
               </div>
             </div>
           </div>
@@ -79,46 +118,41 @@ export default function WaitlistPage() {
       </section>
 
       {/* What to Expect Section */}
-      <section className="section-padding bg-hetri-light">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What to Expect
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Here's what happens after you join our waitlist
-            </p>
-          </div>
+      <section className="section-padding bg-white">
+        <div className="container-max max-w-4xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            What to Expect
+          </h2>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="card p-8 text-center">
-              <div className="text-4xl mb-4">📧</div>
+            <div className="text-center">
+              <div className="bg-hetri-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-hetri-primary">1</span>
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Welcome Email</h3>
-              <p className="text-gray-600">
-                Receive a personalized welcome with detailed product information and timeline updates.
-              </p>
+              <p className="text-gray-600">Receive confirmation and early access materials within 24 hours</p>
             </div>
             
-            <div className="card p-8 text-center">
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Custom Consultation</h3>
-              <p className="text-gray-600">
-                Get a one-on-one consultation to discuss your specific facility needs and requirements.
-              </p>
+            <div className="text-center">
+              <div className="bg-hetri-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-hetri-primary">2</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Beta Access</h3>
+              <p className="text-gray-600">Get first access to PAW features and TreatTap demos</p>
             </div>
             
-            <div className="card p-8 text-center">
-              <div className="text-4xl mb-4">🚀</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Priority Access</h3>
-              <p className="text-gray-600">
-                Be the first to access new features and receive priority implementation scheduling.
-              </p>
+            <div className="text-center">
+              <div className="bg-hetri-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-hetri-primary">3</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Implementation</h3>
+              <p className="text-gray-600">Priority scheduling for full system implementation</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Already Convinced CTA */}
+      {/* Urgency Section */}
       <section className="section-padding bg-hetri-primary text-white">
         <div className="container-max text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -129,17 +163,17 @@ export default function WaitlistPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contactus"
+              href="/contactus?type=schedule-demo"
               className="bg-white text-hetri-primary hover:bg-hetri-light font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Schedule Immediate Demo
             </Link>
-            <a
-              href="mailto:partnerships@hetri.org?subject=Fast-Track Implementation"
+            <Link
+              href="/contactus?type=general-questions"
               className="border-2 border-white text-white hover:bg-white hover:text-hetri-primary font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Contact Partnerships
-            </a>
+            </Link>
           </div>
         </div>
       </section>

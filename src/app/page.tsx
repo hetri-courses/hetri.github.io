@@ -1,34 +1,27 @@
 import Link from 'next/link'
-import { ArrowRightIcon, PlayIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon, PlayIcon, CheckCircleIcon, CalendarDaysIcon, VideoCameraIcon, CameraIcon, BoltIcon } from '@heroicons/react/24/outline'
 
 const features = [
   {
     title: 'PAW Booking System',
     description: 'Streamlined facility management for Hetri Admins with comprehensive booking, scheduling, and customer management.',
-    icon: '📅',
+    icon: CalendarDaysIcon,
   },
   {
     title: 'TreatTap Live Service',
     description: 'Real-time treat dispensing with live video streaming. Hetri Parents can interact with their pets remotely.',
-    icon: '🎥',
+    icon: VideoCameraIcon,
   },
   {
     title: 'Hetri Camera Integration',
     description: 'Weatherproof cameras that attach to any collar, providing HD live streaming and health monitoring.',
-    icon: '📷',
+    icon: CameraIcon,
   },
   {
     title: 'Workflow Automation',
     description: 'Seamless integration between booking, check-in, TreatTap activation, and customer communication.',
-    icon: '⚡',
+    icon: BoltIcon,
   },
-]
-
-const stats = [
-  { label: 'Happy Pets', value: '10,000+' },
-  { label: 'Facilities Using PAW', value: '250+' },
-  { label: 'TreatTap Sessions', value: '50,000+' },
-  { label: 'Customer Satisfaction', value: '98%' },
 ]
 
 export default function HomePage() {
@@ -46,30 +39,14 @@ export default function HomePage() {
             with live TreatTap experiences. The future of pet care is here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contactus" className="btn-primary inline-flex items-center">
+            <Link href="/contactus?type=schedule-demo" className="btn-primary inline-flex items-center">
               Schedule Demo
               <ArrowRightIcon className="ml-2 h-5 w-5" />
             </Link>
-            <Link href="/contactus" className="btn-secondary inline-flex items-center">
+            <Link href="/contactus?type=product-demo" className="btn-secondary inline-flex items-center">
               <PlayIcon className="mr-2 h-5 w-5" />
               Watch PAW Demo
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-hetri-primary mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -112,7 +89,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <Link href="/contactus" className="btn-primary mt-8 inline-flex items-center">
+              <Link href="/contactus?type=product-demo" className="btn-primary mt-8 inline-flex items-center">
                 Learn More About TreatTap
                 <ArrowRightIcon className="ml-2 h-5 w-5" />
               </Link>
@@ -140,13 +117,18 @@ export default function HomePage() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="card p-6 text-center">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon
+              return (
+                <div key={index} className="card p-6 text-center">
+                  <div className="mb-4 h-16 flex items-center justify-center">
+                    <IconComponent className="h-16 w-16 text-hetri-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -161,7 +143,7 @@ export default function HomePage() {
             Join hundreds of facilities already using PAW and TreatTap to deliver exceptional pet care experiences.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contactus" className="bg-white text-hetri-primary hover:bg-hetri-light font-medium py-3 px-8 rounded-lg transition-colors duration-200">
+            <Link href="/contactus?type=schedule-demo" className="bg-white text-hetri-primary hover:bg-hetri-light font-medium py-3 px-8 rounded-lg transition-colors duration-200">
               Schedule Your Demo
             </Link>
             <Link href="/waitlist" className="border-2 border-white text-white hover:bg-white hover:text-hetri-primary font-medium py-3 px-8 rounded-lg transition-colors duration-200">

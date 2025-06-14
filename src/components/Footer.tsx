@@ -41,7 +41,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-hetri-secondary mt-8 pt-8 text-center text-hetri-light">
-          <p>&copy; 2024 Hetri. All rights reserved.</p>
+          <p>&copy; 2025 Hetri. All rights reserved.</p>
         </div>
       </div>
     </footer>

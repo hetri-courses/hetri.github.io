@@ -1,0 +1,126 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Implementation Plan
+
+The implementation of the Hetri MVP will be approached in a phased, modular manner. Each step builds upon the previous, ensuring that we have a working system at each stage (supporting a GitOps philosophy of iterative development and deployment). Below is a sequenced plan covering backend, frontend, device firmware, and cloud setup. Developers should follow this roadmap step-by-step, committing and deploying incremental changes frequently. This will help isolate issues and allow testing of each component in turn.
+
+## Phase 1: Project Setup and Core Infrastructure
+
+### Step 1: Repository Initialization
+Set up version control (Git) and create the base repositories or monorepo structure. Initialize a `backend` folder with a basic FastAPI project, a `firmware` folder for ESP32 code, and the React Native app project. Commit the skeletal projects (e.g., the default FastAPI app with a health check route, a default RN app from `expo init` or React Native CLI, and an ESP-IDF hello world for device).
+
+### Step 2: Docker & Dev Environment
+Write a `docker-compose.yml` to define services: app (FastAPI), database (MS SQL), MQTT broker (Mosquitto), and potentially a stub for the Nginx streaming server. Ensure you can bring up the stack: the FastAPI container should be able to connect to the DB. At this stage, add the MS SQL container (use the official image) and Mosquitto container with a basic config (allow anonymous for now or use a test username/password for initial). Verify that running `docker-compose up` starts all services and FastAPI can connect to DB (you might initialize the DB later). This sets the groundwork for infrastructure as code.
+
+### Step 3: Database Schema Migration
+Introduce a migration tool (like Alembic for SQLAlchemy) to manage schema. Define initial schema reflecting core tables: User, Tenant, Pet, Device, TreatRequest. Use SQLAlchemy models and create an initial Alembic migration script to generate these tables in MS SQL. Run the migration against the dev database. Confirm that tables are created as expected. This step ensures the data layer is ready early on.
+
+### Step 4: Basic Models and API
+Implement minimal code for the main models and a simple API method to test end-to-end. For instance, create a `User` model and an `/auth/register` endpoint to create a user (for development use). Also, create a simple `/ping` route requiring auth to verify JWT logic. Implement JWT generation (perhaps using PyJWT or FastAPI's OAuth2PasswordBearer with a custom token function). At this point, one can register a user and then authenticate to hit a protected ping endpoint. This lays the foundation for auth early.
+
+### Step 5: CI Pipeline Setup
+Add GitHub Actions (or equivalent) workflows for CI. Configure one pipeline to run backend tests and linting on each commit. Similarly, set up lint/test for the RN app (even if minimal tests). Also set up a build for firmware if possible (there might not be an easy CI for building ESP32 without setting up toolchain; this can be deferred or done in a later step manually). Ensure that any merge to main triggers these checks. Setting this up now enforces quality from the start.
+
+## Phase 2: Device Integration and MQTT Workflow
+
+### Step 6: Device Firmware – Basic Connectivity
+Using ESP-IDF, implement the code for the device to connect to Wi-Fi and then to the MQTT broker. Hardcode initially the Wi-Fi credentials (for dev) and an MQTT broker address (point to your dev Mosquitto). Implement an MQTT client in firmware that connects (use a test topic to publish "hello from device" on connect). This verifies that the device can reach our cloud environment. On the backend, subscribe to a test topic to log messages (or watch Mosquitto console). Once confirmed, move to actual topics.
+
+### Step 7: MQTT Command & Telemetry Handling
+Define the actual topics as per design (e.g., `devices/{id}/cmd/treat`). Implement in firmware: subscribe to `devices/{deviceId}/cmd/treat`. When a message arrives, for now just log it or toggle an LED (if hardware available). Also implement periodic telemetry publish: e.g., every 30 seconds publish `devices/{deviceId}/status/heartbeat` with a JSON payload including battery (you can simulate battery by a decrementing counter for testing). On the backend, implement an MQTT client (using paho-mqtt or asyncio-mqtt) that connects to the broker and subscribes to `devices/+/status/#`. When a message comes (e.g., heartbeat), parse it and update the corresponding Device record in DB (e.g., update last_seen and battery). Also, when a treat command is needed (coming from an API call in the future), ensure the backend client can publish to `devices/target/cmd/treat`. Test this manually by using a script or an API stub that calls the publish function, and observe the device receiving it (perhaps light an LED or print to console). Achieving a working round-trip MQTT path now is crucial.
+
+### Step 8: Treat Request Backend Workflow
+Now that MQTT infra works, implement the backend logic for treat requests. This includes:
+
+- Creating an endpoint `POST /pets/{petId}/treat` which authenticates an owner, checks they own that pet, and then uses the MQTT publish function to send `cmd/treat` to that pet's device. Also insert a TreatRequest row in DB with status "PENDING".
+- Device upon receiving `cmd/treat` should publish maybe `status/treat_ack` or some acknowledgment (though not strictly necessary if staff will confirm later, but device can acknowledge receipt).
+- Extend the backend to subscribe to a `status/treat_done` topic if device will ever send it (if device had an auto dispenser, it would). For now, maybe skip device confirmation since manual.
+- In parallel, implement a basic staff notification mechanism: perhaps a WebSocket. For now, simplest is to have a `GET /treat-requests/pending` that an admin client could poll. But we want realtime – so set up a **WebSocket endpoint** `/ws/admin` that, when an admin connects, registers their tenant and whenever a TreatRequest is created for that tenant, the backend pushes a message via WebSocket. This could be done by storing WS connections in memory and iterating to send events. Alternatively, use MQTT to broadcast to staff? Possibly simpler: For now, implement WS with an in-memory list of connections (scoped to one instance scaling).
+- Test this flow: simulate an owner making the call (e.g., with curl or a temporary frontend button), verify MQTT published (check device log), and have a dummy admin WebSocket client (maybe a simple HTML/JS or wscat) see a notification. This step ensures the server's end-to-end treat logic is solid.
+
+### Step 9: Pairing and Device Provisioning
+Implement the device pairing flow. This includes:
+
+- Generate some dummy devices in DB with pairing keys (for dev, manually insert or have a fixture).
+- Create an endpoint `POST /devices/pair` that expects deviceId and pairingKey, and requires an authenticated staff (checks current_user.role == staff). On call, it finds the device in DB, verifies key, then associates it: set device.tenant_id = staff.tenant_id, and maybe mark as paired. Optionally allow assigning to a pet immediately.
+- The response should include credentials for the device to use: e.g., MQTT username/password (which might simply be deviceId and some generated secret). In dev, we might not implement dynamic credentials (maybe using one static user/pass for all devices in Mosquitto for MVP), but list this step for completeness.
+- Firmware side: implement a mode where the device doesn't know its deviceId/key (this would be flashed in factory in reality). For dev, simulate by having them compiled in or printed. The device might not actually call any pairing API (since it's headless), rather the staff scanning QR triggers the backend to mark it paired. So device on boot could just attempt MQTT connect with its credentials – if not paired, broker might reject if credentials not yet enabled. For MVP ease, we might configure broker to allow all devices but trust pairing in app.
+- Essentially, test pairing by calling API (simulate staff scanning code) and see DB updated. This sets the stage for real device usage.
+
+## Phase 3: Live Video Streaming Integration
+
+### Step 10: Video Streaming Server Setup
+Set up the Nginx RTMP server. Write an `nginx.conf` with an RTMP section to listen for streams at `rtmp://.../live/{deviceId}`. Configure it to output HLS: e.g., `hls on; hls_path /tmp/hls; hls_fragment 1s;` with a separate directory per stream. Containerize this setup (Dockerfile for Nginx + ffmpeg). Integrate into docker-compose. Ensure it can start and not crash.
+
+Test locally by using ffmpeg command to push a test video to the RTMP endpoint (simulate a device). For example, use a sample MP4 file and run `ffmpeg -re -i sample.mp4 -c copy -f flv rtmp://localhost/live/device123`. Check that HLS fragments are being created (maybe mount a volume to inspect /tmp/hls). If possible, set up a basic HTML player to load the m3u8 and see if it plays (or use VLC to open the HLS URL). This verifies the streaming server works.
+
+### Step 11: Device Firmware – Streaming
+Now implement the firmware side for video. This is one of the hardest parts on ESP32. Use Espressif's libraries for camera (esp-cam). Set resolution to a reasonable size (say 320x240 or 480x272 for initial testing to get decent FPS). Implement code to capture a frame and send it out. Possibly use an existing example (ESP32 RTSP or HTTP stream example) and adapt to output to RTMP. If a direct RTMP library is unavailable, consider alternate approach: the device could open a TCP socket to the Nginx RTMP port and speak RTMP protocol – this is complex. Alternatively, send MJPEG over HTTP: ESP32 could open a HTTP POST to an ingest endpoint on the server and continuously send JPEGs. If so, implement a small endpoint (maybe in FastAPI or a separate lightweight server) to receive MJPEG and push to ffmpeg. However, to stick to initial plan: maybe use **rtmp_upload** component if any. If blocked, a simpler fallback: device captures JPEG periodically and sends via MQTT or HTTP (low framerate). But we aim for actual streaming if possible.
+
+Perhaps we pivot to using **ESP32's HTTP streaming** capability: There's an example (ESP32 Camera WebServer) that opens a mjpeg HTTP stream on local network. We can adapt that to push to cloud by continuously posting frames. For MVP, even 1 FPS would prove it works. This step is potentially time-consuming; consider postponing full quality and proceed once a basic stream is achieved.
+
+Once device can send some form of video data, integrate with FFmpeg: maybe have FFmpeg fetch from an HTTP MJPEG stream of device. Or device pushes frames to an S3 bucket? These workarounds might degrade latency. If truly stuck, in MVP demonstration we might simulate the collar streaming via a smartphone or PC running ffmpeg. The important part is to have the pipeline in place (device -> RTMP -> HLS -> playback).
+
+### Step 12: Secure HLS Delivery
+Implement the security for stream viewing. On the backend, create an endpoint `/pets/{id}/stream` which the app calls to get the stream URL. This endpoint should verify the requesting user has access, then generate a signed URL or token for HLS. One approach: use a simple JWT containing deviceId and short expiry, and have Nginx's secure_link module validate it. For MVP simpler: use CloudFront's signed URL. But setting up CloudFront in dev might not be feasible; instead, use Nginx secure_link in the container:
+
+- Configure `secure_link` in Nginx such that the HLS URL must have a token query param. The FastAPI backend can generate that token (HMAC of some secret + timestamp).
+- Alternatively, restrict by session: not trivial with static files. So likely secure_link with an expiration timestamp. Implement that and test: try to curl the m3u8 without token (should 403), with token (200).
+- The RN app will get `https://ourcdn/streams/device123/index.m3u8?token=XXX`. The player will use it to play.
+
+### Step 13: Mobile App – Video Playback
+In the React Native app, integrate a video player component (like `react-native-video`). Create the Owner Live Stream screen that on mount calls the API to get stream URL. For testing, initially you can bypass secure part and use an open test stream to ensure the player works (e.g., some public HLS URL). Once confirmed, use the actual URL from our server. Ensure to handle iOS ATS settings (allow insecure if needed or configure SSL). At this stage, you likely need to expose your dev streaming server via a tunnel (like ngrok) or deploy it to a test cloud server, so the app can access it. Possibly deploy the Nginx and FastAPI to an AWS EC2 for integration test.
+
+Open the app on a device/emulator, log in as an owner, trigger the live view, and verify video frames appear. This is a major milestone.
+
+### Step 14: App Treat Flow Integration
+Now hook up the treat request in the frontend. On the Live view screen (or wherever the Treat button is), call the `POST /pets/{id}/treat` API when tapped. Implement the UI feedback: on tap, disable button or show "Sending...". If success 200, perhaps show an animation or simply a message "Treat requested!" and re-enable after some time or on confirmation. If error (like not allowed or offline), show an alert to user.
+
+Implement in the admin side of app: the admin dashboard should receive treat requests. If using WebSocket, integrate that: in the admin portion of RN app, open WebSocket connection after login (maybe in a useEffect in AdminHome). When a message comes (treat request), update state to show an indicator or add to a list. Display it in UI (e.g., "New Treat Request for Bella"). Provide a button "Mark as given". On press of that, call a backend endpoint like `POST /treat-requests/{id}/complete` or maybe reuse a general endpoint, to mark done. That call triggers backend to notify owner via WebSocket or at least when owner next polls status. For MVP, we might simply rely on the owner seeing via video; but better to send a WS event to owner app saying "Treat delivered". Implement that similarly (owner app should also connect to WS to get confirmations).
+
+Test end-to-end: Owner presses treat on app, admin app immediately shows an alert, admin taps complete, owner app gets confirmation. This should align with what we tested earlier with manual tools, but now in actual apps.
+
+## Phase 4: Refinement and Additional Features
+
+### Step 15: User Roles and Multi-tenancy Checks
+Go through the backend and ensure all endpoints enforce the role and tenant isolation properly. Write unit tests for critical functions (e.g., an owner from tenant A trying to access a pet of tenant B should get 403). Also ensure Hetri Admin (if implemented) can bypass or has separate endpoints. Possibly implement a simple admin function like "list all tenants" accessible only with admin JWT. This is not user-facing but good to have a way to verify multi-tenant separation.
+
+### Step 16: Activity Monitoring Implementation
+On device, implement basic motion detection (could be as simple as if accelerometer reading above threshold). The firmware can publish `status/motion` events (e.g., `{"motion":"active"}` when movement starts/stops). Backend can use these to update Pet status (like set a field Pet.isActive = true/false or last_active time). In the owner app, display an icon or text "Currently Active/Playing" based on that field from an API. This may involve periodic polling or sending via WS (could send an event to owner when motion state changes). Implement a simple version to enhance the experience.
+
+### Step 17: Help Alert (Optional MVP)
+If time, implement the help alert button for staff: in admin app, a "Help" button that when pressed publishes an MQTT message or calls an API which publishes to all staff or triggers some alarm. This could simply log an event. The full handling might be complex (who gets it, etc.), so only do a basic version: maybe device doesn't trigger it at MVP, just staff can press and it shows an alert on all admin apps ("Emergency at Facility!"). This is more of a stretch goal for MVP.
+
+### Step 18: Testing and QA
+Thoroughly test each component:
+
+- **Unit tests for backend**: test creating treat request flows, test that unauthorized access is blocked, test MQTT handler logic (maybe by mocking MQTT client calls). Also test JWT authentication and token expiration logic if any.
+- **Integration test**: run the system end-to-end in a staging environment. Simulate a scenario: Device is online (maybe use one actual ESP device or a stub that publishes expected messages), an owner logs in and views video, sends treat, staff receives and completes. Check for any errors or slow points.
+- **App testing**: test on both Android and iOS devices/emulators. Ensure the UI flows make sense, no major crashes or layout issues. Particularly test network disruptions: if the device goes offline, does the app handle it gracefully? If the app is backgrounded and reopened, does the WebSocket reconnect? etc.
+- **Performance**: measure video latency roughly (likely ~2-3s with HLS 1s segments). Check MQTT latency (should be sub-second). If something is laggy (like owner not getting confirmation until much later), identify if it's because we didn't push via WS to owner and add that.
+- **Security**: try some misuse like altering JWT to another tenant, ensure it fails. Try to fetch HLS without token, ensure denied. Basic checks like that.
+
+### Step 19: Deployment Setup
+Prepare for production deployment. Write Dockerfile and docker-compose for production (maybe separate from dev one). In production, you might use environment variables for secrets (JWT secret, DB password, etc.). Ensure to set up an MS SQL in production (could be Azure SQL or AWS RDS). For MQTT, possibly use a managed service or keep Mosquitto in container. Nginx streaming could live on an EC2 or similar. If using CloudFront, set it up to point to the Nginx (or S3 if we go that route for segments). Automate deployment: e.g., a GitHub Actions workflow that on push to main will build and push images to ECR and maybe trigger an ECS update or remote SSH to the VM and pull new images. Use Certbot to get real TLS certs for the API and maybe for the streaming domain (or use CloudFront's HTTPS). Document the steps so future deployments are consistent.
+
+### Step 20: Documentation & Handover
+Finalize documentation (could be this set of docs). Write a README for the repository explaining how to run the dev environment, how to set up a new device (pairing, etc.), and how to deploy. Also, create usage docs for the client: maybe a short guide for facility staff to use the admin app (if this were a real delivery). This ensures the project can be understood by new team members or stakeholders.
+
+## Development Guidelines
+
+Throughout these steps, maintain a GitOps mindset: **make small commits**, test often, and use feature flags as needed to merge incomplete features without breaking main (for example, maybe hide video feature behind a toggle until ready). Avoid large refactors mid-stream; stick to the plan unless a critical issue in architecture is discovered, in which case discuss and adjust the plan documents accordingly (but do not drift arbitrarily). 
+
+By following this structured plan, we develop the MVP systematically and reduce risk, achieving a working product that meets the requirements. Each step should result in a demonstrable increment (e.g., by step 8 we can demo treat requests working with simulated devices; by step 13 we can demo live video; by step 18 we have the whole system ready for a pilot).
+
+### Milestone Tracking
+
+After completing each step, mark it as "Done" and add a two-line summary of the work completed. This ensures clear progress tracking and helps maintain accountability throughout the development process.
+
+**Example:**
+- Step 1: Repository Initialization - **Done**
+  - Created base FastAPI project structure with health check endpoint
+  - Initialized React Native app and ESP-IDF firmware skeleton project
+
