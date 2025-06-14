@@ -1,0 +1,22 @@
+{
+  "name": "Hetri - Professional Animal Works & TreatTap",
+  "short_name": "Hetri",
+  "description": "Transform your pet care facility with PAW booking system and TreatTap live-streaming treats",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#78a18a",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+} 
