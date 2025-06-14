@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { 
@@ -58,9 +58,7 @@ const contactCards = [
   }
 ]
 
-
-
-export default function ContactUsPage() {
+function ContactUsContent() {
   const [showForm, setShowForm] = useState(false)
   const [currentFormType, setCurrentFormType] = useState<'schedule-demo' | 'product-demo' | 'general-questions' | 'technical-support'>('general-questions')
   const [currentFormTitle, setCurrentFormTitle] = useState('')
@@ -234,5 +232,13 @@ export default function ContactUsPage() {
         </div>
       </section>
     </div>
+  )
+}
+
+export default function ContactUsPage() {
+  return (
+    <Suspense fallback={<div className="pt-20 min-h-screen flex items-center justify-center">Loading...</div>}>
+      <ContactUsContent />
+    </Suspense>
   )
 } 
