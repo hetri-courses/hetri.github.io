@@ -190,13 +190,13 @@ function ContactUsContent() {
                         Fill Form
                         <ArrowRightIcon className="ml-2 h-4 w-4" />
                       </button>
-                      <a
-                        href={`mailto:${card.email}?subject=Contact Request - ${card.title}`}
+                    <a
+                      href={`mailto:${card.email}?subject=Contact Request - ${card.title}`}
                         className="btn-secondary inline-flex items-center text-sm px-3"
                         title="Send Email"
-                      >
+                    >
                         Email
-                      </a>
+                    </a>
                     </div>
                   </div>
                 </div>

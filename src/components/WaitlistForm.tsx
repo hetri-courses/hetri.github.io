@@ -24,7 +24,7 @@ export default function WaitlistForm({ onClose }: WaitlistFormProps) {
   const [error, setError] = useState('')
 
   // Formspree endpoint - replace with your actual Formspree form endpoint
-  const FORMSPREE_ENDPOINT = `https://formspree.io/f/YOUR_FORM_ID_HERE`
+  const FORMSPREE_ENDPOINT = `https://formspree.io/f/mdkggqry`
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
