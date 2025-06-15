@@ -4,12 +4,12 @@ import { ArrowRightIcon, PlayIcon, CheckCircleIcon, CalendarDaysIcon, VideoCamer
 const features = [
   {
     title: 'PAW Booking System',
-    description: 'Streamlined facility management for Hetri Admins with comprehensive booking, scheduling, and customer management.',
+    description: 'Streamlined facility management for pet care staff with comprehensive booking, scheduling, and customer management.',
     icon: CalendarDaysIcon,
   },
   {
     title: 'TreatTap Live Service',
-    description: 'Real-time treat dispensing with live video streaming. Hetri Parents can interact with their pets remotely.',
+    description: 'Real-time treat dispensing with live video streaming. Pet owners can interact with their pets remotely during daycare.',
     icon: VideoCameraIcon,
   },
   {
@@ -35,7 +35,7 @@ export default function HomePage() {
             <span className="text-gradient">PAW & TreatTap</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Empower Hetri Admins with comprehensive facility management and delight Hetri Parents 
+            Empower pet care facilities with comprehensive management tools and delight pet owners 
             with live TreatTap experiences. The future of pet care is here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -59,7 +59,7 @@ export default function HomePage() {
               Introducing TreatTap
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Revolutionary live-service treat dispensing that connects Hetri Parents with their pets in real-time
+              Revolutionary live-service treat dispensing that connects pet owners with their pets in real-time during daycare
             </p>
           </div>
           
@@ -71,21 +71,21 @@ export default function HomePage() {
                   <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">Pet Check-In</h4>
-                    <p className="text-gray-600">Hetri Admin activates TreatTap when pet is ready for live sessions</p>
+                    <p className="text-gray-600">Facility staff activates TreatTap when your pet is ready for live sessions</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">Live Connection</h4>
-                    <p className="text-gray-600">Hetri Parents connect via secure live video stream</p>
+                    <p className="text-gray-600">Pet owners connect via secure live video stream from anywhere</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">Treat Interaction</h4>
-                    <p className="text-gray-600">Real-time treat dispensing with instant pet reactions</p>
+                    <p className="text-gray-600">Real-time treat dispensing with instant pet reactions - watch your pet's joy!</p>
                   </div>
                 </div>
               </div>

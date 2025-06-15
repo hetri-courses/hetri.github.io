@@ -4,8 +4,8 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Hetri - Professional Animal Works & TreatTap',
-  description: 'Transform your pet care facility with PAW booking system and TreatTap live-streaming treats. Empowering Hetri Admins and delighting Hetri Parents.',
+  title: 'Hetri - Transform Pet Care with PAW & TreatTap',
+  description: 'Transform your pet care facility with PAW booking system and TreatTap live-streaming treats. Empowering pet care facilities and delighting pet owners.',
   keywords: 'pet care, animal works, treatTap, facility management, live streaming, pet resort, booking system',
   authors: [{ name: 'Hetri Team' }],
   openGraph: {
