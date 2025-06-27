@@ -64,10 +64,10 @@ export default function Header() {
           <button
             onClick={handleLogin}
             className="flex items-center space-x-2 px-5 py-2.5 rounded-full border-2 border-hetri-primary text-hetri-primary hover:bg-hetri-primary hover:text-white text-base font-medium transition-all duration-200 font-syne-mono"
-            title="Hetri Login"
+            title="PAW Login"
           >
             <UserIcon className="h-5 w-5" />
-            <span className="font-syne-mono">Hetri Login</span>
+            <span className="font-syne-mono">PAW Login</span>
           </button>
         </div>
 
@@ -116,7 +116,7 @@ export default function Header() {
                 className="flex items-center space-x-2 w-full px-4 py-2.5 rounded-lg border-2 border-hetri-primary text-hetri-primary hover:bg-hetri-primary hover:text-white transition-colors duration-200 font-syne-mono text-base"
               >
                 <UserIcon className="h-5 w-5" />
-                <span className="font-syne-mono">Hetri Login</span>
+                <span className="font-syne-mono">PAW Login</span>
               </button>
             </div>
           </motion.div>
