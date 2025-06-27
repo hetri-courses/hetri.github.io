@@ -21,7 +21,7 @@ export default function Header() {
 
   const handleLogin = () => {
     // Direct facilities to contact us for account setup and login access
-    window.location.href = '/contactus?subject=Facility Login Setup Request'
+    window.location.href = 'https://paw.hetri.org'
   }
 
   return (
