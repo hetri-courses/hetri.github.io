@@ -20,21 +20,25 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-hetri-primary hover:bg-hetri-secondary text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200;
+    @apply bg-gradient-to-r from-hetri-primary to-hetri-secondary hover:from-hetri-secondary hover:to-hetri-primary text-white font-bold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-hetri-primary/25;
     font-family: 'Syne Mono', monospace;
   }
   
   .btn-secondary {
-    @apply bg-white hover:bg-hetri-light text-hetri-primary border-2 border-hetri-primary font-medium py-3 px-6 rounded-lg transition-colors duration-200;
+    @apply bg-white hover:bg-hetri-primary text-hetri-primary hover:text-white border-2 border-hetri-primary font-bold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-hetri-primary/25;
     font-family: 'Syne Mono', monospace;
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+    @apply bg-white rounded-2xl shadow-lg shadow-gray-900/5 hover:shadow-xl hover:shadow-gray-900/10 transition-all duration-300 hover:-translate-y-1 border border-gray-100;
+  }
+  
+  .pricing-card {
+    @apply bg-white rounded-2xl border border-gray-100 transition-all duration-300;
   }
   
   .hero-section {
-    @apply bg-hetri-light rounded-b-3xl shadow-sm;
+    @apply rounded-b-3xl shadow-sm;
   }
   
   .section-padding {

@@ -1,0 +1,286 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Tech Stack for Hetri PAW Market Platform
+
+This document outlines the technologies and components used to build the Hetri PAW market platform, a Next.js application with PostgreSQL database, Electron desktop wrapper, real-time messaging, video streaming, and comprehensive facility management capabilities.
+
+---
+
+## 1. Core Application Platform
+
+### Framework & Runtime
+
+* **Next.js 14+** with App Router
+  * React 18+ with TypeScript for type safety
+  * File-based routing with `src/app/` directory structure
+  * API routes for backend services (`/api/*`)
+  * Static export capability for deployment flexibility
+
+* **Node.js Environment**
+  * Version 18+ for development and production
+  * Package management via npm with lockfile consistency
+  * Support for server-side PostgreSQL operations
+
+### Frontend Architecture
+
+* **React 18+** with modern hooks and concurrent features
+  * Functional components with TypeScript interfaces
+  * Custom hooks for business logic encapsulation (`useAuth`, `useDataPolling`)
+  * Context providers for global state management
+
+* **TypeScript** for complete type safety
+  * Strict mode configuration
+  * Interface definitions for all data structures
+  * Generic types for reusable components and services
+
+### Desktop Application
+
+* **Electron 28+** for cross-platform desktop deployment
+  * Main process with window management (`electron-main.js`)
+  * Preload script for secure IPC communication
+  * Auto-updater integration with GitHub releases
+  * Window state management and system tray support
+
+---
+
+## 2. Database & Backend Architecture
+
+### Primary Database
+
+* **PostgreSQL 13+** (Complete replacement of localStorage/Firebase dual approach)
+  * Connection pooling with `pg` driver
+  * UUID-based primary keys with `uuid-ossp` extension
+  * JSONB support for complex data structures
+  * Advanced indexing and performance optimization
+  * Full ACID compliance for booking validation
+
+### Database Features
+
+* **Enhanced Schema Design**
+  * 15+ interconnected tables with foreign key constraints
+  * Exclusion constraints to prevent double-booking
+  * Comprehensive user roles (customer, admin, staff)
+  * Detailed facility management with GPS coordinates
+  * Camera tracking with viewer limits (1-3 concurrent)
+  * TreatTap session management with time slots
+
+* **Authentication & Security**
+  * JWT-based authentication with HTTP-only cookies
+  * BCrypt password hashing
+  * Session management with expiration cleanup
+  * Role-based access control (RBAC)
+  * Invite code system for facility onboarding
+
+### Backend Services
+
+* **RESTful API Layer** (Next.js API Routes)
+  * `/api/database/init` - Database initialization and schema
+  * `/api/auth/*` - Authentication endpoints (login, register, logout)
+  * `/api/paw-parents` - Customer management
+  * `/api/paw-associates` - Staff management with online status
+  * `/api/pets` - Pet profile management
+  * `/api/facilities` - Facility management with services
+  * `/api/analytics` - Real-time dashboard metrics
+  * `/api/streaming` - Video streaming management
+  * `/api/bookings/validate` - Booking validation service
+
+---
+
+## 3. Real-Time Communication & Streaming
+
+### MQTT Messaging
+
+* **MQTT 5.3+** for real-time TreatTap communication
+  * Sub-100ms latency for treat requests
+  * Facility-specific topic namespacing
+  * Quality of Service (QoS) levels for reliability
+  * Automatic reconnection with exponential backoff
+  * Device status monitoring and heartbeat system
+
+### Video Streaming Architecture
+
+* **MJPEG Camera Integration**
+  * IP camera support with configurable ports
+  * HLS (HTTP Live Streaming) distribution
+  * CloudFront CDN integration for global delivery
+  * Concurrent viewer limits (1-3 per stream)
+  * Stream analytics and usage tracking
+
+* **Streaming Service Features**
+  * Real-time viewer count management
+  * Stream session logging and analytics
+  * Camera heartbeat monitoring
+  * Automatic offline detection
+  * Quality adaptation (480p, 720p, auto)
+
+### Caching & Performance
+
+* **Redis 4.6+** for caching and session management
+  * High-performance data caching
+  * Session state persistence
+  * Real-time data synchronization
+  * Pub/Sub messaging support
+
+---
+
+## 4. Styling & UI Framework
+
+### Design System
+
+* **Tailwind CSS 3.3+** for utility-first styling
+  * Custom Hetri brand colors (hetri-primary, hetri-secondary)
+  * Responsive design with mobile-first approach
+  * Custom component variants and design tokens
+  * Professional design without emoji elements
+
+* **UI Components**
+  * Custom component library with consistent Hetri branding
+  * Lucide React for icons and visual elements
+  * Headless UI for complex interactive components
+  * Framer Motion for smooth animations
+  * Circular letter badges for professional presentation
+
+---
+
+## 5. Advanced Feature Modules
+
+### ERP Integration
+
+* **ERPService** for business management
+  * Financial tracking with revenue/expense management
+  * Inventory management with low-stock alerts
+  * Staff scheduling and time tracking
+  * Dashboard metrics and business intelligence
+  * pgAgent integration for automated calculations
+
+### Real-Time Data Management
+
+* **Data Polling Architecture**
+  * Custom React hooks with automatic cache invalidation
+  * 30-second polling intervals for live updates
+  * Online status tracking for PAW associates
+  * Real-time analytics dashboard updates
+  * Error handling and retry mechanisms
+
+### Booking & Validation System
+
+* **Advanced Booking Management**
+  * Time slot management with staff/camera assignment
+  * Double-booking prevention with exclusion constraints
+  * Business hours validation
+  * Central server synchronization
+  * Booking validation service with retry logic
+
+---
+
+## 6. Development & Build Tools
+
+### Development Environment
+
+* **ESLint** with Next.js recommended configuration
+  * TypeScript-aware linting rules
+  * React hooks and accessibility checks
+  * Custom rules for project conventions
+
+* **Prettier** for consistent code formatting
+  * Integrated with ESLint for conflict resolution
+  * Pre-commit hooks for automated formatting
+
+### Build & Deployment
+
+* **Electron Builder** for desktop application packaging
+  * Cross-platform builds (Windows, macOS, Linux)
+  * NSIS installer for Windows with admin privileges
+  * Auto-updater with GitHub releases integration
+  * Code signing and notarization support
+
+* **Deployment Infrastructure**
+  * Complete installer packages with database setup
+  * Facility-specific installation scripts
+  * Multi-facility provisioning system
+  * Windows installer with PostgreSQL bundling
+
+---
+
+## 7. Infrastructure & Operations
+
+### Database Management
+
+* **PostgreSQL Features**
+  * Automated schema initialization
+  * Migration scripts for updates
+  * Performance monitoring with pg_stat_statements
+  * Backup and recovery procedures
+  * Connection pooling and optimization
+
+### Monitoring & Analytics
+
+* **Real-Time Monitoring**
+  * System health dashboards
+  * Camera status and uptime tracking
+  * MQTT broker monitoring
+  * Database performance metrics
+  * Error logging and alerting
+
+### Security & Compliance
+
+* **Security Measures**
+  * HTTPS/TLS encryption for all communications
+  * Secure JWT token management
+  * Role-based access control
+  * SQL injection prevention
+  * Input validation and sanitization
+
+---
+
+## 8. Deployment Strategies
+
+### Multi-Facility Architecture
+
+* **Distributed HaaS (Hardware as a Service)**
+  * Per-facility PostgreSQL instances
+  * Central oversight and monitoring
+  * License management and validation
+  * Remote configuration updates
+  * Facility-specific branding and settings
+
+### Installation & Setup
+
+* **Complete Installer Package**
+  * One-click facility setup
+  * Automated database initialization
+  * Demo data population
+  * Service configuration
+  * Desktop application installation
+
+### Update Management
+
+* **Automated Update System**
+  * Electron auto-updater integration
+  * Database migration handling
+  * Rollback capabilities
+  * Staged deployment options
+  * Version compatibility checks
+
+---
+
+## 9. Integration Capabilities
+
+### External Services
+
+* **Firebase (Limited Scope)**
+  * Retained only for central licensing
+  * Usage analytics and reporting
+  * Remote configuration management
+  * Critical update notifications
+
+* **Third-Party Integrations**
+  * Deepgram for voice processing
+  * Email services for notifications
+  * Payment processing (future)
+  * Calendar systems integration
+
+This comprehensive tech stack provides a robust, scalable foundation for the Hetri PAW platform, supporting everything from small single-facility deployments to large multi-facility enterprise installations while maintaining high performance, security, and user experience standards. 

@@ -1,0 +1,294 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Backend Structure Document
+
+This document describes the architecture and structure of the Hetri PAW backend system, including PostgreSQL database architecture, real-time services, ERP integration, streaming capabilities, and comprehensive multi-facility deployment infrastructure.
+
+## Services and Responsibilities
+
+The backend is composed of several distinct services/modules, each with clear responsibility:
+
+* **Next.js API Routes (Primary Backend):** Comprehensive REST API service built using Next.js API routes, providing endpoints for all core operations: authentication, user management, pet profiles, facility operations, booking validation, streaming management, and analytics. Handles all business logic and integrates with PostgreSQL database, MQTT messaging, and streaming services.
+
+* **PostgreSQL Database Service:** Complete enterprise-grade database solution providing:
+  - Advanced user management with JWT-based authentication and role-based access control
+  - Comprehensive PAW parents (customer) and PAW associates (staff) management
+  - Detailed pet profiles with medical, dietary, and behavioral records
+  - Enhanced facility management with GPS coordinates, operating hours, and service catalogs
+  - Advanced TreatTap session management with time slot booking and validation
+  - Camera tracking with concurrent viewer limits (1-3 per stream)
+  - Booking validation system with double-booking prevention
+  - Central server synchronization queue for multi-facility deployments
+  - Real-time analytics and business intelligence
+
+* **MQTT Messaging Service:** Real-time communication infrastructure for sub-100ms latency:
+  - TreatTap request/response messaging with <100ms latency
+  - Device status monitoring and heartbeat system
+  - Facility-specific topic namespacing for security
+  - Quality of Service (QoS) guarantees for reliable delivery
+  - Automatic reconnection with exponential backoff
+
+* **Video Streaming Service:** Professional camera management and distribution:
+  - MJPEG camera integration with IP camera support
+  - HLS (HTTP Live Streaming) with CloudFront CDN distribution
+  - Concurrent viewer management (1-3 viewers per stream)
+  - Stream analytics and usage tracking
+  - Camera heartbeat monitoring and automatic offline detection
+  - Stream quality adaptation (480p, 720p, auto)
+
+* **ERP Integration Service:** Business management and operations:
+  - Financial tracking with automated revenue/expense calculations
+  - Inventory management with low-stock alerts and automated reordering
+  - Staff scheduling with time tracking and online status monitoring
+  - Dashboard analytics with real-time metrics and percentage changes
+  - pgAgent integration for background business intelligence processing
+
+* **Redis Caching Service:** High-performance caching and session management:
+  - Real-time data synchronization and cache invalidation
+  - Session state persistence across application restarts
+  - Pub/Sub messaging support for real-time updates
+  - Performance optimization for frequently accessed data
+
+* **Booking Validation Service:** Advanced scheduling and conflict prevention:
+  - Time slot management with staff and camera assignment
+  - Business hours validation with facility-specific rules
+  - Double-booking prevention using PostgreSQL exclusion constraints
+  - Central server synchronization for multi-facility coordination
+
+## Directory and Repository Layout
+
+We maintain a comprehensive Next.js project structure with advanced backend capabilities:
+
+```
+market/
+├── src/
+│   ├── app/                    # Next.js 13+ app directory structure
+│   │   ├── layout.tsx          # Root layout with providers and context
+│   │   ├── page.tsx            # Homepage with role-based routing
+│   │   ├── globals.css         # Global styles with Hetri branding
+│   │   ├── facility/           # Facility management application
+│   │   │   ├── page.tsx        # Role selection (Customer vs Admin)
+│   │   │   ├── customer/       # Customer-facing dashboard
+│   │   │   │   ├── page.tsx    # Customer dashboard with analytics
+│   │   │   │   ├── book-treattap/ # TreatTap booking with validation
+│   │   │   │   ├── notifications/ # Real-time notification management
+│   │   │   │   ├── profile/    # Profile management with pet linking
+│   │   │   │   └── treattap-session/ # Live session monitoring
+│   │   │   └── admin/          # Admin dashboard and management
+│   │   │       ├── page.tsx    # Admin dashboard with real-time analytics
+│   │   │       ├── customers/  # Customer and pet management
+│   │   │       ├── pets/       # Pet profile management
+│   │   │       ├── treattaps/  # Session management and monitoring
+│   │   │       └── pricing/    # Dynamic pricing configuration
+│   │   ├── api/                # Next.js API routes (Backend Services)
+│   │   │   ├── auth/           # Authentication endpoints
+│   │   │   │   ├── login/      # JWT-based login with PostgreSQL
+│   │   │   │   ├── register/   # User registration with validation
+│   │   │   │   ├── logout/     # Secure session termination
+│   │   │   │   ├── me/         # User profile verification
+│   │   │   │   └── stream/     # Stream access authentication
+│   │   │   ├── database/       
+│   │   │   │   └── init/       # Database initialization and setup
+│   │   │   ├── paw-parents/    # Customer management API
+│   │   │   ├── paw-associates/ # Staff management with online status
+│   │   │   ├── pets/           # Pet profile management API
+│   │   │   ├── facilities/     # Facility management and services
+│   │   │   ├── analytics/      # Real-time dashboard metrics
+│   │   │   ├── streaming/      # Video streaming management
+│   │   │   ├── bookings/       
+│   │   │   │   └── validate/   # Booking validation service
+│   │   │   ├── erp/            
+│   │   │   │   └── dashboard/  # ERP dashboard metrics
+│   │   │   └── treattap/       # TreatTap session management
+│   │   ├── aboutus/            # Company information
+│   │   ├── contactus/          # Contact and support
+│   │   ├── faq/                # Frequently asked questions
+│   │   └── waitlist/           # Pre-launch signup
+│   ├── components/             # Reusable React components
+│   │   ├── Header.tsx          # Main navigation with role-based menus
+│   │   ├── Footer.tsx          # Site footer with Hetri branding
+│   │   ├── ContactForm.tsx     # Contact form with validation
+│   │   ├── WaitlistForm.tsx    # Waitlist signup with email validation
+│   │   ├── TreatButton.tsx     # TreatTap button with MQTT integration
+│   │   ├── ImageUpload.tsx     # File upload with validation
+│   │   ├── VoiceRecorder.tsx   # Voice recording with Deepgram
+│   │   ├── LoginModal.tsx      # Authentication modal
+│   │   └── SignInWithGoogle.tsx # Google OAuth integration
+│   └── lib/                    # Backend services and utilities
+│       ├── database/           # Database services and models
+│       │   ├── postgres.ts     # PostgreSQL connection and schema
+│       │   └── init.ts         # Database initialization service
+│       ├── auth/               # Authentication services
+│       │   ├── postgresAuth.ts # PostgreSQL-based authentication
+│       │   └── localAuth.ts    # Local session management
+│       ├── services/           # Business logic services
+│       │   ├── dataPollingService.ts # Real-time data synchronization
+│       │   ├── bookingValidationService.ts # Booking conflict prevention
+│       │   ├── centralServerSync.ts # Multi-facility synchronization
+│       │   ├── serviceInitializer.ts # Service startup and configuration
+│       │   ├── updateService.ts # Software update management
+│       │   └── firebaseIntegration.ts # Limited Firebase integration
+│       ├── streaming/          # Video streaming services
+│       │   └── streamingService.ts # Camera management and HLS
+│       ├── mqtt/               # MQTT messaging services
+│       │   └── mqttClient.ts   # Real-time TreatTap communication
+│       ├── redis/              # Caching services
+│       │   └── redisClient.ts  # High-performance caching
+│       ├── erp/                # ERP business services
+│       │   └── erpService.ts   # Financial and operational management
+│       ├── firebase/           # Limited Firebase services
+│       │   ├── firebaseConfig.ts # Configuration and initialization
+│       │   ├── hetriControl.ts  # Central licensing and control
+│       │   ├── firebaseUtils.ts # Utility functions
+│       │   └── encryptedSync.ts # Secure data synchronization
+│       ├── hooks/              # Custom React hooks
+│       │   ├── useAuth.ts      # Authentication state management
+│       │   └── useDataPolling.ts # Real-time data polling
+│       ├── contexts/           # React contexts
+│       │   └── DeepgramContext.tsx # Voice processing context
+│       ├── utils/              # Utility functions
+│       │   └── responsive.ts   # Responsive design utilities
+│       └── config/             # Configuration files
+│           └── centralConfig.ts # Central configuration management
+├── public/                     # Static assets and branding
+├── installer/                  # Windows installer configuration
+│   ├── HetriPAW-Complete-Installer.nsi # Complete facility installer
+│   ├── HetriPAWInstaller.nsi   # Basic application installer
+│   ├── build-installer.bat     # Installer build script
+│   └── build-complete-installer.bat # Complete installer build
+├── streaming/                  # Streaming infrastructure
+│   └── nginx.conf              # Nginx configuration for streaming
+├── electron-main.js            # Electron main process
+├── preload.js                  # Electron preload script
+├── package.json                # Dependencies and Electron configuration
+├── next.config.js              # Next.js configuration
+├── tailwind.config.js          # Tailwind CSS configuration
+├── tsconfig.json               # TypeScript configuration
+├── setup-database.sql # Complete PostgreSQL schema and setup
+
+└── facility-installer.bat     # Facility setup automation
+```
+
+## Authentication and Authorization Model
+
+* **PostgreSQL-Based Authentication (Primary):** Complete replacement of localStorage-based system:
+  
+  * JWT-based authentication with HTTP-only cookies for security
+  * BCrypt password hashing with salt rounds
+  * Session management with automatic expiration cleanup
+  * Role-based access control (customer, admin, staff) with facility scoping
+  * Invite code system for secure facility onboarding
+  * Password reset functionality with time-limited tokens
+
+* **Multi-Facility Security Architecture:**
+  
+  * Tenant isolation through facility_id scoping in all database queries
+  * Role-based API endpoint access control
+  * Stream access authentication with user verification
+  * MQTT topic namespacing for facility-specific messaging
+  * Secure credential management for external services
+
+* **Authorization Levels:**
+  
+  * **Customer Role:** TreatTap booking, pet management, session monitoring, notifications
+  * **Staff Role:** TreatTap fulfillment, pet care logging, schedule management
+  * **Admin Role:** Facility management, staff scheduling, analytics, customer management
+  * **Hetri Admin:** Multi-facility oversight, licensing, system monitoring
+
+## Database Schema Design
+
+**Enterprise PostgreSQL Architecture:**
+
+### Core User Management
+* **users:** Complete user profiles with facility association and role management
+* **user_sessions:** JWT token management with expiration and cleanup
+* **password_reset_tokens:** Secure password reset with time-limited tokens
+* **invite_codes:** Facility-specific user onboarding system
+
+### Facility and Staff Management
+* **facilities:** Enhanced facility profiles with GPS, operating hours, and service catalogs
+* **paw_associates:** Staff management with online status tracking and permissions
+* **paw_parents:** Customer profiles with emergency contacts and preferences
+
+### Pet and Care Management
+* **pets:** Comprehensive pet profiles with medical, dietary, and behavioral records
+* **treattap_sessions:** Session management with time slot booking and validation
+* **treattap_time_slots:** Staff and camera scheduling with conflict prevention
+
+### Advanced Features
+* **camera_streams:** Camera management with viewer limits and analytics
+* **stream_viewers:** Real-time viewer tracking and session management
+* **bookings:** Advanced booking system with validation and conflict prevention
+* **booking_validations:** Validation logging and central server synchronization
+* **sync_queue:** Multi-facility synchronization queue management
+
+### Business Intelligence
+* **revenue_records:** Financial tracking with automated calculations
+* **inventory_items:** Inventory management with alerts and reordering
+* **staff_schedules:** Staff scheduling with time tracking
+* **session_analytics:** Real-time metrics and dashboard data
+
+## Real-Time Services Architecture
+
+* **MQTT Service Architecture:** Enterprise messaging for real-time operations:
+  - Topic-based routing: `facility/{facilityId}/treattap/{requests|responses}`
+  - Device management: `facility/{facilityId}/devices/status`
+  - Alert system: `facility/{facilityId}/alerts`
+  - QoS guarantees for critical messages
+  - Connection management with heartbeat monitoring
+
+* **Streaming Service Management:** Professional video distribution:
+  - MJPEG camera integration with automatic discovery
+  - HLS stream generation with multiple quality options
+  - CDN distribution through CloudFront integration
+  - Concurrent viewer management with automatic scaling
+  - Stream analytics and performance monitoring
+
+* **Data Polling Architecture:** Real-time dashboard updates:
+  - 30-second polling intervals for live metrics
+  - Automatic cache invalidation and refresh
+  - Online status monitoring for PAW associates
+  - Error handling with exponential backoff retry
+
+## Multi-Tenant Support Architecture
+
+Supporting multiple facilities through advanced isolation and management:
+
+* **Database-Level Isolation:** All queries scoped by facility_id with proper indexing
+* **Service-Level Security:** API endpoints validate facility access for all operations
+* **Real-Time Messaging:** MQTT topics namespaced by facility for complete isolation
+* **Stream Management:** Camera access controlled by facility association and user verification
+* **Central Synchronization:** Queue-based sync system for multi-facility coordination
+* **Deployment Flexibility:** Support for single-facility or multi-facility installations
+
+## Technology Integration Stack
+
+* **Core Framework:** Next.js with TypeScript and comprehensive API routes
+* **Database:** PostgreSQL with advanced features (JSONB, exclusion constraints, indexes)
+* **Real-Time:** MQTT messaging with Redis caching for performance
+* **Desktop:** Electron with auto-updater and cross-platform installers
+* **Streaming:** MJPEG cameras with HLS distribution and CDN support
+* **Authentication:** JWT with HTTP-only cookies and PostgreSQL session management
+* **Business Logic:** ERP integration with automated calculations and reporting
+
+## Performance and Scalability
+
+* **Database Optimization:** Connection pooling, advanced indexing, query optimization
+* **Real-Time Performance:** Sub-100ms MQTT messaging with automatic reconnection
+* **Streaming Scalability:** Concurrent viewer limits with automatic quality adaptation
+* **Caching Strategy:** Redis-based caching with intelligent invalidation
+* **Desktop Performance:** Electron optimization with proper memory management
+* **Multi-Facility Scaling:** Distributed architecture with central oversight capabilities
+
+## Deployment and Installation
+
+* **Complete Installer Packages:** One-click facility setup with database initialization
+* **Automated Database Setup:** Schema creation, demo data population, and configuration
+* **Service Configuration:** Automatic service startup and monitoring
+* **Multi-Platform Support:** Windows, macOS, and Linux installers with proper dependencies
+* **Update Management:** Electron auto-updater with database migration handling
+
+This architecture provides enterprise-grade capabilities for small single-facility deployments to large multi-facility installations while maintaining high performance, security, and user experience standards across all deployment scenarios.

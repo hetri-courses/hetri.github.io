@@ -4,12 +4,12 @@ import { ArrowRightIcon, PlayIcon, CheckCircleIcon, CalendarDaysIcon, VideoCamer
 const features = [
   {
     title: 'PAW Booking System',
-    description: 'Streamlined facility management for pet care staff with comprehensive booking, scheduling, and customer management.',
+    description: 'Streamlined facility management with comprehensive booking, scheduling, and customer management. Includes custom implementations with existing software like Gingr, Petexec, and other platforms.',
     icon: CalendarDaysIcon,
   },
   {
     title: 'TreatTap Live Service',
-    description: 'Real-time treat dispensing with live video streaming. Pet owners can interact with their pets remotely during daycare.',
+    description: 'Pet parents request TreatTap sessions through PAW, facility staff activates when ready, and provides personalized attention with treats during the allotted time.',
     icon: VideoCameraIcon,
   },
   {
@@ -38,14 +38,10 @@ export default function HomePage() {
             Empower pet care facilities with comprehensive management tools and delight pet owners 
             with live TreatTap experiences. The future of pet care is here.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Link href="/contactus?type=schedule-demo" className="btn-primary inline-flex items-center">
               Schedule Demo
               <ArrowRightIcon className="ml-2 h-5 w-5" />
-            </Link>
-            <Link href="/contactus?type=product-demo" className="btn-secondary inline-flex items-center">
-              <PlayIcon className="mr-2 h-5 w-5" />
-              Watch PAW Demo
             </Link>
           </div>
         </div>
@@ -70,22 +66,22 @@ export default function HomePage() {
                 <div className="flex items-start space-x-3">
                   <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Pet Check-In</h4>
-                    <p className="text-gray-600">Facility staff activates TreatTap when your pet is ready for live sessions</p>
+                    <h4 className="font-semibold text-gray-900">TreatTap Request</h4>
+                    <p className="text-gray-600">Pet Parent logs into PAW, and requests a TreatTap for their booked pet on PAW</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Live Connection</h4>
-                    <p className="text-gray-600">Pet owners connect via secure live video stream from anywhere</p>
+                    <h4 className="font-semibold text-gray-900">Staff Activation</h4>
+                    <p className="text-gray-600">Facility Staff receives TreatTap request on PAW and activates TreatTap order when the pet is ready for a live session</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">Treat Interaction</h4>
-                    <p className="text-gray-600">Real-time treat dispensing with instant pet reactions - watch your pet's joy!</p>
+                    <p className="text-gray-600">Facility staff provides personalized attention and care to your pet for the requested duration. Multiple pets can participate in the session, creating a fun social experience. Live chat functionality available for Pro Users.</p>
                   </div>
                 </div>
               </div>
@@ -133,25 +129,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-hetri-primary text-white">
-        <div className="container-max text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Transform Your Pet Care Facility?
-          </h2>
-          <p className="text-xl text-hetri-light mb-8 max-w-2xl mx-auto">
-            Join hundreds of facilities already using PAW and TreatTap to deliver exceptional pet care experiences.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contactus?type=schedule-demo" className="bg-white text-hetri-primary hover:bg-hetri-light font-medium py-3 px-8 rounded-lg transition-colors duration-200">
-              Schedule Your Demo
-            </Link>
-            <Link href="/waitlist" className="border-2 border-white text-white hover:bg-white hover:text-hetri-primary font-medium py-3 px-8 rounded-lg transition-colors duration-200">
-              Join Waitlist
-            </Link>
-          </div>
-        </div>
-      </section>
+
     </div>
   )
 } 

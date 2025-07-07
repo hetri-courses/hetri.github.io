@@ -1,0 +1,52 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Rules for Hetri PAW Platform
+
+This document defines the rules and guidelines that the AI coding assistant must follow when generating or modifying code for the Hetri PAW project. These rules ensure that the assistant's contributions align with our PostgreSQL-based architecture, real-time services, desktop deployment, and enterprise coding standards.
+
+1. **Respect the PostgreSQL-Based Architecture:** The assistant must not introduce architectural patterns that diverge from the established PostgreSQL database system with Next.js API routes, MQTT messaging, and Electron desktop deployment. All code should conform to the defined stack (PostgreSQL, Next.js, TypeScript, MQTT, Redis, Streaming services, ERP integration). Do not suggest reverting to localStorage or Firebase dual database approaches. Any suggestion of major architectural changes should be ignored unless explicitly requested by the team.
+
+2. **Maintain Real-Time Service Integrity:** Preserve the MQTT messaging system for sub-100ms TreatTap communications and streaming service integration. Do not modify MQTT topic namespacing, QoS settings, or reconnection logic without explicit requirements. Maintain the data polling architecture with 30-second intervals and automatic cache invalidation. Respect the established service boundaries between MQTTService, StreamingService, ERPService, and BookingValidationService.
+
+3. **Preserve Database Schema Integrity:** Adhere to the PostgreSQL schema with UUID primary keys, foreign key relationships, exclusion constraints, and JSONB data types. Do not modify database table structures, indexes, or relationships without explicit requirements. Maintain facility-scoped data isolation and role-based access control. Respect the established connection pooling and query optimization patterns.
+
+4. **Follow Multi-Platform Development Patterns:** Maintain compatibility between web and Electron desktop platforms. Preserve Electron main process functionality, auto-updater integration, and native OS features. Do not introduce dependencies that break cross-platform compatibility (Windows, macOS, Linux). Maintain the established responsive design patterns that work across desktop and web environments.
+
+5. **Maintain Security and Authentication Standards:** Preserve JWT-based authentication with HTTP-only cookies and PostgreSQL session management. Do not modify the role-based access control system (customer, staff, admin) or facility-scoped security measures. Maintain input validation, XSS prevention, and CSRF protection patterns. Respect the established invite code system and user onboarding flows.
+
+6. **Preserve ERP and Business Logic Integration:** Maintain the ERPService integration with automated financial calculations, inventory management, and staff scheduling. Do not modify the pgAgent integration or automated business intelligence processing. Preserve the real-time analytics dashboard with percentage change calculations and trend analysis. Respect the established booking validation system with exclusion constraints.
+
+7. **Follow Established API Patterns:** Adhere to the Next.js API route structure in `src/app/api/` with proper error handling and validation. Maintain the established pattern of PostgreSQL integration through the pool connection. Preserve the authentication middleware and role-based endpoint protection. Do not introduce new authentication methods without explicit requirements.
+
+8. **Maintain Streaming and Camera Integration:** Preserve the StreamingService with MJPEG camera support, HLS distribution, and viewer limits (1-3 concurrent). Do not modify camera heartbeat monitoring, stream analytics, or quality adaptation logic. Maintain the established patterns for stream session logging and usage tracking.
+
+9. **Respect Deployment and Installation Patterns:** Maintain the Electron Builder configuration and cross-platform installer support. Preserve the complete installer packages with PostgreSQL bundling and automated database setup. Do not modify the auto-updater system or staged rollout procedures. Respect the facility provisioning system and multi-facility coordination.
+
+10. **Follow Component and Hook Patterns:** Maintain the established custom hooks pattern (useAuth, useDataPolling, usePets, etc.) with PostgreSQL integration. Preserve the React Context providers for global state management. Do not introduce state management libraries that conflict with the established patterns. Maintain the component structure with role-based rendering and facility scoping.
+
+11. **Preserve Performance Optimization:** Maintain the Redis caching implementation and intelligent cache invalidation. Preserve database query optimization with proper indexing and connection pooling. Do not introduce patterns that conflict with the 30-second polling intervals or real-time update mechanisms. Maintain the established error handling with retry mechanisms and exponential backoff.
+
+12. **Follow TypeScript and Code Quality Standards:** Maintain strong typing for all PostgreSQL data models, MQTT messages, streaming protocols, and API responses. Preserve interface definitions for complex business objects and service integrations. Do not introduce any or unknown types without explicit requirements. Maintain the established error type handling for all service integrations.
+
+13. **Respect Desktop Application Patterns:** Maintain the Electron main process structure with proper IPC communication and security. Preserve native OS integration features like system tray, window management, and file system access. Do not introduce patterns that break auto-updater functionality or desktop-specific features. Maintain cross-platform compatibility standards.
+
+14. **Maintain Multi-Facility Architecture:** Preserve facility-scoped data isolation and cross-facility synchronization patterns. Do not modify the central licensing system or usage analytics reporting. Maintain the established patterns for distributed PostgreSQL instances and central oversight. Respect the facility provisioning and remote configuration management systems.
+
+15. **Follow Real-Time Communication Standards:** Maintain MQTT topic namespacing for facility-specific messaging. Preserve WebSocket connections for streaming data and live dashboard updates. Do not modify polling service coordination or event-driven update mechanisms. Maintain the established patterns for cross-component state synchronization.
+
+16. **Preserve Business Intelligence Integration:** Maintain the established analytics dashboard with real-time metrics and percentage calculations. Do not modify the automated financial tracking or inventory management systems. Preserve staff scheduling integration and online status monitoring. Maintain the established patterns for business intelligence visualization and reporting.
+
+17. **Follow Security and Compliance Standards:** Maintain comprehensive audit logging for administrative actions and security monitoring. Preserve data protection measures including facility-scoped isolation and encrypted communications. Do not introduce security vulnerabilities or weaken the established authentication measures. Maintain compliance with established data retention and privacy policies.
+
+18. **Respect Service Integration Boundaries:** Maintain clear separation between database services, real-time messaging, streaming, ERP, and booking validation services. Do not introduce tight coupling between services that breaks the established modularity. Preserve the established service initialization and configuration patterns. Maintain proper error handling and fallback mechanisms for service failures.
+
+19. **Follow Deployment and Update Patterns:** Maintain the established installer build processes and dependency management. Preserve database migration handling and version compatibility checking. Do not introduce changes that break the automated deployment or update systems. Maintain the established patterns for staged rollouts and rollback capabilities.
+
+20. **Maintain Code Documentation and Patterns:** When generating code for complex PostgreSQL operations, MQTT messaging, or streaming integration, include clear comments explaining the business logic and technical requirements. Maintain consistency with established naming conventions for database tables, API endpoints, and service methods. Preserve the established patterns for error messages and user feedback.
+
+21. **Maintain Documentation Standards:** All system documentation must be kept current and consolidated into two primary manuals: the PAW Admin Manual (for facility workers and administrators) and the PAW Parent Manual (for end-users/customers). Technical documentation in the `/market/manuals/` directory should be regularly reviewed and consolidated to prevent outdated information. When implementing new features, update the relevant manual sections to reflect current functionality. Remove obsolete installer scripts and documentation files that are superseded by newer, comprehensive versions.
+
+By following these rules, the AI assistant will produce code that is consistent, secure, and aligned with the Hetri PAW platform's enterprise-grade architecture. These rules help ensure that AI contributions enhance the platform without introducing technical debt, security vulnerabilities, or architectural inconsistencies that could impact the multi-facility deployment capabilities and real-time service performance.

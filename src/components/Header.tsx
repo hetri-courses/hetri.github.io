@@ -10,9 +10,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/aboutus' },
+  { name: 'Pricing', href: '/pricing' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contactus' },
-  { name: 'Waitlist', href: '/waitlist' },
 ]
 
 export default function Header() {
@@ -45,25 +45,30 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8 font-syne-mono">
+        <div className="hidden md:flex items-center space-x-6 font-syne-mono">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-lg font-medium transition-colors duration-200 font-syne-mono ${
+              className={`relative text-base font-bold transition-all duration-200 font-syne-mono tracking-tight group ${
                 pathname === item.href
                   ? 'text-hetri-primary'
-                  : 'text-gray-700 hover:text-hetri-primary'
+                  : 'text-gray-800 hover:text-hetri-primary'
               }`}
             >
               {item.name}
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-hetri-primary transition-all duration-200 ${
+                pathname === item.href 
+                  ? 'w-full' 
+                  : 'w-0 group-hover:w-full'
+              }`}></span>
             </Link>
           ))}
           
           {/* Login Button */}
           <button
             onClick={handleLogin}
-            className="flex items-center space-x-2 px-5 py-2.5 rounded-full border-2 border-hetri-primary text-hetri-primary hover:bg-hetri-primary hover:text-white text-base font-medium transition-all duration-200 font-syne-mono"
+            className="flex items-center space-x-2 px-6 py-3 rounded-xl border-2 border-hetri-primary text-hetri-primary hover:bg-hetri-primary hover:text-white text-sm font-bold transition-all duration-200 font-syne-mono hover:scale-105 hover:shadow-lg hover:shadow-hetri-primary/25"
             title="Hetri Login"
           >
             <UserIcon className="h-5 w-5" />
@@ -96,15 +101,15 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-gray-200 font-syne-mono"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-6 space-y-6">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block text-lg font-medium font-syne-mono ${
+                  className={`block text-base font-bold font-syne-mono tracking-tight py-2 transition-all duration-200 ${
                     pathname === item.href
-                      ? 'text-hetri-primary'
-                      : 'text-gray-700 hover:text-hetri-primary'
+                      ? 'text-hetri-primary border-l-4 border-hetri-primary pl-4'
+                      : 'text-gray-800 hover:text-hetri-primary hover:pl-2'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -113,7 +118,7 @@ export default function Header() {
               ))}
               <button
                 onClick={handleLogin}
-                className="flex items-center space-x-2 w-full px-4 py-2.5 rounded-lg border-2 border-hetri-primary text-hetri-primary hover:bg-hetri-primary hover:text-white transition-colors duration-200 font-syne-mono text-base"
+                className="flex items-center space-x-2 w-full px-4 py-3 rounded-xl border-2 border-hetri-primary text-hetri-primary hover:bg-hetri-primary hover:text-white transition-all duration-200 font-syne-mono text-sm font-bold hover:shadow-lg"
               >
                 <UserIcon className="h-5 w-5" />
                 <span className="font-syne-mono">Hetri Login</span>

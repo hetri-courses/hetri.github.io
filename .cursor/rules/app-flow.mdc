@@ -1,0 +1,98 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Hetri PAW Application Flow Documentation
+
+This document describes the complete user flows for the Hetri PAW platform, covering web and desktop applications with PostgreSQL database, real-time MQTT messaging, streaming services, and comprehensive facility management capabilities.
+
+## PAW Parent (Customer) Application Flow
+
+### Onboarding and Account Setup
+
+1. **Initial Access and Registration:** PAW Parents access the platform through either web browser or Electron desktop application. New users register through the PostgreSQL-based authentication system with email verification and secure password requirements. Registration includes role selection (automatically set to 'customer') and facility linking through invite codes or QR code scanning provided by the facility.
+
+2. **Facility and Pet Association:** After authentication, PAW Parents must link to their facility and pet(s) through the secure invite code system. The facility admin provides a unique invite code that encodes facility ID and user permissions. Once linked, the system creates a PAW parent profile with emergency contacts, preferences, and comprehensive pet records including medical history, dietary restrictions, and behavioral notes.
+
+3. **Profile Completion and Pet Management:** The system guides users through comprehensive profile setup including emergency contact information, communication preferences, and detailed pet profiles. Pet records include medical history, dietary restrictions, behavioral notes, emergency veterinarian contacts, and photo uploads. The PostgreSQL database maintains complete audit trails and relationship mapping between owners, pets, and facilities.
+
+### TreatTap Booking and Real-Time Services
+
+1. **Advanced Booking System:** PAW Parents access the booking interface through role-based dashboard routing. The booking system integrates with PostgreSQL exclusion constraints to prevent double-booking and validates against facility operating hours, staff availability, and camera capacity (1-3 concurrent viewers). Real-time availability checking ensures immediate feedback on booking conflicts and suggests alternative time slots.
+
+2. **Real-Time TreatTap Communication:** Once a TreatTap session begins, the MQTT messaging system provides sub-100ms latency communication between PAW Parents and facility staff. Parents can send TreatTap requests through the authenticated interface, which immediately triggers real-time notifications to staff through facility-specific MQTT topics. The system provides instant feedback and confirmation when treats are delivered.
+
+3. **Live Streaming Integration:** When camera streaming is available, PAW Parents can access live MJPEG feeds through HLS distribution with CDN support. The streaming service manages concurrent viewer limits (1-3 per stream) and provides automatic quality adaptation based on network conditions. Stream analytics track usage patterns and provide insights for facility management.
+
+### Session Monitoring and Analytics
+
+1. **Real-Time Session Dashboard:** During active sessions, PAW Parents can monitor their pet through the real-time dashboard with live updates every 30 seconds. The interface shows session progress, treats delivered, staff interactions, and live camera feeds when available. Real-time polling services provide immediate updates without manual refresh requirements.
+
+2. **Historical Analytics and Insights:** The PostgreSQL-based analytics system provides comprehensive session history with treat delivery logs, session duration tracking, and pet activity insights. Parents can review past sessions, track usage patterns, and receive personalized recommendations based on their pet's preferences and behavior patterns.
+
+3. **Communication and Feedback:** The platform provides real-time messaging capabilities between PAW Parents and facility staff through MQTT integration. Parents can leave session feedback, rate their experience, and communicate special requests or concerns. The system maintains complete communication history and integrates with facility CRM systems.
+
+## PAW Associate (Staff) Application Flow
+
+### Daily Operations and Session Management
+
+1. **Staff Authentication and Online Status:** PAW Associates log in through the PostgreSQL-based authentication system with role-based access control. The system automatically tracks online status and availability for TreatTap assignments. Staff schedules integrate with the booking system to ensure proper coverage and prevent assignment conflicts.
+
+2. **Real-Time TreatTap Notifications:** When PAW Parents submit TreatTap requests, the MQTT messaging system immediately alerts available staff through facility-specific topics. Notifications include pet information, owner details, special instructions, and session context. Staff can acknowledge requests and provide real-time status updates through the mobile-responsive interface.
+
+3. **Pet Care Documentation:** PAW Associates access comprehensive pet records through the PostgreSQL database including medical history, behavioral notes, dietary restrictions, and owner preferences. They can update pet records in real-time, log care activities, and document any incidents or observations for parent communication and facility records.
+
+### Schedule and Task Management
+
+1. **Dynamic Scheduling System:** The ERP integration provides real-time staff scheduling with automatic conflict detection and time slot management. Staff can view their assignments, update availability, and manage time slots for TreatTap sessions and other facility activities. The system integrates with the booking validation service to ensure proper coverage.
+
+2. **Inventory and Supply Management:** PAW Associates have access to inventory management systems with real-time stock levels, automated reordering alerts, and supply tracking. The ERP integration provides low-stock notifications and automated purchase requisitions based on usage patterns and facility requirements.
+
+3. **Customer Communication:** Staff can communicate directly with PAW Parents through the integrated messaging system with MQTT real-time delivery. They can send session updates, share photos or videos, and respond to parent inquiries with immediate notification delivery.
+
+## PAW Admin (Facility Management) Application Flow
+
+### Comprehensive Facility Dashboard
+
+1. **Real-Time Business Intelligence:** PAW Admins access the Electron desktop application with native OS integration and multi-monitor support. The dashboard provides real-time analytics with 30-second polling intervals including revenue tracking, customer retention metrics, staff performance indicators, and operational efficiency measurements with percentage change calculations and trend analysis.
+
+2. **Advanced Staff Management:** The ERP system provides comprehensive staff scheduling with drag-and-drop interfaces, automatic conflict detection, and performance tracking. Admins can manage staff permissions, track online status, monitor productivity metrics, and handle payroll integration with automated time tracking and reporting capabilities.
+
+3. **Customer Relationship Management:** The PostgreSQL-based CRM system provides detailed customer profiles, pet management, communication history, and retention analytics. Admins can track customer satisfaction, manage billing and payments, and analyze usage patterns to optimize service offerings and pricing strategies.
+
+### Financial and Operations Management
+
+1. **Advanced Financial Tracking:** The ERP integration provides real-time financial management with automated revenue and expense calculations, profit margin analysis, and cash flow forecasting. The system tracks TreatTap session revenue, facility utilization rates, and customer lifetime value with comprehensive reporting and export capabilities.
+
+2. **Inventory and Supply Chain:** Automated inventory management with PostgreSQL-based tracking provides real-time stock levels, automated reordering triggers, supplier management, and cost analysis. The system integrates with accounting platforms and provides predictive analytics for inventory optimization and cost reduction.
+
+3. **Performance Analytics and Reporting:** Comprehensive business intelligence with customizable dashboards, automated report generation, and data visualization. Admins can track key performance indicators, analyze trends, and generate reports for stakeholder communication and business planning purposes.
+
+### Camera and Streaming Management
+
+1. **Advanced Camera Administration:** The streaming service provides comprehensive camera management with real-time status monitoring, viewer analytics, and stream quality management. Admins can configure camera settings, manage viewer limits (1-3 concurrent), and monitor stream performance with detailed analytics and usage tracking.
+
+2. **Stream Analytics and Optimization:** Detailed streaming analytics provide insights into viewer behavior, stream quality metrics, bandwidth utilization, and customer engagement patterns. The system provides recommendations for camera placement, stream optimization, and customer experience improvements.
+
+## Multi-Facility and Enterprise Management
+
+### Centralized Oversight and Management
+
+1. **Multi-Facility Dashboard:** Hetri Admins access centralized oversight dashboards with comprehensive metrics across all facilities including license management, usage analytics, performance comparisons, and system health monitoring. The distributed PostgreSQL architecture provides facility isolation while enabling central business intelligence.
+
+2. **License and Configuration Management:** Central licensing system with automated validation, remote configuration updates, and feature management across facilities. The system provides usage analytics, compliance monitoring, and automated billing integration for enterprise accounts with comprehensive audit trails.
+
+3. **System Monitoring and Support:** Real-time system health monitoring including PostgreSQL performance, MQTT broker status, streaming server capacity, and application performance metrics. Automated alerting systems provide immediate notification of issues with escalation procedures and technical support integration.
+
+### Deployment and Update Management
+
+1. **Automated Deployment System:** Complete installer packages with PostgreSQL bundling, automated database setup, and facility-specific configuration. The Electron auto-updater provides staged rollout procedures, database migration handling, and rollback capabilities with minimal downtime requirements.
+
+2. **Version Management and Compatibility:** Comprehensive version control with compatibility checking, dependency management, and feature rollout coordination across facilities. The system ensures consistent user experience while allowing facility-specific customization and branding options.
+
+This comprehensive application flow documentation reflects the current state of the Hetri PAW platform as an enterprise-grade facility management system with advanced real-time capabilities, desktop deployment, and scalable multi-facility architecture supporting diverse user needs and business requirements.
+
+### Internal Rules & Security (Hetri Admin)
+
+Hetri Admins have superuser privileges, so their actions should be carefully controlled. They likely have a separate, highly secure login. Actions like deleting a tenant or accessing a live stream of a pet should prompt confirmation or logging for audit. For example, if a Hetri Admin views a camera feed for support, it should be logged “Admin X accessed Bella’s stream for support purposes at 3:00pm” to maintain trust. MVP should lay groundwork for such auditing even if not fully implemented immediately.

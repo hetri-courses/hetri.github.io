@@ -1,48 +1,49 @@
 'use client'
 
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 
 const faqs = [
   {
     question: "What is PAW and how does it work?",
-    answer: "PAW (Professional Animal Works) is our comprehensive facility management system designed specifically for pet care facilities. It streamlines booking, scheduling, customer management, and integrates seamlessly with our TreatTap live service for real-time pet interaction."
+    answer: "PAW (Professional Animal Works) is our comprehensive facility management platform designed specifically for pet care facilities. It streamlines booking, scheduling, customer management, and integrates seamlessly with our TreatTap service. We also offer custom implementations with existing pet booking software like Gingr, Petexec, and other platforms."
   },
   {
-    question: "How does TreatTap enhance the pet care experience?",
-    answer: "TreatTap enables real-time treat dispensing with live video streaming. Pet owners can connect remotely to watch their pets and dispense treats in real-time, creating meaningful interactions even when they're away. This reduces pet anxiety and gives owners peace of mind."
+    question: "How does TreatTap work?",
+    answer: "TreatTap is a three-step process: Pet Parents log into PAW and request a TreatTap session for their booked pet. Facility staff receives the request and activates the TreatTap order when the pet is ready. Staff then provides personalized attention and care for the requested duration, with multiple pets able to participate in the session for a fun social experience."
   },
   {
-    question: "What makes the Hetri Camera different from regular pet cameras?",
-    answer: "Our Hetri Camera is specifically designed for pet care facilities with weatherproof construction, HD live streaming, collar-attachment capability, and seamless integration with our PAW management system. It's built for commercial use with enterprise-grade reliability."
+    question: "What are your pricing plans?",
+    answer: "We offer three transparent pricing tiers: Standard ($50/mo + $50/mo per camera), Business ($250/mo + $50/mo per camera), and Pro ($1000/mo + $20/mo per camera). All plans include unlimited storage, access to newest features, and custom implementations with existing booking software. Pro users get live chat functionality and unlimited cameras."
   },
   {
-    question: "How long does implementation typically take?",
-    answer: "Implementation varies by facility size and complexity. Our fast-track process can have you up and running in as little as one week, while more comprehensive setups with custom integrations may take 2-4 weeks. We provide full support throughout the process."
+    question: "How do TreatTap earnings work?",
+    answer: "TreatTap generates additional revenue for your facility through our earnings share model: Standard plans get 75/25 split, Business gets 60/40 split, and Pro gets 30/70 split. This creates a new revenue stream while providing enhanced services to pet parents."
   },
   {
-    question: "Is training provided for staff?",
-    answer: "Absolutely! We provide comprehensive training for all staff members, including hands-on sessions, video tutorials, and ongoing support. Our goal is to ensure your team feels confident and comfortable using all PAW and TreatTap features."
+    question: "Can you integrate with our existing booking software?",
+    answer: "Absolutely! We specialize in custom implementations with existing pet booking software including Gingr, Petexec, and other platforms. Our technical team ensures seamless integration so you can keep using familiar systems while adding TreatTap capabilities."
   },
   {
-    question: "What kind of support is available after implementation?",
-    answer: "We offer multiple levels of support including 30-minute priority technical support, regular system updates, troubleshooting assistance, and ongoing consultation to help optimize your operations. Our support team is always standing by."
+    question: "What makes Hetri Cameras special?",
+    answer: "Hetri Cameras are specifically designed for commercial pet care with weatherproof construction, HD live streaming, and seamless PAW integration. They attach securely to collars and provide reliable performance in facility environments. Camera pricing varies by plan tier."
   },
   {
-    question: "Can PAW integrate with our existing systems?",
-    answer: "Yes! PAW is designed with integration in mind. We can connect with most existing booking systems, payment processors, and customer management platforms. Our technical team will work with you to ensure seamless integration."
+    question: "Do all customers get the same features?",
+    answer: "We don't play favorites here (Sorry Pro Clients!)! All plans include access to our newest features, unlimited facilities with multi-tenant support, and custom implementations with existing software. The main differences are camera limits, TreatTap duration options, and earnings share percentages."
   },
   {
-    question: "What are the hardware requirements?",
-    answer: "PAW is cloud-based, so you'll need reliable internet connectivity and basic computer access. For TreatTap, we provide all necessary hardware including cameras, treat dispensers, and mounting equipment. We handle the technical setup."
+    question: "What TreatTap session lengths are available?",
+    answer: "Session lengths vary by plan: Standard offers 5-minute sessions, Business adds 15-minute sessions, and Pro includes 5-minute, 15-minute, and 1-hour sessions. Pro users also get TreatTap extensions with live-stream chat and custom treat options."
   },
   {
-    question: "How does pricing work?",
-    answer: "We offer flexible pricing based on facility size, number of pets, and features needed. Our business team provides customized quotes after understanding your specific requirements. We believe in transparent, value-based pricing."
+    question: "How long does implementation take?",
+    answer: "Implementation typically takes 1-2 weeks depending on your facility size and integration requirements. For existing booking software integrations, we may need additional time to ensure seamless connectivity. We provide full support and training throughout the process."
   },
   {
-    question: "What happens if there's a technical issue?",
-    answer: "Our priority technical support responds within 30 minutes for urgent issues. We also provide remote troubleshooting, phone support, and if needed, on-site assistance. Reliability is our top priority."
+    question: "What happens if I need technical support?",
+    answer: "All plans include comprehensive technical support. We provide troubleshooting assistance, system updates, and ongoing consultation. Our team responds quickly to ensure your operations run smoothly, because facility downtime isn't an option."
   }
 ]
 
@@ -110,18 +111,18 @@ export default function FAQPage() {
             Our team is here to help! Get personalized answers and schedule a demo to see PAW and TreatTap in action.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="mailto:hello@hetri.org?subject=FAQ Follow-up Questions"
+            <Link
+              href="/contactus?type=general-questions"
               className="bg-white text-hetri-primary hover:bg-hetri-light font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Ask a Question
-            </a>
-            <a
-              href="mailto:demo@hetri.org?subject=Product Demo Request"
+            </Link>
+            <Link
+              href="/contactus?type=schedule-demo"
               className="border-2 border-white text-white hover:bg-white hover:text-hetri-primary font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Schedule Demo
-            </a>
+            </Link>
           </div>
         </div>
       </section>

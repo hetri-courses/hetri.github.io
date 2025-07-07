@@ -14,11 +14,10 @@ export default function Footer() {
           
           <div>
             <h4 className="font-semibold mb-4">Solutions</h4>
-            <ul className="space-y-2">
-              <li><Link href="/aboutus" className="text-hetri-light hover:text-white transition-colors">About Us</Link></li>
-                              <li><Link href="/waitlist" className="text-hetri-light hover:text-white transition-colors">Waitlist</Link></li>
+                          <ul className="space-y-2">
+                <li><Link href="/aboutus" className="text-hetri-light hover:text-white transition-colors">About Us</Link></li>
                 <li><Link href="/contactus" className="text-hetri-light hover:text-white transition-colors">Contact</Link></li>
-            </ul>
+              </ul>
           </div>
           
           <div>
@@ -32,7 +31,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Connect</h4>
             <p className="text-hetri-light">
-              Ready to transform your facility?
+              Questions about our platform?
             </p>
             <Link href="/contactus" className="inline-block mt-4 bg-white text-hetri-primary px-6 py-2 rounded-lg font-medium hover:bg-hetri-light transition-colors">
               Get Started

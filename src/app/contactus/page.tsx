@@ -223,10 +223,10 @@ function ContactUsContent() {
               Send Direct Email
             </a>
             <Link
-              href="/waitlist"
+              href="/pricing"
               className="border-2 border-white text-white hover:bg-white hover:text-hetri-primary font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
-              Join Our Waitlist
+              View Pricing
             </Link>
           </div>
         </div>
