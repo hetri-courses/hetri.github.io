@@ -21,7 +21,7 @@ export default function Header() {
 
   const handleLogin = () => {
     // Direct facilities to contact us for account setup and login access
-    window.location.href = 'https://paw.hetri.org'
+    window.location.href = '/contactus?subject=Facility Login Setup Request'
   }
 
   return (
@@ -69,10 +69,10 @@ export default function Header() {
           <button
             onClick={handleLogin}
             className="flex items-center space-x-2 px-6 py-3 rounded-xl border-2 border-hetri-primary text-hetri-primary hover:bg-hetri-primary hover:text-white text-sm font-bold transition-all duration-200 font-syne-mono hover:scale-105 hover:shadow-lg hover:shadow-hetri-primary/25"
-            title="PAW Login"
+            title="Hetri Login"
           >
             <UserIcon className="h-5 w-5" />
-            <span className="font-syne-mono">PAW Login</span>
+            <span className="font-syne-mono">Hetri Login</span>
           </button>
         </div>
 
@@ -121,7 +121,7 @@ export default function Header() {
                 className="flex items-center space-x-2 w-full px-4 py-3 rounded-xl border-2 border-hetri-primary text-hetri-primary hover:bg-hetri-primary hover:text-white transition-all duration-200 font-syne-mono text-sm font-bold hover:shadow-lg"
               >
                 <UserIcon className="h-5 w-5" />
-                <span className="font-syne-mono">PAW Login</span>
+                <span className="font-syne-mono">Hetri Login</span>
               </button>
             </div>
           </motion.div>
