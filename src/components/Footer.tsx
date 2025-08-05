@@ -14,10 +14,10 @@ export default function Footer() {
           
           <div>
             <h4 className="font-semibold mb-4">Solutions</h4>
-                          <ul className="space-y-2">
-                <li><Link href="/aboutus" className="text-hetri-light hover:text-white transition-colors">About Us</Link></li>
+            <ul className="space-y-2">
+              <li><Link href="/aboutus" className="text-hetri-light hover:text-white transition-colors">About Us</Link></li>
                 <li><Link href="/contactus" className="text-hetri-light hover:text-white transition-colors">Contact</Link></li>
-              </ul>
+            </ul>
           </div>
           
           <div>

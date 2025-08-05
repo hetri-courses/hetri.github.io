@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRightIcon, PlayIcon, CheckCircleIcon, CalendarDaysIcon, VideoCameraIcon, CameraIcon, BoltIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon, CheckCircleIcon, CalendarDaysIcon, VideoCameraIcon, CameraIcon, BoltIcon } from '@heroicons/react/24/outline'
 
 const features = [
   {
@@ -91,10 +91,14 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="aspect-video bg-hetri-accent rounded-lg flex items-center justify-center">
-                <PlayIcon className="h-16 w-16 text-hetri-primary" />
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <img 
+                  src="/DogPhoto.png" 
+                  alt="Happy dog wearing Hetri camera"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <p className="text-center text-gray-600 mt-4">TreatTap Demo Video</p>
+              <p className="text-center text-gray-600 mt-4">Happy pup with Hetri Camera</p>
             </div>
           </div>
         </div>

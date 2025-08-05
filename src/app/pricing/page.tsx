@@ -6,57 +6,25 @@ import { CheckIcon } from '@heroicons/react/24/outline'
 
 
 
-const pricingTiers = [
-  {
-    name: 'Standard',
-    monthlyPrice: 50,
-    cameraPrice: 50,
-    description: 'Perfect for small facilities',
-    features: [
-      'Unlimited storage',
-      '1 Hetri Camera',
-      'TreatTap: 5 minutes',
-      'TreatTap Earnings Share: 75/25',
-      'PAW Analytic Reports',
-    ],
-    cta: 'Get Standard',
-    ctaHref: '/contactus?type=standard-plan',
-    popular: false,
-  },
-  {
-    name: 'Business',
-    monthlyPrice: 250,
-    cameraPrice: 50,
-    description: 'Ideal for growing businesses',
-    features: [
-      'Unlimited storage',
-      '1–5 Hetri Cameras',
-      'TreatTap: 5 min, 15 min',
-      'TreatTap Revenue Share: 60/40',
-      'PAW Analytic Reports',
-    ],
-    cta: 'Get Business',
-    ctaHref: '/contactus?type=business-plan',
-    popular: true,
-  },
-  {
-    name: 'Pro',
-    monthlyPrice: 1000,
-    cameraPrice: 20,
-    description: 'Complete solution for scale',
-    features: [
-      'Unlimited storage',
-      'Unlimited Hetri Cameras',
-      'TreatTap: 5 min, 15 min, 1 hr',
-      'TreatTap Earnings Share: 30/70',
-      'TreatTap extension: live-stream chat, custom treat options',
-      'PAW Analytic Reports',
-    ],
-    cta: 'Get Pro',
-    ctaHref: '/contactus?type=pro-plan',
-    popular: false,
-  },
-]
+const pricingPlan = {
+  name: 'Hetri Platform',
+  monthlyPrice: 1000,
+  description: 'Complete pet care management and TreatTap solution',
+  features: [
+    'Unlimited storage and facilities',
+    '5 Hetri cameras included',
+    'Additional cameras: $50/month each',
+    'TreatTap sessions: 5 min, 15 min, 30 min',
+    'TreatTap Premium: Enhanced sessions with extra treats and 25% longer duration',
+    '10% Hetri fee per TreatTap session',
+    '90% revenue share to your facility',
+    'Custom implementations with existing booking software',
+    'Live Events Planner and analytics',
+    'Priority technical support',
+  ],
+  cta: 'Get Started',
+  ctaHref: '/contactus?type=platform-plan',
+}
 
 export default function PricingPage() {
   const [isYearly, setIsYearly] = useState(false)
@@ -128,93 +96,61 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* Pricing Cards */}
+      {/* Pricing Card */}
       <div className="container-max pb-16">
-        <div className="grid lg:grid-cols-3 gap-6">
-          {pricingTiers.map((tier, index) => {
-            const price = calculatePrice(tier.monthlyPrice)
-            const originalYearlyPrice = calculateOriginalYearlyPrice(tier.monthlyPrice)
-            const isCustom = tier.monthlyPrice === null
+        <div className="max-w-lg mx-auto">
+          <div className="bg-white rounded-xl border border-hetri-primary shadow-lg ring-1 ring-hetri-primary p-8 relative">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+              <span className="bg-hetri-primary text-white px-4 py-2 rounded-full text-sm font-semibold">
+                One Simple Plan
+              </span>
+            </div>
 
-            return (
-              <div
-                key={tier.name}
-                className={`bg-white rounded-xl border p-6 relative transition-all duration-200 hover:shadow-lg flex flex-col h-full ${
-                  tier.popular
-                    ? 'border-hetri-primary shadow-lg ring-1 ring-hetri-primary'
-                    : 'border-gray-200 hover:border-gray-300'
-                }`}
-              >
-                {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-hetri-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
-                      Most Popular
-                    </span>
+            {/* Header Section */}
+            <div className="text-center mb-8 pt-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">{pricingPlan.name}</h3>
+              <p className="text-gray-600 mb-6">{pricingPlan.description}</p>
+              
+              <div className="mb-6">
+                {isYearly && calculateOriginalYearlyPrice(pricingPlan.monthlyPrice) !== calculatePrice(pricingPlan.monthlyPrice) ? (
+                  <div>
+                    <div className="text-sm text-red-500 line-through font-medium">
+                      ${calculateOriginalYearlyPrice(pricingPlan.monthlyPrice)}/year
+                    </div>
+                    <div className="text-4xl font-bold text-gray-900">
+                      ${calculatePrice(pricingPlan.monthlyPrice)}<span className="text-xl text-gray-500 font-medium">/year</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="text-4xl font-bold text-gray-900">
+                    ${calculatePrice(pricingPlan.monthlyPrice)}<span className="text-xl text-gray-500 font-medium">/{isYearly ? 'year' : 'mo'}</span>
                   </div>
                 )}
-
-                {/* Header Section - Fixed Height */}
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 h-6">{tier.name}</h3>
-                  <p className="text-sm text-gray-600 mb-4 h-10 flex items-center justify-center">{tier.description}</p>
-                  
-                  {isCustom ? (
-                    <div className="mb-4 h-20 flex flex-col justify-center">
-                      <span className="text-3xl font-bold text-gray-900">Custom</span>
-                    </div>
-                  ) : (
-                    <div className="mb-4 h-20 flex flex-col justify-center">
-                      {isYearly && originalYearlyPrice && price && originalYearlyPrice !== price ? (
-                        <div>
-                          <div className="text-sm text-red-500 line-through font-medium">
-                            ${originalYearlyPrice}/year
-                          </div>
-                          <div className="text-3xl font-bold text-gray-900">
-                            ${price}<span className="text-lg text-gray-500 font-medium">/year</span>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="text-3xl font-bold text-gray-900">
-                          ${price}<span className="text-lg text-gray-500 font-medium">/{isYearly ? 'year' : 'mo'}</span>
-                        </div>
-                      )}
-                      {!isCustom && (
-                        <div className="text-sm text-gray-500 mt-1">
-                          + ${tier.cameraPrice}/{isYearly ? 'year' : 'mo'} per Hetri camera
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-
-                {/* Features Section - Flexible Height */}
-                <div className="flex-grow">
-                  <ul className="space-y-3">
-                    {tier.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <CheckIcon className="h-4 w-4 text-hetri-primary mt-0.5 mr-3 flex-shrink-0" />
-                        <span className="text-sm text-gray-700 leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Button Section - Fixed at Bottom */}
-                <div className="pt-8">
-                  <Link
-                    href={tier.ctaHref}
-                    className={`block w-full text-center py-3 px-4 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                      tier.popular
-                        ? 'bg-hetri-primary text-white hover:bg-hetri-secondary'
-                        : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
-                    }`}
-                  >
-                    {tier.cta}
-                  </Link>
-                </div>
               </div>
-            )
-          })}
+            </div>
+
+            {/* Features Section */}
+            <div className="mb-8">
+              <ul className="space-y-4">
+                {pricingPlan.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start">
+                    <CheckIcon className="h-5 w-5 text-hetri-primary mt-0.5 mr-3 flex-shrink-0" />
+                    <span className="text-gray-700 leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Button Section */}
+            <div>
+              <Link
+                href={pricingPlan.ctaHref}
+                className="block w-full text-center py-4 px-6 rounded-lg text-base font-bold bg-hetri-primary text-white hover:bg-hetri-secondary transition-colors duration-200"
+              >
+                {pricingPlan.cta}
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
