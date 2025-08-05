@@ -82,11 +82,11 @@ export default function HomePage() {
                       {/* Dynamic Island */}
                       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-18 px-2 h-full">
+                      <div className="pt-14 px-0 h-full">
                         <img 
                           src="/treattap-demo-interface.png" 
                           alt="TreatTap Mobile Interface"
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     </div>
@@ -142,11 +142,11 @@ export default function HomePage() {
                         {/* Dynamic Island */}
                         <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full"></div>
                         {/* Content Area */}
-                        <div className="pt-20 px-2 h-full">
+                        <div className="pt-16 px-0 h-full">
                           <img 
                             src="/paw-mobile-app-demo.png" 
                             alt="PAW Platform Demo"
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-cover"
                           />
                         </div>
                       </div>
@@ -191,10 +191,10 @@ export default function HomePage() {
                         {/* Dynamic Island */}
                         <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full"></div>
                         {/* Content Area */}
-                        <div className="pt-20 px-2 h-full">
+                        <div className="pt-16 px-0 h-full">
                           <video 
                             src="/paw-mobile-app-demo.mp4" 
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-cover"
                             autoPlay
                             muted
                             loop

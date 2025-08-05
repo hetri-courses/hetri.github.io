@@ -40,11 +40,11 @@ export default function TreatTapPage() {
                       {/* Dynamic Island */}
                       <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-14 px-2 h-full">
+                      <div className="pt-12 px-0 h-full">
                         <img 
                           src="/treattap-request.png" 
                           alt="TreatTap Request Interface"
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     </div>
@@ -65,11 +65,11 @@ export default function TreatTapPage() {
                       {/* Dynamic Island */}
                       <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-14 px-2 h-full">
+                      <div className="pt-12 px-0 h-full">
                         <img 
                           src="/treattap-staff.png" 
                           alt="Staff TreatTap Interface"
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     </div>
@@ -90,10 +90,10 @@ export default function TreatTapPage() {
                       {/* Dynamic Island */}
                       <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-14 px-2 h-full">
+                      <div className="pt-12 px-0 h-full">
                         <video 
                           src="/treattap-live-session.mp4" 
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-cover"
                           autoPlay
                           muted
                           loop
@@ -118,11 +118,11 @@ export default function TreatTapPage() {
                       {/* Dynamic Island */}
                       <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-14 px-2 h-full">
+                      <div className="pt-12 px-0 h-full">
                         <img 
                           src="/treattap-parent-view.png" 
                           alt="Parent Viewing TreatTap Session"
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     </div>
