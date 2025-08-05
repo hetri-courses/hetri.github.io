@@ -14,10 +14,9 @@ const pricingPlan = {
     'Unlimited storage and facilities',
     '5 Hetri cameras included',
     'Additional cameras: $100/month each',
-    'TreatTap sessions: 5 min, 15 min, 30 min',
+    'TreatTap sessions: 5 min, 10 min, 30 min',
     'TreatTap Premium: Enhanced sessions with extra treats and 25% longer duration',
-    '10% transaction fee per TreatTap session',
-    '90% revenue share to your facility',
+    '10% transaction fees (for all fees including bookings, etc)',
     'Custom implementations with existing booking software',
     'Priority technical support',
   ],
@@ -158,7 +157,7 @@ export default function PricingPage() {
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">What TreatTap session options are available?</h3>
-              <p className="text-gray-600">We offer 5-minute sessions ($20), 15-minute sessions ($35), 30-minute sessions ($100), plus dog walks at 20 minutes ($150) and 30 minutes ($200). All pricing includes our 10% transaction fee.</p>
+              <p className="text-gray-600">We offer 5-minute sessions ($20), 10-minute sessions ($35), 30-minute sessions ($90), plus dog walks at 20 minutes ($150) and 30 minutes ($200). All pricing includes our 10% transaction fee.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
