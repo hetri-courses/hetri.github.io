@@ -16,37 +16,6 @@ import ContactForm from '../../components/ContactForm'
 
 const contactCards = [
   {
-    icon: UserGroupIcon,
-    title: 'Business Partnerships',
-    description: 'Ready to integrate PAW and Hetri Camera into your facility? Let\'s discuss pricing, implementation, and custom solutions.',
-    responseTime: '1-2 business days',
-    email: 'partnerships@hetri.org',
-    status: 'Business team available',
-    priority: false,
-    formType: 'general-questions' as const
-  },
-  {
-    icon: PresentationChartLineIcon,
-    title: 'Product Demo',
-    description: 'See PAW and TreatTap in action. Schedule a personalized demo to experience our platform firsthand.',
-    responseTime: '4-6 hours',
-    email: 'demo@hetri.org',
-    status: 'Demo specialists online',
-    priority: false,
-    formType: 'product-demo' as const
-  },
-  {
-    icon: WrenchScrewdriverIcon,
-    title: 'Technical Support',
-    description: 'Need help with implementation, integration, or troubleshooting? Our technical team provides priority support.',
-    responseTime: '30 minutes',
-    email: 'support@hetri.org',
-    status: 'Support team standing by',
-    priority: true,
-    formType: 'technical-support' as const,
-    disclaimer: 'Technical support is only available for existing Hetri account holders.'
-  },
-  {
     icon: QuestionMarkCircleIcon,
     title: 'General Questions',
     description: 'Have questions about our products, pricing, or how Hetri can help your facility? We\'re here to help.',
@@ -139,8 +108,8 @@ function ContactUsContent() {
 
       {/* Contact Cards Section */}
       <section className="bg-white px-4 sm:px-6 lg:px-8 py-16">
-        <div className="container-max max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-6">
+        <div className="container-max max-w-2xl">
+          <div className="flex justify-center">
             {contactCards.map((card, index) => (
               <div
                 key={index}

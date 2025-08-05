@@ -13,17 +13,16 @@ const pricingPlan = {
   features: [
     'Unlimited storage and facilities',
     '5 Hetri cameras included',
-    'Additional cameras: $50/month each',
+    'Additional cameras: $100/month each',
     'TreatTap sessions: 5 min, 15 min, 30 min',
     'TreatTap Premium: Enhanced sessions with extra treats and 25% longer duration',
-    '10% Hetri fee per TreatTap session',
+    '10% transaction fee per TreatTap session',
     '90% revenue share to your facility',
     'Custom implementations with existing booking software',
-    'Live Events Planner and analytics',
     'Priority technical support',
   ],
-  cta: 'Get Started',
-  ctaHref: '/contactus?type=platform-plan',
+  cta: 'Buy Now',
+  ctaHref: 'https://paw.hetri.org',
 }
 
 export default function PricingPage() {
@@ -75,26 +74,7 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* All Plans Include */}
-      <div className="container-max mb-12">
-        <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">All plans include:</h3>
-          <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
-            <div className="flex items-center">
-              <CheckIcon className="h-4 w-4 text-hetri-primary mr-2 flex-shrink-0" />
-              <span>Unlimited facilities (multi-tenant support)</span>
-            </div>
-            <div className="flex items-center">
-              <CheckIcon className="h-4 w-4 text-hetri-primary mr-2 flex-shrink-0" />
-              <span>Access to our newest features. we dont play favorites here (Sorry Pro Clients!)</span>
-            </div>
-            <div className="flex items-center">
-              <CheckIcon className="h-4 w-4 text-hetri-primary mr-2 flex-shrink-0" />
-              <span>Custom implementations with existing pet booking software (Gingr, Petexec, etc)</span>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       {/* Pricing Card */}
       <div className="container-max pb-16">
@@ -141,15 +121,17 @@ export default function PricingPage() {
               </ul>
             </div>
 
-            {/* Button Section */}
-            <div>
-              <Link
-                href={pricingPlan.ctaHref}
-                className="block w-full text-center py-4 px-6 rounded-lg text-base font-bold bg-hetri-primary text-white hover:bg-hetri-secondary transition-colors duration-200"
-              >
-                {pricingPlan.cta}
-              </Link>
-            </div>
+                         {/* Button Section */}
+             <div>
+               <a
+                 href={pricingPlan.ctaHref}
+                 className="block w-full text-center py-4 px-6 rounded-lg text-base font-bold bg-hetri-primary text-white hover:bg-hetri-secondary transition-colors duration-200"
+                 target="_blank"
+                 rel="noopener noreferrer"
+               >
+                 {pricingPlan.cta}
+               </a>
+             </div>
           </div>
         </div>
       </div>

@@ -133,6 +133,61 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Customer PAW Section */}
+      <section className="section-padding bg-hetri-light">
+        <div className="container-max">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                PAW for Pet Parents
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                Give pet parents the power to stay connected with their pets throughout the day. 
+                Request TreatTap sessions, view live updates, and manage bookings all from their mobile device.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Easy Booking Management</h4>
+                    <p className="text-gray-600">Schedule appointments and manage pet care services with ease</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">TreatTap Requests</h4>
+                    <p className="text-gray-600">Request personalized attention sessions for your pet anytime</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Real-time Updates</h4>
+                    <p className="text-gray-600">Stay informed about your pet's day with live notifications</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="relative">
+                <div className="aspect-[9/16] w-64 mx-auto bg-gray-100 rounded-2xl overflow-hidden border-8 border-gray-800 shadow-2xl">
+                  <img 
+                    src="/phone-holder-design.png" 
+                    alt="PAW mobile app interface"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -right-4 bg-hetri-primary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                  Coming Soon
+                </div>
+              </div>
+              <p className="text-center text-gray-600 mt-6">PAW Mobile App</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
     </div>
   )
