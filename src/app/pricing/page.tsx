@@ -7,7 +7,7 @@ import { CheckIcon } from '@heroicons/react/24/outline'
 
 
 const pricingPlan = {
-  name: 'Hetri Platform',
+  name: 'PAW Platform',
   monthlyPrice: 1000,
   description: 'Complete pet care management and TreatTap solution',
   features: [
@@ -135,6 +135,44 @@ export default function PricingPage() {
           </div>
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <section className="section-padding bg-hetri-light">
+        <div className="container-max">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          
+          <div className="max-w-3xl mx-auto space-y-4">
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">What is PAW and how does it work?</h3>
+              <p className="text-gray-600">PAW (Professional Animal Works) is our comprehensive facility management platform designed specifically for pet care facilities. It streamlines booking, scheduling, customer management, and integrates seamlessly with our TreatTap service. We also offer custom implementations with existing pet booking software like Gingr, Petexec, and other platforms.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">How does TreatTap work?</h3>
+              <p className="text-gray-600">TreatTap is a three-step process: Pet parents request a session through PAW, facility staff receives the request and activates when ready, then provides personalized attention and care for the requested duration. Multiple pets can participate in sessions for a fun social experience.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">What TreatTap session options are available?</h3>
+              <p className="text-gray-600">We offer 5-minute sessions ($20), 15-minute sessions ($35), 30-minute sessions ($100), plus dog walks at 20 minutes ($150) and 30 minutes ($200). All pricing includes our 10% transaction fee.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Can you integrate with our existing booking software?</h3>
+              <p className="text-gray-600">Absolutely! We specialize in custom implementations with existing pet booking software including Gingr, Petexec, and other platforms. Our technical team ensures seamless integration so you can keep using familiar systems while adding TreatTap capabilities.</p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">How long does implementation take?</h3>
+              <p className="text-gray-600">Implementation typically takes 1-2 weeks depending on your facility size and integration requirements. For existing booking software integrations, we may need additional time to ensure seamless connectivity. We provide full support and training throughout the process.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 } 

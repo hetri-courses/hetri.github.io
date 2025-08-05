@@ -184,28 +184,41 @@ export default function TreatTapPage() {
       <section className="section-padding bg-white">
         <div className="container-max text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Simple, Transparent Pricing
+            TreatTap Pricing
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Pay per session with no hidden fees. Your facility keeps 90% of revenue.
+            Clear, upfront pricing with 10% transaction fee included.
           </p>
           
-          <div className="bg-hetri-light rounded-2xl p-8 max-w-md mx-auto">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Per Session</h3>
-              <p className="text-gray-600 mb-6">10% transaction fee to Hetri</p>
-              <div className="space-y-3 text-left">
-                <div className="flex justify-between">
-                  <span>5 minute session</span>
-                  <span className="font-semibold">Set your price</span>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="bg-hetri-light rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">TreatTap Sessions</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-lg">5 minute session</span>
+                  <span className="text-xl font-bold text-hetri-primary">$20</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>15 minute session</span>
-                  <span className="font-semibold">Set your price</span>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-lg">15 minute session</span>
+                  <span className="text-xl font-bold text-hetri-primary">$35</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>30 minute session</span>
-                  <span className="font-semibold">Set your price</span>
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-lg">30 minute session</span>
+                  <span className="text-xl font-bold text-hetri-primary">$100</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-hetri-light rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Dog Walks</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-lg">20 minute walk</span>
+                  <span className="text-xl font-bold text-hetri-primary">$150</span>
+                </div>
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-lg">30 minute walk</span>
+                  <span className="text-xl font-bold text-hetri-primary">$200</span>
                 </div>
               </div>
             </div>

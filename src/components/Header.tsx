@@ -12,7 +12,6 @@ const navigation = [
   { name: 'About Us', href: '/aboutus' },
   { name: 'TreatTap', href: '/treattap' },
   { name: 'Pricing', href: '/pricing' },
-  { name: 'FAQ', href: '/faq' },
 ]
 
 export default function Header() {

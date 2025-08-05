@@ -59,11 +59,11 @@ export default function HomePage() {
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Real-time treat dispensing</span>
+                <span>Sessions from $20-$100</span>
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>90% revenue to facility</span>
+                <span>Dog walks available</span>
               </div>
             </div>
             <Link href="/treattap" className="btn-primary inline-flex items-center">
@@ -99,130 +99,144 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* PAW Platform Section */}
       <section className="section-padding bg-white">
         <div className="container-max">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Professional Animal Works (PAW)
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
-              Complete facility management platform designed specifically for modern pet care operations. Streamline bookings, manage customer relationships, and integrate seamlessly with existing software like Gingr and Petexec.
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+              Complete facility management platform designed for modern pet care operations. Streamline bookings, manage customer relationships, and give pet parents real-time access to their pets through mobile apps.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm text-gray-600">
+            <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600">
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
                 <span>Multi-facility support</span>
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Custom integrations</span>
+                <span>Custom integrations (Gingr, Petexec)</span>
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
                 <span>Real-time analytics</span>
               </div>
+              <div className="flex items-center">
+                <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
+                <span>iOS & Android apps</span>
+              </div>
             </div>
           </div>
           
-          <div className="flex justify-center">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="flex justify-center">
-                <div className="relative" style={{ width: '240px', height: '480px' }}>
-                  {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
-                    <div className="w-full h-full bg-transparent rounded-[42px] overflow-hidden relative">
-                      {/* Dynamic Island */}
-                      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
-                      {/* Content Area */}
-                      <div className="pt-16 px-4 h-full">
-                        <video 
-                          src="/paw-platform-demo.mp4" 
-                          className="w-full h-full object-cover rounded-lg"
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                        />
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            {/* Facility Management Side */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">For Facilities</h3>
+              <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
+                <div className="flex justify-center">
+                  <div className="relative" style={{ width: '240px', height: '480px' }}>
+                    {/* iPhone 15+ Style Frame */}
+                    <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
+                      <div className="w-full h-full bg-transparent rounded-[42px] overflow-hidden relative">
+                        {/* Dynamic Island */}
+                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
+                        {/* Content Area */}
+                        <div className="pt-16 px-4 h-full">
+                          <img 
+                            src="/paw-mobile-app-demo.png" 
+                            alt="PAW Platform Demo"
+                            className="w-full h-full object-cover rounded-lg"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <p className="text-center text-gray-600 mt-6">PAW Platform Demo</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Customer PAW Section */}
-      <section className="section-padding bg-hetri-light">
-        <div className="container-max">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                PAW for Pet Parents
-              </h2>
-              <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-                Give pet parents the power to stay connected with their pets throughout the day. 
-                Request TreatTap sessions, view live updates, and manage bookings all from their mobile device. Available for iOS and Android with real-time notifications and secure payment processing.
-              </p>
-              <div className="space-y-4">
+              <div className="space-y-3 text-left">
                 <div className="flex items-start space-x-3">
-                  <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
+                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Easy Booking Management</h4>
-                    <p className="text-gray-600">Schedule appointments and manage pet care services with ease</p>
+                    <h4 className="font-semibold text-gray-900">Booking & Scheduling</h4>
+                    <p className="text-gray-600 text-sm">Complete appointment management system</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
+                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Customer Management</h4>
+                    <p className="text-gray-600 text-sm">Comprehensive pet and owner profiles</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">TreatTap Management</h4>
+                    <p className="text-gray-600 text-sm">Handle live session requests and revenue</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Pet Parent Side */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">For Pet Parents</h3>
+              <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
+                <div className="relative">
+                  <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
+                    {/* iPhone 15+ Style Frame */}
+                    <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
+                      <div className="w-full h-full bg-transparent rounded-[42px] overflow-hidden relative">
+                        {/* Dynamic Island */}
+                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
+                        {/* Content Area */}
+                        <div className="pt-16 px-4 h-full">
+                          <video 
+                            src="/paw-mobile-app-demo.mp4" 
+                            className="w-full h-full object-cover rounded-lg"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a 
+                    href="https://paw.hetri.org" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="absolute -bottom-4 -right-4 bg-hetri-primary hover:bg-hetri-secondary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg transition-colors duration-200"
+                  >
+                    PAW Login
+                  </a>
+                </div>
+              </div>
+              <div className="space-y-3 text-left">
+                <div className="flex items-start space-x-3">
+                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Easy Booking</h4>
+                    <p className="text-gray-600 text-sm">Schedule appointments and manage services</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">TreatTap Requests</h4>
-                    <p className="text-gray-600">Request personalized attention sessions for your pet anytime</p>
+                    <p className="text-gray-600 text-sm">Request live sessions anytime during visits</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
+                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">Real-time Updates</h4>
-                    <p className="text-gray-600">Stay informed about your pet's day with live notifications</p>
+                    <p className="text-gray-600 text-sm">Live notifications and secure payments</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="relative">
-                <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
-                  {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
-                    <div className="w-full h-full bg-transparent rounded-[42px] overflow-hidden relative">
-                      {/* Dynamic Island */}
-                      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
-                      {/* Content Area */}
-                      <div className="pt-16 px-4 h-full">
-                        <video 
-                          src="/paw-mobile-app-demo.mp4" 
-                          className="w-full h-full object-cover rounded-lg"
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a 
-                  href="https://paw.hetri.org" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="absolute -bottom-4 -right-4 bg-hetri-primary hover:bg-hetri-secondary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg transition-colors duration-200"
-                >
-                  PAW Login
-                </a>
-              </div>
-              <p className="text-center text-gray-600 mt-6">PAW Mobile App</p>
             </div>
           </div>
         </div>
@@ -231,4 +245,6 @@ export default function HomePage() {
 
     </div>
   )
+} 
+} 
 } 
