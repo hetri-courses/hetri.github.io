@@ -50,7 +50,7 @@ export default function HomePage() {
               TreatTap
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
-              Live treat sessions that bring pet parents closer to their pets throughout the day. Request 5, 15, or 30-minute personalized sessions where facility staff provides treats, attention, and playtime while parents watch in real-time.
+              Live treat sessions that bring pet parents closer to their pets throughout the day. Request 5, 10, or 30-minute personalized sessions where facility staff provides treats, attention, and playtime while parents watch in real-time.
             </p>
             <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm text-gray-600">
               <div className="flex items-center">
@@ -59,7 +59,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Sessions from $20-$100</span>
+                <span>Sessions from $20-$90</span>
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />

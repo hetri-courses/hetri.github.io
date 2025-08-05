@@ -154,7 +154,7 @@ export default function TreatTapPage() {
                 <ClockIcon className="h-8 w-8 text-hetri-primary" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Flexible Duration</h3>
-              <p className="text-gray-600">Choose from 5, 15, or 30-minute sessions based on your pet's needs</p>
+              <p className="text-gray-600">Choose from 5, 10, or 30-minute sessions based on your pet's needs</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg text-center">

@@ -16,7 +16,7 @@ const pricingPlan = {
     'Additional cameras: $100/month each',
     'TreatTap sessions: 5 min, 10 min, 30 min',
     'TreatTap Premium: Enhanced sessions with extra treats and 25% longer duration',
-    '10% transaction fees (for all fees including bookings, etc)',
+    '10% transaction fees (for all transactions)',
     'Custom implementations with existing booking software',
     'Priority technical support',
   ],
