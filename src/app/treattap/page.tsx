@@ -198,12 +198,12 @@ export default function TreatTapPage() {
                   <span className="text-xl font-bold text-hetri-primary">$20</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                  <span className="text-lg">15 minute session</span>
+                  <span className="text-lg">10 minute session</span>
                   <span className="text-xl font-bold text-hetri-primary">$35</span>
                 </div>
                 <div className="flex justify-between items-center py-3">
                   <span className="text-lg">30 minute session</span>
-                  <span className="text-xl font-bold text-hetri-primary">$100</span>
+                  <span className="text-xl font-bold text-hetri-primary">$90</span>
                 </div>
               </div>
             </div>
