@@ -75,18 +75,18 @@ export default function HomePage() {
           <div className="flex justify-center">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <div className="flex justify-center">
-                <div className="relative" style={{ width: '200px', height: '400px' }}>
+                <div className="relative" style={{ width: '300px', height: '600px' }}>
                   {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[42px] p-2">
-                    <div className="w-full h-full bg-transparent rounded-[36px] overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gray-900 rounded-[60px] p-3">
+                    <div className="w-full h-full bg-white rounded-[52px] overflow-hidden relative">
                       {/* Dynamic Island */}
-                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
+                      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-12 px-4 h-full">
+                      <div className="pt-18 px-2 h-full">
                         <img 
                           src="/treattap-demo-interface.png" 
                           alt="TreatTap Mobile Interface"
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full h-full object-contain"
                         />
                       </div>
                     </div>
@@ -135,18 +135,18 @@ export default function HomePage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">For Facilities</h3>
               <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
                 <div className="flex justify-center">
-                  <div className="relative" style={{ width: '240px', height: '480px' }}>
+                  <div className="relative" style={{ width: '320px', height: '640px' }}>
                     {/* iPhone 15+ Style Frame */}
-                    <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
-                      <div className="w-full h-full bg-transparent rounded-[42px] overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gray-900 rounded-[64px] p-3">
+                      <div className="w-full h-full bg-white rounded-[56px] overflow-hidden relative">
                         {/* Dynamic Island */}
-                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
+                        <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full"></div>
                         {/* Content Area */}
-                        <div className="pt-16 px-4 h-full">
+                        <div className="pt-20 px-2 h-full">
                           <img 
                             src="/paw-mobile-app-demo.png" 
                             alt="PAW Platform Demo"
-                            className="w-full h-full object-cover rounded-lg"
+                            className="w-full h-full object-contain"
                           />
                         </div>
                       </div>
@@ -184,17 +184,17 @@ export default function HomePage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">For Pet Parents</h3>
               <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
                 <div className="relative">
-                  <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
+                  <div className="relative mx-auto" style={{ width: '320px', height: '640px' }}>
                     {/* iPhone 15+ Style Frame */}
-                    <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
-                      <div className="w-full h-full bg-transparent rounded-[42px] overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gray-900 rounded-[64px] p-3">
+                      <div className="w-full h-full bg-white rounded-[56px] overflow-hidden relative">
                         {/* Dynamic Island */}
-                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
+                        <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full"></div>
                         {/* Content Area */}
-                        <div className="pt-16 px-4 h-full">
+                        <div className="pt-20 px-2 h-full">
                           <video 
                             src="/paw-mobile-app-demo.mp4" 
-                            className="w-full h-full object-cover rounded-lg"
+                            className="w-full h-full object-contain"
                             autoPlay
                             muted
                             loop

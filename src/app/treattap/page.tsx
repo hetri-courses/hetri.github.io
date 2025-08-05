@@ -33,18 +33,18 @@ export default function TreatTapPage() {
             {/* Step 1 - Mobile Interface */}
             <div className="text-center">
               <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-                <div className="relative mx-auto" style={{ width: '140px', height: '280px' }}>
+                <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
                   {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[32px] p-1">
-                    <div className="w-full h-full bg-gray-100 rounded-[28px] overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
+                    <div className="w-full h-full bg-white rounded-[42px] overflow-hidden relative">
                       {/* Dynamic Island */}
-                      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full"></div>
+                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-10 px-3 h-full">
+                      <div className="pt-14 px-2 h-full">
                         <img 
                           src="/treattap-request.png" 
                           alt="TreatTap Request Interface"
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full h-full object-contain"
                         />
                       </div>
                     </div>
@@ -58,18 +58,18 @@ export default function TreatTapPage() {
             {/* Step 2 - Staff Interface */}
             <div className="text-center">
               <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-                <div className="relative mx-auto" style={{ width: '140px', height: '280px' }}>
+                <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
                   {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[32px] p-1">
-                    <div className="w-full h-full bg-gray-100 rounded-[28px] overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
+                    <div className="w-full h-full bg-white rounded-[42px] overflow-hidden relative">
                       {/* Dynamic Island */}
-                      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full"></div>
+                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-10 px-3 h-full">
+                      <div className="pt-14 px-2 h-full">
                         <img 
                           src="/treattap-staff.png" 
                           alt="Staff TreatTap Interface"
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full h-full object-contain"
                         />
                       </div>
                     </div>
@@ -83,17 +83,17 @@ export default function TreatTapPage() {
             {/* Step 3 - Live Session */}
             <div className="text-center">
               <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-                <div className="relative mx-auto" style={{ width: '140px', height: '280px' }}>
+                <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
                   {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[32px] p-1">
-                    <div className="w-full h-full bg-gray-100 rounded-[28px] overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
+                    <div className="w-full h-full bg-white rounded-[42px] overflow-hidden relative">
                       {/* Dynamic Island */}
-                      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full"></div>
+                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-10 px-3 h-full">
+                      <div className="pt-14 px-2 h-full">
                         <video 
                           src="/treattap-live-session.mp4" 
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full h-full object-contain"
                           autoPlay
                           muted
                           loop
@@ -111,18 +111,18 @@ export default function TreatTapPage() {
             {/* Step 4 - Parent Watches */}
             <div className="text-center">
               <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-                <div className="relative mx-auto" style={{ width: '140px', height: '280px' }}>
+                <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
                   {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[32px] p-1">
-                    <div className="w-full h-full bg-gray-100 rounded-[28px] overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
+                    <div className="w-full h-full bg-white rounded-[42px] overflow-hidden relative">
                       {/* Dynamic Island */}
-                      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full"></div>
+                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
-                      <div className="pt-10 px-3 h-full">
+                      <div className="pt-14 px-2 h-full">
                         <img 
                           src="/treattap-parent-view.png" 
                           alt="Parent Viewing TreatTap Session"
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full h-full object-contain"
                         />
                       </div>
                     </div>
