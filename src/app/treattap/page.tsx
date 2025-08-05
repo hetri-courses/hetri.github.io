@@ -11,18 +11,14 @@ export default function TreatTapPage() {
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             TreatTap
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Live treat sessions that bring pet parents closer to their pets throughout the day
           </p>
-          <Link href="/contactus" className="btn-primary inline-flex items-center text-lg">
-            Request Demo
-            <ArrowRightIcon className="ml-2 h-5 w-5" />
-          </Link>
         </div>
       </section>
 
       {/* How TreatTap Works */}
-      <section className="section-padding bg-white">
+      <section className="py-16 bg-white">
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -186,8 +182,11 @@ export default function TreatTapPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             TreatTap Pricing
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
             Clear, upfront pricing with 10% transaction fee included.
+          </p>
+          <p className="text-lg text-hetri-primary mb-8 max-w-2xl mx-auto font-semibold">
+            Facilities can adjust pricing ±15% based on local market conditions
           </p>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -226,21 +225,7 @@ export default function TreatTapPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-hetri-primary text-white">
-        <div className="container-max text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Pet Care?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Join facilities across the country offering TreatTap to create meaningful moments for pets and their families.
-          </p>
-          <Link href="/contactus" className="bg-white text-hetri-primary hover:bg-gray-100 font-bold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg inline-flex items-center">
-            Get Started with TreatTap
-            <ArrowRightIcon className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-      </section>
+
     </div>
   )
 }
