@@ -41,11 +41,13 @@ export default function TreatTapPage() {
                       <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
                       <div className="pt-12 px-0 h-full">
-                        <img 
-                          src="/treattap-request.png" 
-                          alt="TreatTap Request Interface"
-                          className="w-full h-full object-cover"
-                        />
+                        {/* PLACEHOLDER: Replace with mobile design image */}
+                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
+                          <div className="text-center p-4">
+                            <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
+                            <div className="text-sm font-semibold text-hetri-primary">TreatTap Request Interface</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -66,11 +68,13 @@ export default function TreatTapPage() {
                       <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
                       <div className="pt-12 px-0 h-full">
-                        <img 
-                          src="/treattap-staff.png" 
-                          alt="Staff TreatTap Interface"
-                          className="w-full h-full object-cover"
-                        />
+                        {/* PLACEHOLDER: Replace with mobile design image */}
+                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
+                          <div className="text-center p-4">
+                            <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
+                            <div className="text-sm font-semibold text-hetri-primary">Staff TreatTap Interface</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -91,14 +95,13 @@ export default function TreatTapPage() {
                       <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
                       <div className="pt-12 px-0 h-full">
-                        <video 
-                          src="/treattap-live-session.mp4" 
-                          className="w-full h-full object-cover"
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                        />
+                        {/* PLACEHOLDER: Replace with mobile design video */}
+                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
+                          <div className="text-center p-4">
+                            <div className="text-xs text-gray-500 mb-2">MOBILE VIDEO PLACEHOLDER</div>
+                            <div className="text-sm font-semibold text-hetri-primary">TreatTap Live Session</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -119,11 +122,13 @@ export default function TreatTapPage() {
                       <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
                       {/* Content Area */}
                       <div className="pt-12 px-0 h-full">
-                        <img 
-                          src="/treattap-parent-view.png" 
-                          alt="Parent Viewing TreatTap Session"
-                          className="w-full h-full object-cover"
-                        />
+                        {/* PLACEHOLDER: Replace with mobile design image */}
+                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
+                          <div className="text-center p-4">
+                            <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
+                            <div className="text-sm font-semibold text-hetri-primary">Parent Viewing TreatTap</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -182,9 +187,9 @@ export default function TreatTapPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             TreatTap Pricing
           </h2>
-          <p className="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
-            Clear, upfront pricing with 10% transaction fee included.
-          </p>
+                      <p className="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
+              Clear, upfront pricing with 10% platform fee included.
+            </p>
           <p className="text-lg text-hetri-primary mb-8 max-w-2xl mx-auto font-semibold">
             Facilities can adjust pricing ±15% based on local market conditions
           </p>

@@ -83,11 +83,13 @@ export default function HomePage() {
                       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
                       {/* Content Area */}
                       <div className="pt-14 px-0 h-full">
-                        <img 
-                          src="/treattap-demo-interface.png" 
-                          alt="TreatTap Mobile Interface"
-                          className="w-full h-full object-cover"
-                        />
+                        {/* PLACEHOLDER: Replace with mobile design image */}
+                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
+                          <div className="text-center p-4">
+                            <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
+                            <div className="text-sm font-semibold text-hetri-primary">TreatTap Mobile Interface</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -143,11 +145,13 @@ export default function HomePage() {
                         <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full"></div>
                         {/* Content Area */}
                         <div className="pt-16 px-0 h-full">
-                          <img 
-                            src="/paw-mobile-app-demo.png" 
-                            alt="PAW Platform Demo"
-                            className="w-full h-full object-cover"
-                          />
+                          {/* PLACEHOLDER: Replace with mobile design image */}
+                          <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
+                            <div className="text-center p-4">
+                              <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
+                              <div className="text-sm font-semibold text-hetri-primary">PAW Platform Demo</div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -192,14 +196,13 @@ export default function HomePage() {
                         <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full"></div>
                         {/* Content Area */}
                         <div className="pt-16 px-0 h-full">
-                          <video 
-                            src="/paw-mobile-app-demo.mp4" 
-                            className="w-full h-full object-cover"
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                          />
+                          {/* PLACEHOLDER: Replace with mobile design video */}
+                          <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
+                            <div className="text-center p-4">
+                              <div className="text-xs text-gray-500 mb-2">MOBILE VIDEO PLACEHOLDER</div>
+                              <div className="text-sm font-semibold text-hetri-primary">PAW Pet Parent App</div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

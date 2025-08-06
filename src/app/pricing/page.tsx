@@ -11,12 +11,12 @@ const pricingPlan = {
   monthlyPrice: 1000,
   description: 'Complete pet care management and TreatTap solution',
   features: [
-    'Unlimited storage and facilities',
+    '1-10 facilities included, then +$100 for every 10 more',
     '5 Hetri cameras included',
     'Additional cameras: $100/month each',
     'TreatTap sessions: 5 min, 10 min, 30 min',
     'TreatTap Premium: Enhanced sessions with extra treats and 25% longer duration',
-    '10% transaction fees (for all transactions)',
+    '10% platform fee (for all bookings and services)',
     'Custom implementations with existing booking software',
     'Priority technical support',
   ],
@@ -152,12 +152,12 @@ export default function PricingPage() {
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">How does TreatTap work?</h3>
-              <p className="text-gray-600">TreatTap is a three-step process: Pet parents request a session through PAW, facility staff receives the request and activates when ready, then provides personalized attention and care for the requested duration. Multiple pets can participate in sessions for a fun social experience.</p>
+              <p className="text-gray-600">TreatTap is a three-step process: Pet parents request a session through PAW, facility staff receives the request and activates when ready, then provides personalized attention and care for the requested duration. Pets can participate in sessions for personalized attention and care.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">What TreatTap session options are available?</h3>
-              <p className="text-gray-600">We offer 5-minute sessions ($20), 10-minute sessions ($35), 30-minute sessions ($90), plus dog walks at 20 minutes ($150) and 30 minutes ($200). All pricing includes our 10% transaction fee.</p>
+              <p className="text-gray-600">We offer 5-minute sessions ($20), 10-minute sessions ($35), 30-minute sessions ($90), plus dog walks at 20 minutes ($150) and 30 minutes ($200). All pricing includes our 10% platform fee.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
