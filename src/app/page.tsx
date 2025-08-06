@@ -74,27 +74,11 @@ export default function HomePage() {
           
           <div className="flex justify-center">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="flex justify-center">
-                <div className="relative" style={{ width: '300px', height: '600px' }}>
-                  {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[60px] p-3">
-                    <div className="w-full h-full bg-white rounded-[52px] overflow-hidden relative">
-                      {/* Dynamic Island */}
-                      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full"></div>
-                      {/* Content Area */}
-                      <div className="pt-14 px-0 h-full">
-                        {/* PLACEHOLDER: Replace with mobile design image */}
-                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
-                          <div className="text-center p-4">
-                            <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
-                            <div className="text-sm font-semibold text-hetri-primary">TreatTap Mobile Interface</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <img 
+                src="/treattap-mobile-interface-300x600.png" 
+                alt="TreatTap Mobile Interface"
+                className="w-75 h-auto mx-auto rounded-xl shadow-md"
+              />
               <p className="text-center text-gray-600 mt-6">TreatTap Interface</p>
             </div>
           </div>
@@ -136,27 +120,11 @@ export default function HomePage() {
             <div className="text-center">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">For Facilities</h3>
               <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
-                <div className="flex justify-center">
-                  <div className="relative" style={{ width: '320px', height: '640px' }}>
-                    {/* iPhone 15+ Style Frame */}
-                    <div className="absolute inset-0 bg-gray-900 rounded-[64px] p-3">
-                      <div className="w-full h-full bg-white rounded-[56px] overflow-hidden relative">
-                        {/* Dynamic Island */}
-                        <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full"></div>
-                        {/* Content Area */}
-                        <div className="pt-16 px-0 h-full">
-                          {/* PLACEHOLDER: Replace with mobile design image */}
-                          <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
-                            <div className="text-center p-4">
-                              <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
-                              <div className="text-sm font-semibold text-hetri-primary">PAW Platform Demo</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="/paw-platform-demo-320x640.png" 
+                  alt="PAW Platform Demo"
+                  className="w-80 h-auto mx-auto rounded-xl shadow-md"
+                />
               </div>
               <div className="space-y-3 text-left">
                 <div className="flex items-start space-x-3">
@@ -188,25 +156,14 @@ export default function HomePage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">For Pet Parents</h3>
               <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
                 <div className="relative">
-                  <div className="relative mx-auto" style={{ width: '320px', height: '640px' }}>
-                    {/* iPhone 15+ Style Frame */}
-                    <div className="absolute inset-0 bg-gray-900 rounded-[64px] p-3">
-                      <div className="w-full h-full bg-white rounded-[56px] overflow-hidden relative">
-                        {/* Dynamic Island */}
-                        <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-36 h-9 bg-black rounded-full"></div>
-                        {/* Content Area */}
-                        <div className="pt-16 px-0 h-full">
-                          {/* PLACEHOLDER: Replace with mobile design video */}
-                          <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
-                            <div className="text-center p-4">
-                              <div className="text-xs text-gray-500 mb-2">MOBILE VIDEO PLACEHOLDER</div>
-                              <div className="text-sm font-semibold text-hetri-primary">PAW Pet Parent App</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <video 
+                    src="/paw-pet-parent-app-320x640.mp4" 
+                    className="w-80 h-auto mx-auto rounded-xl shadow-md"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
                   <a 
                     href="https://paw.hetri.org" 
                     target="_blank" 

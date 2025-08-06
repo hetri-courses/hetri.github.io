@@ -33,25 +33,11 @@ export default function TreatTapPage() {
             {/* Step 1 - Mobile Interface */}
             <div className="text-center">
               <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-                <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
-                  {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
-                    <div className="w-full h-full bg-white rounded-[42px] overflow-hidden relative">
-                      {/* Dynamic Island */}
-                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
-                      {/* Content Area */}
-                      <div className="pt-12 px-0 h-full">
-                        {/* PLACEHOLDER: Replace with mobile design image */}
-                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
-                          <div className="text-center p-4">
-                            <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
-                            <div className="text-sm font-semibold text-hetri-primary">TreatTap Request Interface</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="/treattap-request-240x480.png" 
+                  alt="TreatTap Request Interface"
+                  className="w-60 h-auto mx-auto rounded-xl shadow-md"
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Pet Parent Requests</h3>
               <p className="text-gray-600">Parents request TreatTap sessions through the PAW app</p>
@@ -60,25 +46,11 @@ export default function TreatTapPage() {
             {/* Step 2 - Staff Interface */}
             <div className="text-center">
               <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-                <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
-                  {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
-                    <div className="w-full h-full bg-white rounded-[42px] overflow-hidden relative">
-                      {/* Dynamic Island */}
-                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
-                      {/* Content Area */}
-                      <div className="pt-12 px-0 h-full">
-                        {/* PLACEHOLDER: Replace with mobile design image */}
-                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
-                          <div className="text-center p-4">
-                            <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
-                            <div className="text-sm font-semibold text-hetri-primary">Staff TreatTap Interface</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="/treattap-staff-240x480.png" 
+                  alt="Staff TreatTap Interface"
+                  className="w-60 h-auto mx-auto rounded-xl shadow-md"
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Staff Activates</h3>
               <p className="text-gray-600">Facility staff receives notification and starts the session</p>
@@ -87,25 +59,14 @@ export default function TreatTapPage() {
             {/* Step 3 - Live Session */}
             <div className="text-center">
               <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-                <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
-                  {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
-                    <div className="w-full h-full bg-white rounded-[42px] overflow-hidden relative">
-                      {/* Dynamic Island */}
-                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
-                      {/* Content Area */}
-                      <div className="pt-12 px-0 h-full">
-                        {/* PLACEHOLDER: Replace with mobile design video */}
-                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
-                          <div className="text-center p-4">
-                            <div className="text-xs text-gray-500 mb-2">MOBILE VIDEO PLACEHOLDER</div>
-                            <div className="text-sm font-semibold text-hetri-primary">TreatTap Live Session</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <video 
+                  src="/treattap-live-session-240x480.mp4" 
+                  className="w-60 h-auto mx-auto rounded-xl shadow-md"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Live Interaction</h3>
               <p className="text-gray-600">Real-time treat dispensing and personalized attention</p>
@@ -114,25 +75,11 @@ export default function TreatTapPage() {
             {/* Step 4 - Parent Watches */}
             <div className="text-center">
               <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-                <div className="relative mx-auto" style={{ width: '240px', height: '480px' }}>
-                  {/* iPhone 15+ Style Frame */}
-                  <div className="absolute inset-0 bg-gray-900 rounded-[48px] p-2">
-                    <div className="w-full h-full bg-white rounded-[42px] overflow-hidden relative">
-                      {/* Dynamic Island */}
-                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-7 bg-black rounded-full"></div>
-                      {/* Content Area */}
-                      <div className="pt-12 px-0 h-full">
-                        {/* PLACEHOLDER: Replace with mobile design image */}
-                        <div className="w-full h-full bg-gradient-to-br from-hetri-light to-gray-100 flex items-center justify-center">
-                          <div className="text-center p-4">
-                            <div className="text-xs text-gray-500 mb-2">MOBILE DESIGN PLACEHOLDER</div>
-                            <div className="text-sm font-semibold text-hetri-primary">Parent Viewing TreatTap</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="/treattap-parent-view-240x480.png" 
+                  alt="Parent Viewing TreatTap Session"
+                  className="w-60 h-auto mx-auto rounded-xl shadow-md"
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Parent Enjoys</h3>
               <p className="text-gray-600">Pet parents watch and enjoy their pet's special moments</p>
