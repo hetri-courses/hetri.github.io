@@ -137,7 +137,7 @@ export default function PricingPage() {
       </div>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-hetri-light">
+      <section id="faq" className="section-padding bg-hetri-light">
         <div className="container-max">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

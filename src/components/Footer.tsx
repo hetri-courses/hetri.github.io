@@ -16,26 +16,24 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Solutions</h4>
             <ul className="space-y-2">
               <li><Link href="/aboutus" className="text-hetri-light hover:text-white transition-colors">About Us</Link></li>
-                <li><Link href="/contactus" className="text-hetri-light hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/treattap" className="text-hetri-light hover:text-white transition-colors">TreatTap</Link></li>
+              <li><Link href="/pricing" className="text-hetri-light hover:text-white transition-colors">Pricing</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2">
-              <li><Link href="/faq" className="text-hetri-light hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link href="/pricing#faq" className="text-hetri-light hover:text-white transition-colors">FAQ</Link></li>
               <li><Link href="/contactus" className="text-hetri-light hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4">Connect</h4>
-            <p className="text-hetri-light">
-              Questions about our platform?
-            </p>
-            <Link href="/contactus" className="inline-block mt-4 bg-white text-hetri-primary px-6 py-2 rounded-lg font-medium hover:bg-hetri-light transition-colors">
-              Get Started
-            </Link>
+            <h4 className="font-semibold mb-4">Access</h4>
+            <ul className="space-y-2">
+              <li><a href="https://paw.hetri.org" target="_blank" rel="noopener noreferrer" className="text-hetri-light hover:text-white transition-colors">PAW Login</a></li>
+            </ul>
           </div>
         </div>
         
