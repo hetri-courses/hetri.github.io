@@ -11,7 +11,8 @@ const pricingPlan = {
   monthlyPrice: 1000,
   description: 'Complete pet care management and TreatTap solution',
   features: [
-    '1-10 facilities included, then +$100 for every 10 more',
+    'Up to 10 facilities included',
+    'Additional facilities: $100/month per 10 facilities',
     '5 Hetri cameras included',
     'Additional cameras: $100/month each',
     'TreatTap sessions: 5 min, 10 min, 30 min',
