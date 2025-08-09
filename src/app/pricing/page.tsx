@@ -1,7 +1,5 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
 import { CheckIcon } from '@heroicons/react/24/outline'
 
 
@@ -11,11 +9,11 @@ const pricingPlan = {
   monthlyPrice: null,
   description: 'Complete pet care management and TreatTap solution',
   features: [
-    'Minimum 1 camera: $100/month',
-    'Refundable $500 deposit (30-day money-back; $100 processing fee applies)',
-    'One-time setup fee (billed at onboarding)',
+    'Refundable $500 deposit (30-day money-back guarantee)',
+    'One-time setup fee due at onboarding',
     'TreatTap sessions: 5 min, 10 min',
     'TreatTap+: Extra treats, +25% duration, and dog walks',
+    '10% volume discount for 10+ cameras',
     '10% platform fee (for all bookings and services)',
     'Custom implementations with existing booking software',
     'Priority technical support',
@@ -25,18 +23,6 @@ const pricingPlan = {
 }
 
 export default function PricingPage() {
-  const [isYearly, setIsYearly] = useState(false)
-
-  const calculatePrice = (monthlyPrice: number) => {
-    if (!monthlyPrice) return null
-    return isYearly ? Math.round(monthlyPrice * 12 * 0.9) : monthlyPrice
-  }
-
-  const calculateOriginalYearlyPrice = (monthlyPrice: number) => {
-    if (!monthlyPrice) return null
-    return monthlyPrice * 12
-  }
-
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       {/* Header */}
@@ -48,32 +34,8 @@ export default function PricingPage() {
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Choose the plan that works for you
           </p>
-          
-          {/* Monthly/Yearly Toggle */}
-          <div className="flex items-center justify-center mb-12">
-            <span className={`text-sm font-medium mr-3 ${!isYearly ? 'text-gray-900' : 'text-gray-500'}`}>
-              MONTHLY
-            </span>
-            <button
-              onClick={() => setIsYearly(!isYearly)}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:ring-offset-2 ${
-                isYearly ? 'bg-hetri-primary' : 'bg-gray-200'
-              }`}
-            >
-              <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  isYearly ? 'translate-x-6' : 'translate-x-1'
-                }`}
-              />
-            </button>
-            <span className={`text-sm font-medium ml-3 ${isYearly ? 'text-gray-900' : 'text-gray-500'}`}>
-              YEARLY <span className="text-green-600 font-bold">(SAVE 10%)</span>
-            </span>
-          </div>
         </div>
       </div>
-
-
 
       {/* Pricing Card */}
       <div className="container-max pb-16">
@@ -89,16 +51,9 @@ export default function PricingPage() {
             <div className="text-center mb-8 pt-4">
               <h3 className="text-2xl font-bold text-gray-900 mb-3">{pricingPlan.name}</h3>
               <p className="text-gray-600 mb-6">{pricingPlan.description}</p>
-              
               <div className="mb-6">
                 <div className="text-4xl font-bold text-gray-900">
                   $100<span className="text-xl text-gray-500 font-medium">/mo per camera</span>
-                </div>
-                <div className="text-sm text-gray-500 mt-2">
-                  $500 refundable deposit (30-day money-back; $100 processing fee applies)
-                </div>
-                <div className="text-sm text-gray-500">
-                  One-time setup fee due at onboarding
                 </div>
               </div>
             </div>
@@ -115,17 +70,17 @@ export default function PricingPage() {
               </ul>
             </div>
 
-                         {/* Button Section */}
-             <div>
-               <a
-                 href={pricingPlan.ctaHref}
-                 className="block w-full text-center py-4 px-6 rounded-lg text-base font-bold bg-hetri-primary text-white hover:bg-hetri-secondary transition-colors duration-200"
-                 target="_blank"
-                 rel="noopener noreferrer"
-               >
-                 {pricingPlan.cta}
-               </a>
-             </div>
+            {/* Button Section */}
+            <div>
+              <a
+                href={pricingPlan.ctaHref}
+                className="block w-full text-center py-4 px-6 rounded-lg text-base font-bold bg-hetri-primary text-white hover:bg-hetri-secondary transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {pricingPlan.cta}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -152,7 +107,7 @@ export default function PricingPage() {
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">What TreatTap session options are available?</h3>
-              <p className="text-gray-600">We offer 5-minute sessions ($20), 10-minute sessions ($35), 30-minute sessions ($90), plus dog walks at 20 minutes ($150) and 30 minutes ($200). All pricing includes our 10% platform fee.</p>
+              <p className="text-gray-600">We offer 5-minute sessions ($20) and 10-minute sessions ($35), plus dog walks at 20 minutes ($150) and 30 minutes ($200). All pricing includes our 10% platform fee.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
