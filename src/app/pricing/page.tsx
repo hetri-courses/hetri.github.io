@@ -8,15 +8,14 @@ import { CheckIcon } from '@heroicons/react/24/outline'
 
 const pricingPlan = {
   name: 'PAW Platform',
-  monthlyPrice: 1000,
+  monthlyPrice: null,
   description: 'Complete pet care management and TreatTap solution',
   features: [
-    'Up to 10 facilities included',
-    'Additional facilities: $100/month per 10 facilities',
-    '5 Hetri cameras included',
-    'Additional cameras: $100/month each',
-    'TreatTap sessions: 5 min, 10 min, 30 min',
-    'TreatTap Premium: Enhanced sessions with extra treats and 25% longer duration',
+    'Minimum 1 camera: $100/month',
+    'Refundable $500 deposit (30-day money-back; $100 processing fee applies)',
+    'One-time setup fee (billed at onboarding)',
+    'TreatTap sessions: 5 min, 10 min',
+    'TreatTap+: Extra treats, +25% duration, and dog walks',
     '10% platform fee (for all bookings and services)',
     'Custom implementations with existing booking software',
     'Priority technical support',
@@ -92,20 +91,15 @@ export default function PricingPage() {
               <p className="text-gray-600 mb-6">{pricingPlan.description}</p>
               
               <div className="mb-6">
-                {isYearly && calculateOriginalYearlyPrice(pricingPlan.monthlyPrice) !== calculatePrice(pricingPlan.monthlyPrice) ? (
-                  <div>
-                    <div className="text-sm text-red-500 line-through font-medium">
-                      ${calculateOriginalYearlyPrice(pricingPlan.monthlyPrice)}/year
-                    </div>
-                    <div className="text-4xl font-bold text-gray-900">
-                      ${calculatePrice(pricingPlan.monthlyPrice)}<span className="text-xl text-gray-500 font-medium">/year</span>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-4xl font-bold text-gray-900">
-                    ${calculatePrice(pricingPlan.monthlyPrice)}<span className="text-xl text-gray-500 font-medium">/{isYearly ? 'year' : 'mo'}</span>
-                  </div>
-                )}
+                <div className="text-4xl font-bold text-gray-900">
+                  $100<span className="text-xl text-gray-500 font-medium">/mo per camera</span>
+                </div>
+                <div className="text-sm text-gray-500 mt-2">
+                  $500 refundable deposit (30-day money-back; $100 processing fee applies)
+                </div>
+                <div className="text-sm text-gray-500">
+                  One-time setup fee due at onboarding
+                </div>
               </div>
             </div>
 

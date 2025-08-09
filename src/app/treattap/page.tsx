@@ -106,15 +106,15 @@ export default function TreatTapPage() {
                 <ClockIcon className="h-8 w-8 text-hetri-primary" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Flexible Duration</h3>
-              <p className="text-gray-600">Choose from 5, 10, or 30-minute sessions based on your pet's needs</p>
+              <p className="text-gray-600">Choose from 5 or 10-minute sessions based on your pet's needs</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg text-center">
               <div className="bg-hetri-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                 <HeartIcon className="h-8 w-8 text-hetri-primary" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">TreatTap Premium</h3>
-              <p className="text-gray-600">Enhanced sessions with extra treats and 25% longer duration</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">TreatTap+</h3>
+              <p className="text-gray-600">Session upgrades with extra treats, +25% duration, and dog walks</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg text-center">
@@ -149,13 +149,9 @@ export default function TreatTapPage() {
                   <span className="text-lg">5 minute session</span>
                   <span className="text-xl font-bold text-hetri-primary">$20</span>
                 </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                <div className="flex justify-between items-center py-3">
                   <span className="text-lg">10 minute session</span>
                   <span className="text-xl font-bold text-hetri-primary">$35</span>
-                </div>
-                <div className="flex justify-between items-center py-3">
-                  <span className="text-lg">30 minute session</span>
-                  <span className="text-xl font-bold text-hetri-primary">$90</span>
                 </div>
               </div>
             </div>
