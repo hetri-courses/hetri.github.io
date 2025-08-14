@@ -16,7 +16,7 @@ const plans = [
     },
     features: [
       'Includes 1 camera to start',
-      'Per camera: $150 setup + $50/mo',
+      'Additional cameras: $50/mo + $150 OTF',
       'One-time setup deposit',
       'Platform fee: 20% (all transactions)',
       'TreatTap sessions: 5 min, 10 min',
@@ -32,7 +32,7 @@ const plans = [
     priceDisplay: '$1000/mo',
     features: [
       'Includes 10 cameras to start',
-      'Additional cameras: $150 setup + $50/mo each',
+      'Additional cameras: $50/mo + $150 OTF',
       'One-time setup deposit',
       'Platform fee: 10% (all transactions)',
       'TreatTap sessions: 5 min, 10 min',
@@ -64,9 +64,9 @@ export default function PricingPage() {
         <div className="grid md:grid-cols-2 gap-8">
           {plans.map((plan, index) => (
             <div key={index} className="relative">
-              <div className="bg-white rounded-xl border border-hetri-primary shadow-lg ring-1 ring-hetri-primary p-8 pt-14 relative overflow-hidden">
+              <div className="bg-white rounded-xl border border-hetri-primary shadow-lg ring-1 ring-hetri-primary p-8 pt-14 relative">
                 {plan.ribbon && (
-                  <div className="absolute -top-4 -left-6 -right-6">
+                  <div className="absolute top-0 left-0 right-0">
                     <div className={`${plan.ribbon.className} text-sm font-semibold text-center py-2 rounded-t-xl`}>
                       {plan.ribbon.text}
                     </div>
