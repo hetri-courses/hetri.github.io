@@ -134,8 +134,8 @@ export default function TreatTapPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             TreatTap Pricing
           </h2>
-                      <p className="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
-              Clear, upfront pricing with 10% platform fee included.
+          <p className="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
+              Clear, upfront pricing. Platform fee varies by plan (10% Standard, 20% Basic).
             </p>
           <p className="text-lg text-hetri-primary mb-8 max-w-2xl mx-auto font-semibold">
             Facilities can adjust pricing ±15% based on local market conditions
