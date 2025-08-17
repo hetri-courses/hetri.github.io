@@ -6,24 +6,25 @@ import { CheckIcon } from '@heroicons/react/24/outline'
 
 const plans = [
   {
-    name: 'Basic Plan',
-    description: 'Same great PAW + TreatTap experience with pilot program terms',
+    name: 'Pilot',
+    description: 'Same great PAW + pilot program terms',
     priceDisplay: '$100/mo',
     ribbon: {
-      text: 'Pilot Special',
+      text: 'Limited Time',
       className:
         'bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-300 text-gray-900 ring-1 ring-yellow-500/40 shadow',
     },
     features: [
-      'Includes 1 camera to start',
-      'Additional cameras: $50/mo + $150 OTF',
-      'One-time setup deposit',
-      'Platform fee: 20% (all transactions)',
-      'TreatTap sessions: 5 min, 10 min',
-      'TreatTap+: Extra treats, +25% duration, and dog walks',
+      '1 Hetri Camera',
+      '1 PAW License',
+      'Additional cameras: $100/mo',
+      'Platform fee: 20%',
+      'TreatTap sessions: 5 mins, 10 mins',
+      'TreatTap+: Extra treats, +25% duration',
       'Custom implementations with existing booking software',
+      '$500 deposit required',
     ],
-    cta: 'Get Started',
+    cta: 'Buy Now',
     ctaHref: 'https://paw.hetri.org',
   },
   {
@@ -31,13 +32,13 @@ const plans = [
     description: 'Complete pet care management and TreatTap solution',
     priceDisplay: '$1000/mo',
     features: [
-      'Includes 10 cameras to start',
-      'Additional cameras: $50/mo + $150 OTF',
-      'One-time setup deposit',
-      'Platform fee: 10% (all transactions)',
-      'TreatTap sessions: 5 min, 10 min',
+      '10 Hetri Cameras',
+      'Additional cameras: $50/mo',
+      'Platform fee: 10%',
+      'TreatTap sessions: 5 min, 10 min, 20 min, 30 min',
       'TreatTap+: Extra treats, +25% duration, and dog walks',
       'Custom implementations with existing booking software',
+      '$1500 deposit required',
     ],
     cta: 'Buy Now',
     ctaHref: 'https://paw.hetri.org',
@@ -131,12 +132,12 @@ export default function PricingPage() {
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">What TreatTap session options are available?</h3>
-              <p className="text-gray-600">We offer 5-minute sessions ($20) and 10-minute sessions ($35), plus dog walks at 20 minutes ($150) and 30 minutes ($200). Platform fee applies (10% Standard plan, 20% Pilot plan).</p>
+              <p className="text-gray-600">We offer 5-minute sessions,10-minute sessions, and dog walks at 20 minutes & 30 minutes. Platform fee applies.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Can you integrate with our existing booking software?</h3>
-              <p className="text-gray-600">Absolutely! We specialize in custom implementations with existing pet booking software including Gingr, Petexec, and other platforms. Our technical team ensures seamless integration so you can keep using familiar systems while adding TreatTap capabilities.</p>
+              <p className="text-gray-600">Absolutely! Our technical team ensures seamless integration so you can keep using familiar systems while adding TreatTap capabilities.</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-sm">

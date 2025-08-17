@@ -138,7 +138,7 @@ export default function TreatTapPage() {
               Clear, upfront pricing. Platform fee varies by plan (10% Standard, 20% Basic).
             </p>
           <p className="text-lg text-hetri-primary mb-8 max-w-2xl mx-auto font-semibold">
-            Facilities can adjust pricing ±15% based on local market conditions
+            Facilities can adjust base pricing ±15% based on local market conditions
           </p>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">

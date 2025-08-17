@@ -25,13 +25,13 @@ export default function AboutUsPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Founder</h2>
               <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Hetri was born from a simple observation: while technology has transformed many industries, pet care facilities were still relying on outdated systems. 
+                  Hetri was born from an observation: while technology has transformed many industries, pet care facilities were still relying on outdated systems. 
                 </p>
                 <p>
-                  Our founder, inspired by a Cal Poly Pomona marketing professor's challenge to "be different," set out to create innovative solutions for real-world problems in the pet care industry.
+                  Our founder, inspired by a Cal Poly Pomona marketing professor's challenge to "be different," set out to create innovative solutions for real-world problems.
                 </p>
                 <p>
-                  This philosophy led to the creation of <strong className="text-hetri-primary">TreatTap</strong> and the <strong className="text-hetri-primary">PAW management platform</strong>, combining cutting-edge hardware with intelligent software to create seamless experiences for both pet owners and facility operators.
+                  This philosophy led to the creation of <strong className="text-hetri-primary">TreatTap</strong> and the <strong className="text-hetri-primary">PAW management platform</strong>, combining hardware with software to create seamless experiences for both pet owners and facility operators.
                 </p>
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function AboutUsPage() {
                   California, United States
                 </p>
                 <p>
-                  Strategically located in the heart of Southern California's innovation corridor, our headquarters provides us access to top talent, cutting-edge technology resources, and proximity to many of our initial partner facilities.
+                  Located in the heart of Southern California's, our headquarters provides us access to top talent, technology resources, and proximity to many of our initial partner facilities.
                 </p>
                 <p>
                   Our location enables us to serve pet care facilities across the western United States while maintaining close relationships with technology partners and investors in the Los Angeles ecosystem.
