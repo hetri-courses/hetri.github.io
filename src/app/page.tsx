@@ -59,11 +59,11 @@ export default function HomePage() {
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Sessions from $20-$90</span>
+                <span>Sessions from 5 min - 30 mins</span>
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Dog walks available via TreatTap+</span>
+                <span>Dog walks available via TreatTap</span>
               </div>
             </div>
             <Link href="/treattap" className="btn-primary inline-flex items-center">
@@ -98,7 +98,7 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600">
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Multi-facility support</span>
+                <span>Multi-Tenant support</span>
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
@@ -106,11 +106,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Real-time analytics</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>iOS & Android apps</span>
+                <span>Data Isolation & Integrity</span>
               </div>
             </div>
           </div>
@@ -197,6 +193,33 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hetri Camera (concise) */}
+      <section className="section-padding bg-hetri-light">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Hetri Camera</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
+              Purpose‑built camera for TreatTap. Ultra‑light, weather‑ready, and facility‑friendly.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm text-gray-600">
+              <div className="flex items-center"><CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" /><span>HD live video for TreatTap</span></div>
+              <div className="flex items-center"><CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" /><span>Clips to collar or mounts</span></div>
+              <div className="flex items-center"><CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" /><span>Pairs with PAW gateway</span></div>
+            </div>
+            <Link href="/camera" className="btn-primary inline-flex items-center">
+              Learn more
+              <ArrowRightIcon className="ml-2 h-5 w-5" />
+            </Link>
+          </div>
+          <div className="flex justify-center">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <img src="/hetri-camera-home-1200x600.png" alt="Hetri Camera" className="w-80 h-auto mx-auto rounded-xl shadow-md" />
+              <p className="text-center text-gray-600 mt-6">Compact. Reliable. TreatTap ready.</p>
             </div>
           </div>
         </div>

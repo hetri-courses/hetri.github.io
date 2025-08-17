@@ -11,6 +11,7 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/aboutus' },
   { name: 'TreatTap', href: '/treattap' },
+  { name: 'Hetri Camera', href: '/camera' },
   { name: 'Pricing', href: '/pricing' },
 ]
 
