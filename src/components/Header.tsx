@@ -18,8 +18,8 @@ const navigation = [
       { name: 'TreatTap', href: '/treattap' },
     ]
   },
-  { name: 'About Us', href: '/aboutus' },
   { name: 'Pricing', href: '/pricing' },
+  { name: 'About Us', href: '/aboutus' },
 ]
 
 export default function Header() {
