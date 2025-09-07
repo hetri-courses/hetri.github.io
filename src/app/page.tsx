@@ -13,7 +13,7 @@ const features = [
     icon: VideoCameraIcon,
   },
   {
-    title: 'Hetri Camera Integration',
+    title: 'PAW Camera (PAWC) Integration',
     description: 'Weatherproof cameras that attach to any collar, providing HD live streaming and health monitoring.',
     icon: CameraIcon,
   },
@@ -93,7 +93,7 @@ export default function HomePage() {
               Professional Animal Works (PAW)
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-              Complete facility management platform designed for modern pet care operations. Streamline bookings, manage customer relationships, and give pet parents real-time access to their pets through mobile apps.
+              Complete facility management platform designed for modern pet care operations. Streamline bookings, manage customer relationships, and give pet parents real-time access to their pets through our mobile app, PAW.
             </p>
             <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600">
               <div className="flex items-center">
@@ -202,7 +202,7 @@ export default function HomePage() {
       <section className="section-padding bg-hetri-light">
         <div className="container-max">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Hetri Camera</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">PAW Camera (PAWC)</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
               Purpose‑built camera for TreatTap. Ultra‑light, weather‑ready, and facility‑friendly.
             </p>
@@ -218,7 +218,7 @@ export default function HomePage() {
           </div>
           <div className="flex justify-center">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <img src="/hetri-camera-home-1200x600.png" alt="Hetri Camera" className="w-80 h-auto mx-auto rounded-xl shadow-md" />
+              <img src="/hetri-camera-home-1200x600.png" alt="PAW Camera" className="w-80 h-auto mx-auto rounded-xl shadow-md" />
               <p className="text-center text-gray-600 mt-6">Compact. Reliable. TreatTap ready.</p>
             </div>
           </div>

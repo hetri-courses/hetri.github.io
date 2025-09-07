@@ -7,7 +7,7 @@ export default function HetriCameraPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-hetri-primary to-hetri-secondary text-white">
         <div className="container-max text-center py-24">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Hetri Camera</h1>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">PAW Camera (PAWC)</h1>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-10">
             The compact, facility‑ready camera built for TreatTap. Ultra‑light, weather‑resistant, and designed
             to deliver stabilized POV video that brings pet parents into the moment.
