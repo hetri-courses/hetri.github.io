@@ -9,10 +9,12 @@ module.exports = {
     extend: {
       colors: {
         hetri: {
-          primary: '#78a18a',
-          secondary: '#5d8a6d',
-          light: '#eaf5e1',
-          accent: '#dbe7c7',
+          primary: '#78a18a', // Keep the main green
+          secondary: '#5d8a6d', // Keep the secondary green
+          light: '#1a1a1a', // Dark background instead of light
+          accent: '#2d2d2d', // Dark accent instead of light green
+          dark: '#0d0d0d', // Very dark for contrast
+          darker: '#050505', // Even darker for depth
         },
       },
       animation: {
@@ -41,4 +43,4 @@ module.exports = {
     },
   },
   plugins: [],
-} 
+}

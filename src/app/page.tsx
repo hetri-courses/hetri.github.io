@@ -1,231 +1,173 @@
 import Link from 'next/link'
-import { ArrowRightIcon, CheckCircleIcon, CalendarDaysIcon, VideoCameraIcon, CameraIcon, BoltIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon, CheckCircleIcon, LightBulbIcon, CogIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline'
+import type { Metadata } from 'next'
 
-const features = [
-  {
-    title: 'PAW Booking System',
-    description: 'Streamlined facility management with comprehensive booking, scheduling, and customer management. Includes custom implementations with existing software like Gingr, Petexec, and other platforms.',
-    icon: CalendarDaysIcon,
+export const metadata: Metadata = {
+  title: 'Home - Hetri Inc',
+  description: 'Technology that produces results. We build systems that turn businesses into powerhouses.',
+  openGraph: {
+    title: 'Home - Hetri Inc',
+    description: 'Technology that produces results. We build systems that turn businesses into powerhouses.',
+    url: 'https://hetri.org',
+    images: [
+      {
+        url: 'https://hetri.org/og-home.png',
+        width: 1200,
+        height: 630,
+        alt: 'Hetri Inc - Technology That Produces Results',
+      },
+    ],
   },
-  {
-    title: 'TreatTap Live Service',
-    description: 'Pet parents request TreatTap sessions through PAW, facility staff activates when ready, and provides personalized attention with treats during the allotted time.',
-    icon: VideoCameraIcon,
+  alternates: {
+    canonical: 'https://hetri.org',
   },
-  {
-    title: 'PAW Camera (PAWC) Integration',
-    description: 'Weatherproof cameras that attach to any collar, providing HD live streaming and health monitoring.',
-    icon: CameraIcon,
-  },
-  {
-    title: 'Workflow Automation',
-    description: 'Seamless integration between booking, check-in, TreatTap activation, and customer communication.',
-    icon: BoltIcon,
-  },
-]
+}
 
 export default function HomePage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="hero-section section-padding">
+      <section className="hero-section section-padding bg-black">
         <div className="container-max text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Transform Pet Care with{' '}
-            <span className="text-gradient">PAW & TreatTap</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Technology That <span className="text-gradient">Produces Results</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Empower pet care facilities with comprehensive management tools and delight pet owners 
-            with live TreatTap experiences. The future of pet care is here.
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            We build systems that turn businesses into powerhouses. Faster workflows, 
+            sharper execution, and new revenue streams you didn't know existed.
           </p>
-
+          
+          <div className="grid md:grid-cols-3 gap-8 mt-16">
+            <div className="text-center p-6">
+              <div className="bg-hetri-primary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <LightBulbIcon className="h-8 w-8 text-hetri-primary" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Innovation</h3>
+              <p className="text-gray-300">
+                We set standards. Hetri builds what the market adopts years later.
+              </p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="bg-hetri-primary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <CogIcon className="h-8 w-8 text-hetri-primary" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Automation</h3>
+              <p className="text-gray-300">
+                Manual work is the past. Automation is leverage. Our clients choose leverage.
+              </p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="bg-hetri-primary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <CurrencyDollarIcon className="h-8 w-8 text-hetri-primary" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Revenue Growth</h3>
+              <p className="text-gray-300">
+                If your bottom line doesn't move, we didn't build it.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* TreatTap Feature Highlight */}
-      <section className="section-padding bg-hetri-light">
+      {/* PAW Platform Section - Authority Position */}
+      <section className="section-padding bg-black border-t border-hetri-primary/30">
         <div className="container-max">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              TreatTap
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
-              Live treat sessions that bring pet parents closer to their pets throughout the day. Request 5 or 10-minute personalized sessions where facility staff provides treats, attention, and playtime while parents watch in real-time.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm text-gray-600">
-              <div className="flex items-center">
-                <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Live video streaming</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Sessions from 5 min - 30 mins</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Dog walks available via TreatTap</span>
-              </div>
-            </div>
-            <Link href="/treattap" className="btn-primary inline-flex items-center">
-              TreatTap
-              <ArrowRightIcon className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-          
-          <div className="flex justify-center">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <img 
-                src="/treattap-mobile-interface-300x600.png" 
-                alt="TreatTap Mobile Interface"
-                className="w-75 h-auto mx-auto rounded-xl shadow-md"
-              />
-              <p className="text-center text-gray-600 mt-6">TreatTap Interface</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PAW Platform Section */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Professional Animal Works (PAW)
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-              Complete facility management platform designed for modern pet care operations. Streamline bookings, manage customer relationships, and give pet parents real-time access to their pets through our mobile app, PAW.
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+              Complete facility management platform designed for modern pet care operations. 
+              Streamline bookings, manage customer relationships, and give pet parents real-time access to their pets through our mobile app, PAW.
             </p>
-            <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600">
+            <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm text-gray-400">
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Multi-Tenant support</span>
+                <span>Supreme market position</span>
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Custom integrations (Gingr, Petexec)</span>
+                <span>Revenue stream creation</span>
               </div>
               <div className="flex items-center">
                 <CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" />
-                <span>Data Isolation & Integrity</span>
+                <span>Operational mastery</span>
               </div>
             </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/paw" className="btn-primary inline-flex items-center">
+                How PAW Works
+                <ArrowRightIcon className="ml-2 h-5 w-5" />
+              </Link>
+              <a 
+                href="https://paw.hetri.org" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn-secondary inline-flex items-center"
+              >
+                Access PAW
+                <ArrowRightIcon className="ml-2 h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Hetri - Authority Frame */}
+      <section className="section-padding bg-black border-t border-hetri-primary/30 pb-8">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              The Market Revolves Around Us
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+              The businesses aligned with Hetri set the pace everyone else follows.
+            </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            {/* Facility Management Side */}
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">For Facilities</h3>
-              <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
-                <img 
-                  src="/paw-platform-demo-320x640.png" 
-                  alt="PAW Platform Demo"
-                  className="w-80 h-auto mx-auto rounded-xl shadow-md"
-                />
-              </div>
-              <div className="space-y-3 text-left">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
+                  <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Booking & Scheduling</h4>
-                    <p className="text-gray-600 text-sm">Complete appointment management system</p>
+                    <h4 className="font-semibold text-white">Proven Results</h4>
+                    <p className="text-gray-300">Our systems are tested in environments where failure isn't an option</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
+                  <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Customer Management</h4>
-                    <p className="text-gray-600 text-sm">Comprehensive pet and owner profiles</p>
+                    <h4 className="font-semibold text-white">Bonus Revenue Streams</h4>
+                    <p className="text-gray-300">Every system we build directly multiplies your bottom line</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
+                  <CheckCircleIcon className="h-6 w-6 text-hetri-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">TreatTap Management</h4>
-                    <p className="text-gray-600 text-sm">Handle live session requests and revenue</p>
+                    <h4 className="font-semibold text-white">Scalable Systems</h4>
+                    <p className="text-gray-300">Built to thrive at any scale</p>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* Pet Parent Side */}
+            
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">For Pet Parents</h3>
-              <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
-                <div className="relative">
-                  <video 
-                    src="/paw-pet-parent-app-320x640.mp4" 
-                    className="w-80 h-auto mx-auto rounded-xl shadow-md"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
-                  <a 
-                    href="https://paw.hetri.org" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="absolute -bottom-4 -right-4 bg-hetri-primary hover:bg-hetri-secondary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg transition-colors duration-200"
-                  >
-                    PAW Login
-                  </a>
-                </div>
-              </div>
-              <div className="space-y-3 text-left">
-                <div className="flex items-start space-x-3">
-                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Easy Booking</h4>
-                    <p className="text-gray-600 text-sm">Schedule appointments and manage services</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">TreatTap Requests</h4>
-                    <p className="text-gray-600 text-sm">Request live sessions anytime during visits</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircleIcon className="h-5 w-5 text-hetri-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Real-time Updates</h4>
-                    <p className="text-gray-600 text-sm">Live notifications and secure payments</p>
-                  </div>
-                </div>
+              <div className="bg-gradient-to-br from-hetri-primary to-hetri-secondary rounded-2xl p-8 text-black">
+                <h3 className="text-2xl font-bold mb-4">Ready to Implement?</h3>
+                <p className="text-lg mb-6 opacity-90">
+                  Let's discuss how Hetri transforms your business into a market leader.
+                </p>
+                <Link href="/contactus" className="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors inline-block">
+                  Contact Us
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Hetri Camera (concise) */}
-      <section className="section-padding bg-hetri-light">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">PAW Camera (PAWC)</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
-              Purpose‑built camera for TreatTap. Ultra‑light, weather‑ready, and facility‑friendly.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm text-gray-600">
-              <div className="flex items-center"><CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" /><span>HD live video for TreatTap</span></div>
-              <div className="flex items-center"><CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" /><span>Clips to collar or mounts</span></div>
-              <div className="flex items-center"><CheckCircleIcon className="h-4 w-4 text-hetri-primary mr-2" /><span>Pairs with PAW gateway</span></div>
-            </div>
-            <Link href="/camera" className="btn-primary inline-flex items-center">
-              Learn more
-              <ArrowRightIcon className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <img src="/hetri-camera-home-1200x600.png" alt="PAW Camera" className="w-80 h-auto mx-auto rounded-xl shadow-md" />
-              <p className="text-center text-gray-600 mt-6">Compact. Reliable. TreatTap ready.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
     </div>
   )
-} 
+}

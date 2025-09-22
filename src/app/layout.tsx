@@ -1,19 +1,64 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import StructuredData from '../components/StructuredData'
 
 export const metadata: Metadata = {
-  title: 'Hetri - Transform Pet Care with PAW & TreatTap',
-  description: 'Transform your pet care facility with PAW booking system and TreatTap live-streaming treats. Empowering pet care facilities and delighting pet owners.',
-  keywords: 'pet care, animal works, treatTap, facility management, live streaming, pet resort, booking system',
+  title: 'Hetri Inc',
+  description: 'We don\'t build apps. We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
+  keywords: 'technology, market dominance, business systems, automation, revenue multiplication, pet care, facility management',
   authors: [{ name: 'Hetri Team' }],
-  openGraph: {
-    title: 'Hetri - Professional Animal Works & TreatTap',
-    description: 'Transform your pet care facility with PAW booking system and TreatTap live-streaming treats.',
-    type: 'website',
-    url: 'https://hetri.github.io',
+  creator: 'Hetri Inc',
+  publisher: 'Hetri Inc',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/manifest.json',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://hetri.org',
+    siteName: 'Hetri Inc',
+    title: 'Hetri Inc - Technology That Commands Results',
+    description: 'We don\'t build apps. We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
+    images: [
+      {
+        url: 'https://hetri.org/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Hetri Inc - Technology That Commands Results',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hetri Inc - Technology That Commands Results',
+    description: 'We don\'t build apps. We build systems that turn facilities into powerhouses.',
+    images: ['https://hetri.org/og-image.png'],
+  },
+  alternates: {
+    canonical: 'https://hetri.org',
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#78a18a',
 }
 
 export default function RootLayout({
@@ -23,24 +68,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#78a18a" />
-        <meta name="msapplication-TileColor" content="#78a18a" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Syne+Mono:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-mono">
+      <body className="font-mono min-h-screen flex flex-col bg-black text-white">
+        <StructuredData />
         <Header />
-        <main className="min-h-screen">
+        <main className="flex-1 bg-black">
           {children}
         </main>
         <Footer />
       </body>
     </html>
   )
-} 
+}

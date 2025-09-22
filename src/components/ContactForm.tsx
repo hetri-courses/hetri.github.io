@@ -97,17 +97,17 @@ export default function ContactForm({ formType, title, description, onClose }: C
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 max-w-lg mx-auto">
+    <div className="bg-hetri-dark rounded-lg shadow-lg p-6 max-w-lg mx-auto border border-hetri-primary/20">
       <div className="mb-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-        {description && <p className="text-gray-600">{description}</p>}
+        <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+        {description && <p className="text-gray-300">{description}</p>}
         
         {/* Technical Support Disclaimer */}
         {formType === 'technical-support' && (
-          <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+          <div className="mt-4 p-4 bg-yellow-900/20 border border-yellow-500/30 rounded-lg">
             <div className="flex items-start space-x-2">
-              <ExclamationTriangleIcon className="h-5 w-5 text-yellow-600 mt-0.5 flex-shrink-0" />
-              <div className="text-sm text-yellow-800">
+              <ExclamationTriangleIcon className="h-5 w-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+              <div className="text-sm text-yellow-300">
                 <strong>Important:</strong> Technical support is only available for existing Hetri account holders. 
                 If you don't have an account yet, please select "General Questions" instead.
               </div>
@@ -120,7 +120,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
         {/* Basic Information */}
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
               Full Name *
             </label>
             <input
@@ -130,11 +130,11 @@ export default function ContactForm({ formType, title, description, onClose }: C
               required
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
+              className="w-full px-3 py-2 bg-black border border-hetri-primary/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
               Email Address *
             </label>
             <input
@@ -144,14 +144,14 @@ export default function ContactForm({ formType, title, description, onClose }: C
               required
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
+              className="w-full px-3 py-2 bg-black border border-hetri-primary/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
             />
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-1">
               Company/Facility Name *
             </label>
             <input
@@ -161,11 +161,11 @@ export default function ContactForm({ formType, title, description, onClose }: C
               required
               value={formData.company}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
+              className="w-full px-3 py-2 bg-black border border-hetri-primary/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
             />
           </div>
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
               Phone Number
             </label>
             <input
@@ -174,7 +174,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
+              className="w-full px-3 py-2 bg-black border border-hetri-primary/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
             />
           </div>
         </div>
@@ -182,7 +182,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
         {/* Demo Scheduling Fields */}
         {(formType === 'schedule-demo' || formType === 'product-demo') && (
           <div>
-            <label htmlFor="preferredTime" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="preferredTime" className="block text-sm font-medium text-gray-300 mb-1">
               Preferred Demo Time
             </label>
             <input
@@ -192,7 +192,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
               placeholder="e.g., Tomorrow 2pm EST, Next week mornings, etc."
               value={formData.preferredTime}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
+              className="w-full px-3 py-2 bg-black border border-hetri-primary/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
             />
           </div>
         )}
@@ -201,7 +201,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
         {formType === 'technical-support' && (
           <>
             <div>
-              <label htmlFor="hasHetriAccount" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="hasHetriAccount" className="block text-sm font-medium text-gray-300 mb-1">
                 Do you have a Hetri account? *
               </label>
               <select
@@ -210,7 +210,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
                 required
                 value={formData.hasHetriAccount}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
+                className="w-full px-3 py-2 bg-black border border-hetri-primary/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
               >
                 <option value="no">No, I don't have an account</option>
                 <option value="yes">Yes, I have an account</option>
@@ -219,7 +219,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
             
             {formData.hasHetriAccount === 'yes' && (
               <div>
-                <label htmlFor="accountId" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="accountId" className="block text-sm font-medium text-gray-300 mb-1">
                   Account ID or Email Associated with Account *
                 </label>
                 <input
@@ -229,13 +229,13 @@ export default function ContactForm({ formType, title, description, onClose }: C
                   required={formData.hasHetriAccount === 'yes'}
                   value={formData.accountId}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
+                  className="w-full px-3 py-2 bg-black border border-hetri-primary/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
                 />
               </div>
             )}
 
             <div>
-              <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="urgency" className="block text-sm font-medium text-gray-300 mb-1">
                 Urgency Level
               </label>
               <select
@@ -243,7 +243,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
                 name="urgency"
                 value={formData.urgency}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
+                className="w-full px-3 py-2 bg-black border border-hetri-primary/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
               >
                 <option value="low">Low - General inquiry</option>
                 <option value="normal">Normal - Standard support</option>
@@ -256,7 +256,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
 
         {/* Message */}
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
             {formType === 'technical-support' ? 'Describe the issue *' : 'Message *'}
           </label>
           <textarea
@@ -272,14 +272,14 @@ export default function ContactForm({ formType, title, description, onClose }: C
               formType === 'technical-support' ? 'Please provide detailed information about the technical issue you\'re experiencing...' :
               'How can we help you today?'
             }
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
+              className="w-full px-3 py-2 bg-black border border-hetri-primary/30 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-hetri-primary focus:border-transparent"
           />
         </div>
 
         {/* Error Message */}
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-md">
-            <p className="text-sm text-red-600">{error}</p>
+          <div className="p-3 bg-red-900/20 border border-red-500/30 rounded-md">
+            <p className="text-sm text-red-400">{error}</p>
           </div>
         )}
 
@@ -289,7 +289,7 @@ export default function ContactForm({ formType, title, description, onClose }: C
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium"
+              className="px-4 py-2 text-gray-400 hover:text-white font-medium transition-colors"
             >
               Cancel
             </button>

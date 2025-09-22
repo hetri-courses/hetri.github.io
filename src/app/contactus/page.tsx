@@ -13,11 +13,11 @@ import ContactForm from '../../components/ContactForm'
 const contactCards = [
   {
     icon: QuestionMarkCircleIcon,
-    title: 'General Questions',
-    description: 'Have questions about our products, pricing, or how Hetri can help your facility? We\'re here to help.',
-    responseTime: '4-6 hours',
-    email: 'hello@hetri.org',
-    status: 'Customer success team available',
+    title: 'Questions',
+    description: 'Ready to upgrade your business? Have questions about how Hetri transforms businesses into market leaders? We\'re here to help you succeed.',
+    responseTime: '2-4 hours',
+    email: 'questions@hetri.org',
+    status: 'Available',
     priority: false,
     formType: 'general-questions' as const
   }
@@ -70,7 +70,7 @@ function ContactUsContent() {
   }
 
   return (
-    <div className="pt-20">
+    <div className="pt-20" style={{ height: 'auto', minHeight: 'auto' }}>
       {/* Show Form Modal */}
       {showForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
@@ -91,49 +91,46 @@ function ContactUsContent() {
       )}
 
       {/* Hero Section */}
-      <section className="hero-section section-padding bg-gradient-to-b from-hetri-light to-white">
+      <section className="hero-section section-padding bg-gradient-to-b from-hetri-dark to-black">
         <div className="container-max text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Let's Transform Your Facility Together
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <span className="text-gradient">Contact Us</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Choose the best way to connect with our team. We're here to help you succeed with PAW and TreatTap.
-          </p>
         </div>
       </section>
 
       {/* Contact Cards Section */}
-      <section className="bg-white px-4 sm:px-6 lg:px-8 py-16">
+      <section className="bg-black px-4 sm:px-6 lg:px-8 py-16 pb-0 border-t border-hetri-primary/30">
         <div className="container-max max-w-2xl">
           <div className="flex justify-center">
             {contactCards.map((card, index) => (
               <div
                 key={index}
-                className={`card p-6 transition-all duration-300 hover:transform hover:-translate-y-1 ${
-                  card.priority ? 'ring-2 ring-hetri-primary bg-hetri-light' : ''
+                className={`p-6 transition-all duration-300 hover:transform hover:-translate-y-1 ${
+                  card.priority ? 'ring-2 ring-hetri-primary' : ''
                 }`}
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="bg-hetri-light p-3 rounded-lg">
+                    <div className="bg-hetri-primary/20 p-3 rounded-lg">
                       <card.icon className="h-8 w-8 text-hetri-primary" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-xl font-bold text-white mb-2">
                       {card.title}
-                      {card.priority && <span className="ml-2 text-xs bg-hetri-primary text-white px-2 py-1 rounded-full">Priority</span>}
+                      {card.priority && <span className="ml-2 text-xs bg-hetri-primary text-black px-2 py-1 rounded-full">Priority</span>}
                     </h3>
-                    <p className="text-gray-600 mb-4">{card.description}</p>
+                    <p className="text-gray-300 mb-4">{card.description}</p>
                     
                     <div className="space-y-2 mb-4">
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-500">Response time:</span>
+                        <span className="text-gray-400">Response time:</span>
                         <span className="font-medium text-hetri-primary">{card.responseTime}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-500">Status:</span>
-                        <span className="font-medium text-green-600">{card.status}</span>
+                        <span className="text-gray-400">Status:</span>
+                        <span className="font-medium text-green-400">{card.status}</span>
                       </div>
                     </div>
                     
@@ -142,11 +139,11 @@ function ContactUsContent() {
                         onClick={() => handleShowForm(card.formType, card.title)}
                         className="btn-primary inline-flex items-center text-sm flex-1"
                       >
-                        Fill Form
+                        Contact our Team
                         <ArrowRightIcon className="ml-2 h-4 w-4" />
                       </button>
                     <a
-                      href={`mailto:${card.email}?subject=Contact Request - ${card.title}`}
+                      href={`mailto:${card.email}?subject=Market Command Request - ${card.title}`}
                         className="btn-secondary inline-flex items-center text-sm px-3"
                         title="Send Email"
                     >
@@ -161,31 +158,6 @@ function ContactUsContent() {
         </div>
       </section>
 
-      {/* Direct Contact Section */}
-      <section className="bg-hetri-primary text-white px-4 sm:px-6 lg:px-8 py-16">
-        <div className="container-max text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Prefer a Direct Conversation?
-          </h2>
-          <p className="text-xl text-hetri-light mb-8 max-w-2xl mx-auto">
-            Sometimes the best solutions come from a simple conversation. Let's talk about your specific needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="mailto:hello@hetri.org?subject=Direct Contact Request"
-              className="bg-white text-hetri-primary hover:bg-hetri-light font-medium py-3 px-8 rounded-lg transition-colors duration-200"
-            >
-              Send Direct Email
-            </a>
-            <Link
-              href="/pricing"
-              className="border-2 border-white text-white hover:bg-white hover:text-hetri-primary font-medium py-3 px-8 rounded-lg transition-colors duration-200"
-            >
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }
@@ -196,4 +168,4 @@ export default function ContactUsPage() {
       <ContactUsContent />
     </Suspense>
   )
-} 
+}
