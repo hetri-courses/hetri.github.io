@@ -4,8 +4,25 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About Us - Hetri Inc',
-  description: 'We don\'t build technology for technology\'s sake. We build systems that dominates markets.',
+  title: 'About Hetri Inc - Technology That Commands Results',
+  description: 'Learn about Hetri Inc, the company building systems that turn facilities into powerhouses. Professional Animal Works (PAW) platform for pet care operations. Located in Greater Los Angeles Area.',
+  keywords: 'Hetri Inc, about us, technology company, PAW platform, pet care management, Los Angeles, California, business systems',
+  openGraph: {
+    title: 'About Hetri Inc - Technology That Commands Results',
+    description: 'Learn about Hetri Inc, the company building systems that turn facilities into powerhouses. Professional Animal Works (PAW) platform for pet care operations.',
+    url: 'https://hetri.org/aboutus',
+    images: [
+      {
+        url: 'https://hetri.org/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'About Hetri Inc - Technology That Commands Results',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://hetri.org/aboutus',
+  },
 }
 
 export default function AboutUsPage() {

@@ -13,9 +13,9 @@ const syneMono = Syne_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Hetri Inc',
-  description: 'We don\'t build apps. We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
-  keywords: 'technology, market dominance, business systems, automation, revenue multiplication, pet care, facility management',
+  title: 'Hetri Inc - Technology That Commands Results',
+  description: 'We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance. Professional Animal Works (PAW) platform for pet care operations.',
+  keywords: 'technology, market dominance, business systems, automation, revenue multiplication, pet care, facility management, PAW, Professional Animal Works, TreatTap',
   authors: [{ name: 'Hetri Team' }],
   creator: 'Hetri Inc',
   publisher: 'Hetri Inc',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     url: 'https://hetri.org',
     siteName: 'Hetri Inc',
     title: 'Hetri Inc - Technology That Commands Results',
-    description: 'We don\'t build apps. We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
+    description: 'We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
     images: [
       {
         url: 'https://hetri.org/og-image.png',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Hetri Inc - Technology That Commands Results',
-    description: 'We don\'t build apps. We build systems that turn facilities into powerhouses.',
+    description: 'We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
     images: ['https://hetri.org/og-image.png'],
   },
   alternates: {

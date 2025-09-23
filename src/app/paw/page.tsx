@@ -3,8 +3,25 @@ import { CheckCircleIcon, CalendarDaysIcon, UsersIcon, ShieldCheckIcon, Cog6Toot
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'PAW - Hetri Inc',
-  description: 'Command your pet care market. PAW is the operating system for modern pet care businesses.',
+  title: 'PAW Platform - Professional Animal Works | Hetri Inc',
+  description: 'PAW is the complete facility management platform for modern pet care operations. Streamline bookings, manage customer relationships, and create new revenue streams with TreatTap live sessions.',
+  keywords: 'PAW platform, Professional Animal Works, pet care management, facility management, TreatTap, live pet sessions, pet care software, booking system, customer management',
+  openGraph: {
+    title: 'PAW Platform - Professional Animal Works | Hetri Inc',
+    description: 'PAW is the complete facility management platform for modern pet care operations. Streamline bookings, manage customer relationships, and create new revenue streams with TreatTap live sessions.',
+    url: 'https://hetri.org/paw',
+    images: [
+      {
+        url: 'https://hetri.org/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'PAW Platform - Professional Animal Works',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://hetri.org/paw',
+  },
 }
 
 export default function PAWPage() {
