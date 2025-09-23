@@ -24,10 +24,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon0.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico', type: 'image/x-icon' },
     ],
-    apple: '/apple-touch-icon.png',
+    apple: '/apple-icon.png',
+  },
+  appleWebApp: {
+    title: 'Hetri',
   },
   manifest: '/manifest.json',
   openGraph: {
