@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from 'next'
+import { Syne_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import StructuredData from '../components/StructuredData'
+
+const syneMono = Syne_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-syne-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Hetri Inc',
@@ -70,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={syneMono.variable}>
       <body className="font-mono min-h-screen flex flex-col bg-black text-white">
         <StructuredData />
         <Header />
