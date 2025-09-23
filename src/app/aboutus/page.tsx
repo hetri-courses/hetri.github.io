@@ -96,10 +96,6 @@ export default function AboutUsPage() {
                   California, United States
                 </p>
                 <p>
-                  Located in the heart of Southern California, our headquarters provides us access to top talent, 
-                  technology resources, and proximity to many of our partner businesses.
-                </p>
-                <p>
                   Our location enables us to serve businesses across the western United States while maintaining 
                   close relationships with technology partners and investors in the Los Angeles ecosystem.
                 </p>
