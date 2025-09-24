@@ -13,8 +13,8 @@ const syneMono = Syne_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Hetri Inc - Technology That Commands Results',
-  description: 'We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance. Professional Animal Works (PAW) platform for pet care operations.',
+  title: 'Hetri Inc - Technology That Produces Results',
+  description: 'Technology that produces results. We build systems that turn facilities into powerhouses with Professional Animal Works (PAW) for pet operations.',
   keywords: 'technology, market dominance, business systems, automation, revenue multiplication, pet care, facility management, PAW, Professional Animal Works, TreatTap',
   authors: [{ name: 'Hetri Team' }],
   creator: 'Hetri Inc',
@@ -46,21 +46,21 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://hetri.org',
     siteName: 'Hetri Inc',
-    title: 'Hetri Inc - Technology That Commands Results',
-    description: 'We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
+    title: 'Hetri Inc - Technology That Produces Results',
+    description: 'Technology that produces results. We turn facilities into powerhouses with Professional Animal Works (PAW).',
     images: [
       {
         url: 'https://hetri.org/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Hetri Inc - Technology That Commands Results',
+        alt: 'Hetri Inc - Technology That Produces Results',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hetri Inc - Technology That Commands Results',
-    description: 'We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
+    title: 'Hetri Inc - Technology That Produces Results',
+    description: 'Technology that produces results. We build PAW systems that turn facilities into powerhouses.',
     images: ['https://hetri.org/og-image.png'],
   },
   alternates: {

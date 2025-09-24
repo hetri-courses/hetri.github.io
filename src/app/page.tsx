@@ -3,18 +3,18 @@ import { ArrowRightIcon, CheckCircleIcon, LightBulbIcon, CogIcon, CurrencyDollar
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Hetri Inc - Technology That Commands Results',
-  description: 'We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance. Professional Animal Works (PAW) platform for pet care operations.',
+  title: 'Hetri Inc - Technology That Produces Results',
+  description: 'Technology that produces results. We turn facilities into powerhouses with Professional Animal Works (PAW) for pet care operations.',
   openGraph: {
-    title: 'Hetri Inc - Technology That Commands Results',
-    description: 'We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
+    title: 'Hetri Inc - Technology That Produces Results',
+    description: 'Technology that produces results. We turn facilities into powerhouses with Professional Animal Works (PAW).',
     url: 'https://hetri.org',
     images: [
       {
         url: 'https://hetri.org/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Hetri Inc - Technology That Commands Results',
+        alt: 'Hetri Inc - Technology That Produces Results',
       },
     ],
   },

@@ -5,7 +5,7 @@ export default function StructuredData() {
     name: 'Hetri Inc',
     url: 'https://hetri.org',
     logo: 'https://hetri.org/Logo.png',
-    description: 'We don\'t build apps. We build systems that turn facilities into powerhouses. Technology that commands markets and delivers measurable dominance.',
+    description: 'We don\'t build apps. We produce results by building systems that turn facilities into powerhouses with Professional Animal Works (PAW).',
     foundingDate: '2024',
     address: {
       '@type': 'PostalAddress',
@@ -27,7 +27,7 @@ export default function StructuredData() {
     '@type': 'WebSite',
     name: 'Hetri Inc',
     url: 'https://hetri.org',
-    description: 'Technology that commands results. We build systems that turn businesses into powerhouses.',
+    description: 'Technology that produces results. We build systems that turn businesses into powerhouses.',
     publisher: {
       '@type': 'Organization',
       name: 'Hetri Inc',

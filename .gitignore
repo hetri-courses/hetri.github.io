@@ -9,6 +9,14 @@ yarn-error.log*
 out/
 build/
 
+# Legacy static artifacts
+index.html
+index.txt
+aboutus/
+contactus/
+404/
+404.html
+
 # Production
 /dist/
 

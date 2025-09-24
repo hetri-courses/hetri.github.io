@@ -14,5 +14,6 @@ module.exports = {
       lastmod: new Date().toISOString(),
       alternateRefs: [],
     }
-  }
+  },
+  exclude: ['/drafts/*', '/private/*', '/apple-icon.png', '/icon0.svg', '/icon1.png', '/manifest.json']
 }
