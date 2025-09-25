@@ -18,14 +18,14 @@ node_modules/
 .next/
 out/
 build/
+public/
 
-# Legacy static artifacts
-index.html
-index.txt
-aboutus/
-contactus/
-404/
-404.html
+# Legacy static artifacts (keep these for GitHub Pages)
+# index.html - NEEDED for GitHub Pages
+# aboutus/ - NEEDED for GitHub Pages  
+# contactus/ - NEEDED for GitHub Pages
+# paw/ - NEEDED for GitHub Pages
+# 404.html - NEEDED for GitHub Pages
 
 # Production
 /dist/
