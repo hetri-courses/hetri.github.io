@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
-    "postbuild": "next-sitemap",
+    "postbuild": "next-sitemap && copy CNAME out\\CNAME",
     "clean:artifacts": "rimraf _next out index.html index.txt aboutus contactus 404 404.html"
   },
   "dependencies": {
