@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: 'https://hetri.org/paw',
     images: [
       {
-        url: 'https://hetri.org/og-image.png',
+        url: 'https://hetri.org/Logo.png',
         width: 1200,
         height: 630,
         alt: 'PAW Platform - Professional Animal Works',

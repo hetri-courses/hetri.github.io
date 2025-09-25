@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     description: 'Technology that produces results. We turn facilities into powerhouses with Professional Animal Works (PAW).',
     images: [
       {
-        url: 'https://hetri.org/og-image.png',
+            url: 'https://hetri.org/Logo.png',
         width: 1200,
         height: 630,
         alt: 'Hetri Inc - Technology That Produces Results',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Hetri Inc - Technology That Produces Results',
     description: 'Technology that produces results. We build PAW systems that turn facilities into powerhouses.',
-    images: ['https://hetri.org/og-image.png'],
+    images: ['https://hetri.org/Logo.png'],
   },
   alternates: {
     canonical: 'https://hetri.org',
