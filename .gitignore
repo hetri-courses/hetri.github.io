@@ -5,6 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Source Code - Hide from public repository
+.git-src/
 src/
 package.json
 package-lock.json

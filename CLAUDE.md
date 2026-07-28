@@ -187,6 +187,16 @@ Per [.gitignore](.gitignore), source files are intentionally hidden from public 
 
 **Note:** Despite .gitignore entries, these files ARE tracked. The .gitignore may be intended for a different deployment workflow.
 
+## Source Backup Repository
+
+The source (`src/`, `public/`, configs) is intentionally untracked here, but it IS backed up to a private repo via a second git dir at `.git-src` in this same working directory:
+
+- Remote: `git@github.com:hetri-courses/hetri-site-src.git` (private)
+- Run commands as: `git --git-dir=.git-src --work-tree=. <cmd>` from the repo root
+- Deploy artifacts are excluded via `.git-src/info/exclude` (not the shared `.gitignore`)
+- After changing source, back it up: `git --git-dir=.git-src --work-tree=. add -A && git --git-dir=.git-src --work-tree=. commit -m "..." && git --git-dir=.git-src push`
+- Note: because the shared `.gitignore` ignores `src/` etc., brand-new source files may need `add -f` the first time; already-tracked files update normally with `add -A`
+
 ## GitHub Pages Configuration
 
 The site uses the **root directory deployment method**:
