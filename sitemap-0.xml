@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://hetri.org/grotaro-demo/</loc><lastmod>2026-07-28T03:20:29.641Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://hetri.org/privacy/</loc><lastmod>2026-07-28T03:20:29.642Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://hetri.org/terms/</loc><lastmod>2026-07-28T03:20:29.642Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://hetri.org/refunds/</loc><lastmod>2026-07-28T03:20:29.642Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://hetri.org/aboutus/</loc><lastmod>2026-07-28T03:20:29.642Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://hetri.org/contactus/</loc><lastmod>2026-07-28T03:20:29.642Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://hetri.org/</loc><lastmod>2026-07-28T03:20:29.642Z</lastmod><changefreq>weekly</changefreq><priority>1</priority></url>
-<url><loc>https://hetri.org/paw/</loc><lastmod>2026-07-28T03:20:29.642Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://hetri.org/grotaro/</loc><lastmod>2026-07-28T03:20:29.642Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://hetri.org/paw-demo/</loc><lastmod>2026-07-28T03:20:29.642Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/aboutus/</loc><lastmod>2026-07-28T04:03:01.981Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/privacy/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>1</priority></url>
+<url><loc>https://hetri.org/refunds/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/licensing/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/grotaro-demo/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/paw-demo/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/contactus/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/terms/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/grotaro/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://hetri.org/paw/</loc><lastmod>2026-07-28T04:03:01.982Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
